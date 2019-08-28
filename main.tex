@@ -25,7 +25,7 @@
 %% Page Intentionally Left Blank'', use the ``leftblank'' option, as
 %% above.
 
-\documentclass[12pt,twoside]{mitthesis}
+\documentclass[12pt,oneside]{mitthesis}
 \usepackage{lgrind}
 %% These have been added at the request of the MIT Libraries, because
 %% some PDF conversions mess up the ligatures.  -LB, 1/22/2014
@@ -35,10 +35,27 @@
 \usepackage[colorlinks=true,bookmarks=true]{hyperref}
   \usepackage{bookmark}
   \hypersetup{breaklinks=true}
-\pagestyle{plain}
+
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    left=1.5in,
+    right=1.0in,
+    top=1.0in,
+    bottom=1.0in
+}
+
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{
+    \fancyhf{} % clear all header and footer fields
+    \fancyhead[R]{\thepage} % page number in top right
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
 
 %% Addtional packages
-
+\usepackage{lipsum}
 
 %% This bit allows you to either specify only the files which you wish to
 %% process, or `all' to process all files which you \include.
@@ -48,6 +65,16 @@
 %\def\all{all}
 %\ifx\files\all \typeout{Including all files.} \else \typeout{Including only \files.} \includeonly{\files} \fi
 
+
+%-------------------------------------------
+% Kudos to A Feldman on stackexchange for this signature block
+%     https://tex.stackexchange.com/a/303609
+
+\newcommand{\mysignrule}[0]{
+    \rule{\linewidth}{0.5pt}\newline
+}
+
+%-------------------------------------------
 \begin{document}
 
 \hypersetup{pageanchor=false}
@@ -62,6 +89,11 @@
 
 \pagenumbering{arabic}
 \include{chap1}
+\include{chap2}
+\include{chap3}
+\include{chap4}
+\include{chap5}
+\include{chap6}
 \appendix
 \include{appa}
 
@@ -71,6 +103,3 @@
 \cleardoublepage
 
 \end{document}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% -*-latex-*-
