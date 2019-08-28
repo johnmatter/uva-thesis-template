@@ -1,3 +1,3 @@
-# UVA Thesis Template
-
-This is a template for Ph.D. thesis for the GSAS of UVA. It is modified from the MIT thesis template.
+This is the \LaTeX source for my PhD thesis. It started as a forked copy of
+[the thesis template Chao Gu uploaded](https://github.com/asymmetry/uva-thesis-template)
+a few years ago. Thanks Chao!
