@@ -163,3 +163,6 @@ main.pdf
 
 # vim
 *.swp
+
+# MacOS
+*DS_Store
