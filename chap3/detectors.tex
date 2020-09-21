@@ -6,15 +6,15 @@ one or more Cherenkov counters, a hodoscope, and a pair of drift chambers.
 
 \subsection{Drift Chambers}
 
-\subsection{Cherenkov Counters}
-Cherenkov counters make use of a particle-dependent Cherenkov threshold to
-discriminate between different particles.
+\subsection{Threshold Cherenkov Counters}
+Threshold Cherenkov counters make use of a particle-dependent Cherenkov
+radiation threshold to discriminate between types of particles.
 A charged particle with mass $m$, velocity $\beta$, and 3-momentum $p$ passing
 through a medium with index of refraction $n$ will emit Cherenkov radiation if
 \begin{equation}
     \frac{c}{n} < \beta = \frac{p}{\sqrt{p^2+m^2}}
 \end{equation}
-or equivalently,
+or equivalently, as illustrated in Figure \ref{fig:hms_cer_threshold},
 \begin{equation}
     1-\frac{c}{n} > 1-\beta = 1-\frac{p}{\sqrt{p^2+m^2}}
 \end{equation}
@@ -26,43 +26,114 @@ or equivalently,
     \includegraphics[width=1.0\textwidth]{chap3/hms_cer_threshold.pdf}
     \caption{Value of $1-\beta$ for various particles as a function of
             momentum. The horizontal line represents the Cherenkov threshold
-            for \ch{C4F8O} at a pressure of 0.45 atm.
+            for \ch{C4F8O} at a pressure of 0.45 atm, below which a particle
+            will produce Cherenkov radiation.
             }
     \label{fig:hms_cer_threshold}
 \end{figure}
 
-
-The gas Cherenkov detectors in the HMS and SHMS use spherical mirrors to focus
-Cherenkov radiation onto PMTs that are read out by the DAQ system.
-
-DISCUSS PHOTOELECTRONS
-
 Over a sufficiently narrow range of momenta, only some types of particles will
 emit Cherenkov radiation.
-Using \ch{C4F8O} at 1 atm, the presence or absence of a signal in the Cherenkov
-can be used to determine if the particle that generated a trigger is an
-electron or a hadron, provided the momentum range in question is below
-$\sim$4 \si{\giga\eV}.
+For example, for a threshold Chereknov counter filled with \ch{C4F8O} at
+0.45 atm, the presence or absence of Cherenkov radiation can be used to
+determine if the particle that generated a trigger is an electron or a hadron,
+provided the momentum range in question is below $\sim$4 \si{\giga\eV}.
 Given knowledge of the expected range of momenta an experiment requires and
 what types of backgrounds will need to be removed, one can pick an appropriate
-Cherenkov medium based on its index of refraction.
+Cherenkov medium based on its index of refraction. Further tuning of the
+threshold can be done by adjusting the pressure of the gas, making use of
+the fact that pressure is proportional to $n-1$.
+
+% TODO: make ggplot label gases' thresholds
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{chap3/cer_gas_thresholds.pdf}
+    \caption{Value of $1-\beta$ for various particles as a function of
+            momentum. The horizontal lines represent the Cherenkov threshold
+            for various gases at 1 atm, below which a particle
+            will produce Cherenkov radiation.
+            }
+    \label{fig:cer_gas_threshold}
+\end{figure}
+
+Suppose a threshold Cherenkov detector has
+light-gathering efficiency $\epsilon_c(\lambda)$,
+a PMT with quantum efficiency $QE(\lambda)$,
+and is filled with a gas with transparency $G(\lambda)$
+and index of refraction $n$.
+It can be shown\cite{NGC_Design_Report} that by a particle of charge $e$ passing through the detector
+with velocity $\beta$ and path length $L$ will generate
+$N_e =AL\left(1-\frac{1}{\beta^2n^2}\right)$ photoelectrons, where
+\begin{equation}
+A = 2 \pi \alpha \int_{\lambda_1}^{\lambda_2} \epsilon_c(\lambda)QE(\lambda)G(\lambda)\frac{d\lambda}{\lambda^2}.
+\end{equation}
+
+The gas Cherenkov detectors in the HMS and SHMS use spherical mirrors to focus
+Cherenkov radiation onto PMTs mounted on the back of the detector. The SHMS
+aerogel Cherenkov consists of an aeorogel tray, covered in either GORE or
+Millipore diffusion materials\cite{Horn_2017}, mounted between two columns
+of PMTs. 
 
 \subsubsection{HMS Cherenkov}
-% C4F8O at 0.45 atm.
-Allows e/pi separation.
+% Some leads for hunting down the original article. Could just ask Donal
+% https://www.osti.gov/biblio/374934
+% http://flux.aps.org/meetings/YR9596/BAPSAPR95/abs/SJ0805.html
+% https://uva.worldcat.org/title/a-threshold-gas-cerenkov-detector-for-cebafs-hall-c-high-momentum-spectrometer/oclc/4436255400?referer=brief_results
 
-Broken mirror during our runs.
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{chap3/hms_cer_front.pdf}
+        \caption{Front view}
+        \label{fig:hms_cer_front}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{chap3/hms_cer_top.pdf}
+        \caption{Top view}
+        \label{fig:hms_cer_top}
+    \end{subfigure}
+    \caption{The HMS Cherenkov}
+    \label{fig:hms_cherenkov}
+\end{figure}
+
+The HMS Cherenkov\cite{Cothran_1995} is designed for electron-pion separation. 
+
+During our runs, it was filled with \ch{Ci4F80} at 0.45 atm.
+
+Broken mirror during our runs. Will discuss diagnosis in later section.
 
 \subsubsection{SHMS Noble Gas Cherenkov}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{chap3/shms_ngc_render.png}
+    \caption{The SHMS Noble Gas Chereknov }
+    \label{fig:shms_ngcer}
+\end{figure}
+
 % CO2 at 1 atm.
-Designed for e/pi separation.
+The SHMS Noble Gas Cherenkov\cite{NGC_Design_Report} is designed for e/pi 
+separation.
+
+During our runs, it was filled with \ch{CO2} at 1 atm.
 
 \subsubsection{SHMS Heavy Gas Cherenkov}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{chap3/shms_hgc_render.png}
+    \caption{The SHMS Heavy Gas Chereknov }
+    \label{fig:shms_hgcer}
+\end{figure}
+
 % CO2 at 1 atm.
 Designed for pi/K separation.
 
+During our runs, it was filled with \ch{CO2} at 1 atm.
+
 \subsubsection{SHMS Aerogel Cherenkov}
-Designed for K/p separation.
+The SHMS Aerogel Cherenkov\cite{Horn_2017} was designed for K/p separation.
 
 \subsection{Calorimeters}
 A lead glass calorimeter provides another means for discriminating between
@@ -88,7 +159,7 @@ calorimeter can produce a neutral pion which will decay into two photons,
 resulting in a significant fraction of energy being deposited.
 As a result, there is a large pion tail in the $E/p$ distribution that extends
 up to 1.
-Protons, kaons, etc. typically deposit no energy.
+Heavier hadrons typically deposit no energy.
 
 \begin{figure}[ht]
     \centering
