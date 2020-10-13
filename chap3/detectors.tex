@@ -187,10 +187,32 @@ first chamber encountered by a particle traveling through the SHMS is
 The order in the second chamber is reversed.
 In the HMS, the V and V' planes in each chamber are swapped.
 
-Field, gas, ionization
+During operation, each chamber is filled with a 50/50 mix of argon and ethane.
+When a charged particle passes through the chamber, it will ionize some of
+the gas.
+The cathode planes and field wires are kept at $\sim-\SI{1900}{V}$ with respect
+to the sense wires kept at ground, creating an electric field pointing from
+sense wires toward field wires and cathode planes.
+The field accelerates these primary ionized electrons toward the sense wires,
+ionizing more electrons along the way.
+The resulting cloud of electrons drifts toward sense wires at a
+constant ``drift velocity.''
 
-The process of converting raw signals from each wire to full tracking
-information will be discussed in the data analysis chapter.
+The electrons are collected by sense wires which are read out by
+16-channel discriminators attached to the chamber supports.
+The discriminators are fed, via 16-channel ribbon cables, to CAEN 1190 TDCs in
+a rack in the detector huts.
+When the 1190s receive a pre-trigger, they record the time of the last several
+hits\footnote{The trigger and readout electronics will be discussed in more
+detail in the next section.}.
+The time between the pre-trigger and the time at which the electron cloud hits
+a wire can be used to determine the distance at which the initial ionization
+occurred.
+Using this information from every wire plane in both chambers allows
+precise track reconstruction with residuals of \SI{250}{\micro\meter} in the
+SHMS and (\SI{350}{\micro\meter} in the HMS.
+The complete process of converting raw signals from each wire to full tracking
+information will be discussed in section~\ref{section:daq}.
 
 \subsection{Threshold Cherenkov Counters}
 Threshold Cherenkov counters make use of a particle-dependent Cherenkov
@@ -212,7 +234,7 @@ or equivalently, as illustrated in figure~\ref{fig:hms_cer_threshold},
     \caption{Value of $1-\beta$ for various particles as a function of
             momentum. The horizontal line represents the Cherenkov threshold
             for \ch{C4F8O} at a pressure of 0.45 atm, below which a particle
-            will produce Cherenkov radiation.
+            will produce Cherenkov radiation. TODO: add labels to gases.
             }
     \label{fig:hms_cer_threshold}
 \end{figure}
@@ -291,7 +313,7 @@ During our runs, it was filled with \ch{Ci4F80} at 0.45 atm.
 Broken mirror during our runs. Will discuss diagnosis in later section.
 
 \subsubsection{SHMS Noble Gas Cherenkov}
-\begin{figure}[!h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=1.0\textwidth]{chap3/shms_ngc_render.png}
     \caption{The SHMS Noble Gas Chereknov }
@@ -305,7 +327,7 @@ separation.
 During our runs, it was filled with \ch{CO2} at 1 atm.
 
 \subsubsection{SHMS Heavy Gas Cherenkov}
-\begin{figure}[!h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.5\textwidth]{chap3/shms_hgc_render.png}
     \caption{The SHMS Heavy Gas Chereknov }
@@ -318,6 +340,13 @@ Designed for pi/K separation.
 During our runs, it was filled with \ch{CO2} at 1 atm.
 
 \subsubsection{SHMS Aerogel Cherenkov}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{chap3/shms_aerogel_open.jpg}
+    \caption{The SHMS Aerogel Chereknov }
+    \label{fig:shms_hgcer}
+\end{figure}
+
 The SHMS Aerogel Cherenkov~\cite{Horn_2017} was designed for K/p separation.
 
 \subsection{Calorimeters}
@@ -382,7 +411,7 @@ The preshower radiator consists of one layer of 28 TF-1 type lead glass blocks,
 identical to the HMS blocks, stacked in two columns of 14 blocks.
 The ``fly eye'' shower array consists of 224 modules from the decommissioned
 HERMES detector~\cite{Avakian_1998} stacked in 14 columns and 16 rows.
-The HERMES blocks are i8.9x8.9x50 \si{\cm\cubed} blocks of F-101 type lead glass with
+The HERMES blocks are 8.9x8.9x50 \si{\cm\cubed} blocks of F-101 type lead glass with
 an index of refraction of 1.65, radiation length 2.78 \si{\cm}, and density
 3.86 \si{\gram\per\cm\cubed}.
 Each preshower block is read out by one Phillips XP3462B PMT, and each shower
