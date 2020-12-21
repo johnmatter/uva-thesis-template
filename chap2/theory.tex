@@ -110,18 +110,33 @@ length is
 \begin{equation}
     l_c = \frac{2p_h}{\Delta M_h^2}.
 \end{equation}
+The freezing approximation is valid if $l_c \gg R_A$ where $R_A$ is the radius of
+the relevant nucleus.
 
 
-% Change tau to another letter. Confusing because I also use it for lifetime.
-Ref~\cite{Farrar_1988} also present an expression for the effective PLC-nucleon
+Ref~\cite{Farrar_1988} also presents an estimate of the effective PLC-nucleon
 cross section as a function of propagation distance $z$.
-The parameter $\tau$ distinguishes three models:
-non-perturbative QCD ($\tau=0$; no reduction in cross section),
-pQCD ($\tau=1$; transverse separation $x_t$ grows like $\sqrt{z}$),
-and a naive parton model ($\tau=2$; $x_t$ grows like $z$).
+The model assumes that the effective cross section is scaled by the transverse
+size of the quark system $x_t$ relative to the average size of the hadron
+$\langle x_t \rangle$.
+That is
+$\sigma^{eff}_{hN} = \left[ x^2_t(z) / \langle x_t \rangle^2 \right] \sigma^{tot}_{hN}$
 
+
+Let $n$ be the number of partons in the quark system,
+$\langle k_t \rangle$ the average transverse momentum of a parton in the
+hadron, and $t=-Q^2$ the momentum transfer squared.
+Then the transverse area occupied by the quark system is
+$\sigma^{tot}_{hN}(n^2 \langle k_t \rangle^2 / t)$ at the point of interaction.
+The system expands over the coherence length $l_c$ to its normal hadronic size.
+
+
+% TODO: change tau to another letter. Confusing because I also use it for lifetime.
+% TODO: expand on the models?
+% TODO: simplify and just use quantum diffusion?
+The effective cross section is then
 \begin{equation}
-    \sigma_{h}^{eff} = \sigma_{hN}^{tot}
+    \sigma_{hN}^{eff} = \sigma_{hN}^{tot}
     \left(
         \left\{\left(\frac{z}{l_c}\right)^{\tau} +
                \frac{\left\langle n^{2} k_{t}^{2}\right\rangle}{t} \left[1-\left(\frac{z}{l_c}\right)^{\tau}\right]
@@ -130,27 +145,27 @@ and a naive parton model ($\tau=2$; $x_t$ grows like $z$).
         \theta\left(z-l_c\right)
     \right)
 \end{equation}
+The parameter $\tau$ distinguishes three models:
+non-perturbative QCD ($\tau=0$; no reduction in cross section),
+pQCD ($\tau=1$; $x_t$ grows like $\sqrt{z}$), and
+a naive parton model ($\tau=2$; $x_t$ grows like $z$).
 
 
-% TO BE ADDED TO main.bib!!
-% B.K. Jennings and G.A. Miller, Phys. Lett. B 236 (1990) 209
-% B.K. Jennings and G.A. Miller, Phys. Rev. D 44 (1991) 692
-% B.K. Jennings and G.A. Miller, Phys. Lett. B 274 (1992) 442
-% B.K. Jennings and G.A. Miller, Phys. Rev. Lett. 70 (1992) 3619
-% G. A. Miller, Workshop on Electronuclear Physics, SLAC Jan. 1991
-% G. A . Miller and B. K. Jennings, "Color Transparency: Enchantment and Effort," Trieste meeting, May 1991, to be published by World Sci. Press, Singapore.
-% G. A. Miller, "Introduction to Color Transparency," in N*'s and Nucleon Structure, ed. G. A. Miller, to be published by World Sci. , Singapore.
-% B. Z. Kopeliovich and B. G. Zakharov, Phys. Lett. 8264, 434 (1991).
-Another approach expands the PLC wave function in terms of hadronic eigenstates
+Another approach~\cite{Jennings_1990, Jennings_1991, Jennings_1992}
+expands the PLC wave function in terms of hadronic eigenstates
 $\ket{\psi_i}$ of the Hamiltonian.
 Let $P$ be the PLC's mmoentum and assume each eigenstate satisfies
 $E_i \gg m_i$.
 Then
-
 \begin{align}
     \ket{\psi_{PLC}(t)} &= \sum_{i=1}^{\infty} a_i e^{-iE_it}\ket{\psi_i} \\
                         &= e^{-iE_1t} \sum_{i=1}^{\infty} e^{-i\frac{(m_i^2-m_1^2)t}{2P}} \ket{\psi_i}
 \end{align}
+
+This suggests that the loss of coherence is due to the relative phase between
+hadronic components.
+In other words, the coherence length is the length at which coherence between
+the lowest and first excited states is lost.
 
 
 \subsection{subsection title (other connections?)}
@@ -180,8 +195,10 @@ opposite directions without any further gluon exchange between the two,
 provided the meson maintains a small transverse size~\cite{Strikman_2000}.
 
 
-
 Bjorken scaling?
+% Section 4 of this long review
+Relevant longitudinal distance is $y\sim 1 / 2 M_n x$~\cite{Frankfurt_1998}.
+For small $x$, this is larger than the size of the nucleus.
 
 
 A more in-depth discussion of these considerations can be found in recent
