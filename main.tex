@@ -8,6 +8,7 @@
 \usepackage{physics}
 \usepackage{chemformula}
 \usepackage{multirow}
+\usepackage{makecell}
 \usepackage{lgrind}
 \usepackage{cmap}
 \usepackage[T1]{fontenc}
@@ -31,6 +32,10 @@
     bottom=1.0in
 }
 
+\usepackage{footnote}
+\makesavenoteenv{tabular}
+\makesavenoteenv{table}
+
 \usepackage{fancyhdr}
 \fancypagestyle{plain}{
     \fancyhf{} % clear all header and footer fields
@@ -45,6 +50,11 @@
 \newcommand{\mysignrule}[0]{
     \rule{\linewidth}{0.5pt}\newline
 }
+
+\renewcommand\cellalign{tl}
+\renewcommand\theadalign{tr}
+
+\DeclareSIUnit\atm{atm}
 
 %-------------------------------------------
 \begin{document}
