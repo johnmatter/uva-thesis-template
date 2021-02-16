@@ -1,5 +1,33 @@
 \section{Proton Absorption}
 
+Because protons are strongly interacting particles, they may undergo a nuclear
+reaction as they pass through the SHMS before forming an SHMS 3/4 trigger.
+The corresponding electron in the HMS will have formed an HMS 3/4 trigger, but
+the ``missing'' SHMS 3/4 will lead to a missing coincidence trigger.
+As result, the total coincidence yield will be underestimated by some amount.
+The proton absorption $A$ is the percentage of protons that, in this manner,
+fail to form a coincidence trigger.
+
+
+A theoretical estimate of the absorption can be obtained by considering the
+proton's mean free path in the materials along its path through the SHMS.
+Suppose a material is made up of components with atomic weights $A_i$, mass
+density $\rho_i$, and total cross section $\sigma_{tot,i}$.
+The nuclear collision length is
+$\lambda_{T} = \sum_i A_i / (N_A \rho_i \sigma_{tot_i})$.
+The nuclear interaction length $\lambda_{I}$ is similarly defined, subtracting
+the elastic and quasielastic cross sections from $\sigma_{tot,i}$.
+Because the elastic cross section is peaked in the forward direction, and will
+thus remove few protons from the spectrometer's acceptance, we use the average
+$\bar\lambda$ of $\lambda_T$ and $\lambda_I$.
+Our estimate of the absorption is $A=1-e^{-\sum_i X_i/\bar\lambda_i}$ where
+$X_i$ is the thickness of each material in the proton's path.
+Table~\ref{tab:shms_materials} lists the properties of relevant materials in
+the SHMS.
+Based on this table, we estimate the absorption to be $A=8.56\%$.
+
+
+\vfill
 % Note: in the multirow calls, the first argument is the height in lines I
 % want the "system" name to span, not the number of rows in that section of
 % the table.
@@ -57,13 +85,51 @@
             & Aerogel                                         & Aeorogel                              & 9.00                           & 0.143                                     & 1.28571                              & 65.00                                          & 97.30                                          & 81.15                                              & 15.8\\ \cline{2-10}
             & Air                                             & Air                                   & 17.10                          & 0.001                                     & 0.02103                              & 61.30                                          & 90.10                                          & 75.70                                              & 0.28\\ \cline{2-10}
             & Exit window                                     & Al                                    & 0.16                           & 2.7                                       & 0.43200                              & 69.70                                          & 107.20                                         & 88.45                                              & 4.88\\ \hline
+            \hline
 
             \hline
             \multirow{1}{*}{\makecell[ml]{Total}}
             &                                                 &                                       &                                &                                           &                                      &                                                &                                                &                                                    & 89.5\\ \hline
 
-            \multicolumn{10}{l}{\multirow{4}{*}{$^{a }$Nuclear interaction and collision lengths taken from PDG~\cite{pdg_nuclear_lengths}.}} \\
-            \multicolumn{10}{l}{\multirow{4}{*}{$^{b }$The thicknesses of the wires are ``effective'' thicknesses, determined by the wire radii and cell spacings described in subsection~\ref{subsection:drift_chambers}.}}
+            \multicolumn{10}{l}{\multirow{1}{\linewidth}{\makecell[tl]{$^{a }$Nuclear
+            interaction and collision lengths taken from
+            PDG~\cite{pdg_material_properties}.}}} \\
+            \multicolumn{10}{l}{\multirow{2}{\linewidth}{\makecell[tl]{$^{b }$The
+            thicknesses of the wires are ``effective'' thicknesses, determined
+            by the wire radii and cell spacings described \\ in
+            subsection~\ref{subsection:drift_chambers}. This effective thickness
+            of a single wire plane is the average thickness of a wire with
+            radius r \\ repeated in a lattice of cell width w, seen by a particle whose position in the
+            $XY$ plane is random. This effective \\ thickness is $\pi r^2/w$. \\}}}
         \end{tabular}
     } % resizebox
 \end{table}
+\vfill
+\clearpage
+
+
+Using the charge-normalized yields, $Y_{coin}$ and $Y_{sing}$, from coincidence
+HMS singles H(e,e'p) runs, we can measure the proton absorption
+$A=1-Y_{coin}/Y_{sing}$.
+With a tight cut on spectrometer acceptance and invariant mass $W$ and
+correcting for detector efficiencies and deadtime, $Y_sing$ should be an
+accurate count of all electrons that participated in elastic scattering.
+In contrast, $Y_{coin}$, even with the same cuts and corrections, will have
+understimated the ``true'' yield; some portion of the electrons detected in the
+HMS will have corresponding protons that did not form a 3/4 trigger in the SHMS
+because they were absorbed.
+Using our $Q^2 = \SI{11.5}{\giga\electronvolt}$ runs, we measure a proton
+absorption of $A=9.03 \pm 0.71 \%$.
+The uncertainty quoted here is the quadrature sum of the statistical
+uncertainty and the systematic uncertainty estimated by varying the cuts used
+to calculate the coincidence and singles yields.
+Note that the theoretical estimate of absorption is within the estimated
+uncertainty in this measurement.
+
+
+% TODO: list runs
+% TODO: list cuts and a description of the method for choosing these cuts
+% TODO: include systematics study (10% cut variation)
+% TODO: include a caveat about our poor statistics and a suggestion that this
+%       measurement be duplicated in a future experiment?
+% TODO: include reference to Carlos's HMS measurement
