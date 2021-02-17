@@ -1,0 +1,12 @@
+factor_order,cut, Q2, absorption, uncertainty, coinN, coinCharge, coinYield, singN, singCharge, singYield  
+1,"Original cuts", 11.5, 8.8276, 0.692023, 789, 386.161, 2.11526, 205, 88.3596, 2.32006      
+2,"Decrease HMS slope TCutG area by 10%", 11.5, 9.41176, 0.749355, 761, 386.161, 2.04019, 199, 88.3596, 2.25216     
+3,"Increase HMS slope TCutG area by 10%", 11.5, 9.68704, 0.75464, 793, 386.161, 2.12598, 208, 88.3596, 2.35402    
+4,"Decrease lower HMS delta cut by 10%", 11.5, 8.71205, 0.682875, 790, 386.161, 2.11794, 205, 88.3596, 2.32006   
+5,"Increase lower HMS delta cut by 10%", 11.5, 9.75204, 0.765299, 781, 386.161, 2.09381, 205, 88.3596, 2.32006      
+6,"Decrease upper HMS delta cut by 10%", 11.5, 8.96128, 0.704329, 784, 386.161, 2.10185, 204, 88.3596, 2.30875     
+7,"Increase upper HMS delta cut by 10%", 11.5, 8.8276, 0.692023, 789, 386.161, 2.11526, 205, 88.3596, 2.32006    
+8,"Decrease lower Emiss cut by 10%", 11.5, 8.71205, 0.682875, 790, 386.161, 2.11794, 205, 88.3596, 2.32006
+9,"Increase lower Emiss cut by 10%", 11.5, 9.28982, 0.72864, 785, 386.161, 2.10454, 205, 88.3596, 2.32006
+10,"Decrease upper Emiss cut by 10%", 11.5, 9.52093, 0.746964, 783, 386.161, 2.09917, 205, 88.3596, 2.32006
+11,"Increase upper Emiss cut by 10%", 11.5, 7.67206, 0.600659, 799, 386.161, 2.14207, 205, 88.3596, 2.32006

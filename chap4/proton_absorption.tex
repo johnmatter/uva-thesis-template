@@ -107,29 +107,105 @@ Based on this table, we estimate the absorption to be $A=8.56\%$.
 \vfill
 \clearpage
 
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{chap4/proton_absorption_plots.pdf}
+    \caption{Histograms of the quantities used to guide the selection of cuts
+             for selecting H(e,e'p) events to estimate proton absorption.
+             The red lines and contours indicate the cuts used.}
+    \label{fig:proton_absorption_plots}
+\end{figure}
 
 Using the charge-normalized yields, $Y_{coin}$ and $Y_{sing}$, from coincidence
 HMS singles H(e,e'p) runs, we can measure the proton absorption
 $A=1-Y_{coin}/Y_{sing}$.
 With a tight cut on spectrometer acceptance and invariant mass $W$ and
-correcting for detector efficiencies and deadtime, $Y_sing$ should be an
+correcting for detector efficiencies and deadtime, $Y_{sing}$ should be an
 accurate count of all electrons that participated in elastic scattering.
 In contrast, $Y_{coin}$, even with the same cuts and corrections, will have
 understimated the ``true'' yield; some portion of the electrons detected in the
 HMS will have corresponding protons that did not form a 3/4 trigger in the SHMS
 because they were absorbed.
-Using our $Q^2 = \SI{11.5}{\giga\electronvolt}$ runs, we measure a proton
-absorption of $A=9.03 \pm 0.71 \%$.
-The uncertainty quoted here is the quadrature sum of the statistical
-uncertainty and the systematic uncertainty estimated by varying the cuts used
-to calculate the coincidence and singles yields.
-Note that the theoretical estimate of absorption is within the estimated
-uncertainty in this measurement.
+Using our $Q^2 = \SI{11.5}{\giga\electronvolt}$ runs and the cuts listed in
+Table~\ref{tab:proton_absorption_cuts}, we estimate a proton absorption of $A=8.83 \pm 0.69 \%$.
+The uncertainty quoted here is only statistical.
 
+\begin{table}[h]
+    \centering
+    \caption{List of cuts used in proton absorption estimate.}
+    \label{tab:proton_absorption_cuts}
+    \resizebox{1.0\textwidth}{!}{
+        \begin{tabular}[t]{| l | l | l | r | r | r | r | r | r | r | r |}
+            \hline
+            Variables              &  Cut \\ \hline
+            \hline
+            HMS PID                &  H.cer.npeSum>1 \&\& 0.90 < H.cal.etottracknorm \&\& H.cal.etottracknorm < 1.10 \\ \hline
+            % ppidcut              &  P.ngcer.npeSum == 0 \\ \hline
+            $E_{miss}$             &  -0.02 < P.kin.secondary.emiss \&\& P.kin.secondary.emiss<0.04 \\ \hline
+            % pdeltacut            &  -4.0 < P.gtr.dp \&\& P.gtr.dp < 6.0 \\ \hline
+            $\delta_{HMS}$         &  -6.0 < H.gtr.dp \&\& H.gtr.dp < 8.0 \\ \hline
+            $x'_{tar}$,$y'_{tar}$  &  Graphical cut on HMS xptar and yptar shown in Figure~\ref{fig:proton_absorption_plots} \\ \hline
+            % pslope               &  Graphical cut on SHMS xptar and yptar \\ \hline
+            $z_{tar}$              &  abs(H.react.z)<3 \\ \hline
+            $y_{tar}$              &  abs(H.gtr.y)<2 \\ \hline
+            $x_{fp}$               &  -25<H.dc.x[0] \&\& H.dc.x[0]<30 \\ \hline
+            $y_{fp}$               &  -10<H.dc.y[0] \&\& H.dc.y[0]<25 \\ \hline
+            $W$                    &  0.85 < H.kin.W \&\& H.kin.W < 1.04 \\ \hline
+        \end{tabular}
+    } % resizebox
+\end{table}
+
+% TODO: list the method for choosing cuts
+These cuts were selected by an iterative process of plotting a sequence of
+histograms, each of which is plotted with a cut determined by the preceding
+histograms in the sequence.
+The relevant histograms are shown in Figure~\ref{fig:proton_absorption_plots}.
+The process can be summarized as follows:
+\begin{enumerate}
+    \item Plot $E_{miss}$ for H(e,e'p) data using HMS Cherenkov and calorimeter cuts to select
+        electrons. Select a cut around the peak of this distribution.
+    \item Plot SHMS and HMS delta for H(e,e'p) data using that $E_{miss}$ cut and the HMS PID
+        cuts. Select a cut on both.
+    \item Plot HMS and SHMS $x'_{tar}$ vs $y'_{tar}$ for H(e,e'p) data using all prior cuts. Place
+        a tight graphical cut on this distribution.
+    \item Plot $z_{tar}$ and $y_{tar}$ for singles dummy data using cuts on HMS delta
+        $x'_{tar}$, and $y'_{tar}$. Place cuts on $z_{tar}$ and $y_{tar}$ to
+        remove events from the walls of the cell.
+    \item Plot HMS $x_{fp}$ vs $y_{fp}$ for H(e,e'p) data using all prior cuts.
+        Place a loose cut on this focal plane distribution.
+    \item Define a subset of ``HMS-only'' cuts from the full set of cuts
+        ``coincidence'' cuts selected so far.
+    \item Examine the distributions of $W$ and SHMS Noble Gas Cherenkov NPE sum.
+        Ensure that the HMS-only cuts are able to reproduce the $W$ distribution
+        plotted using coincidence cuts. Ensure that there are not a significant
+        number of pions showing up as non-zero entries in the SHMS Noble Gas
+        Cherenkov NPE sum distribution.
+    \item Using these HMS-only cuts, calculate the yields from coincidence and
+        HMS singles H(e,e'p) data.
+\end{enumerate}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{chap4/proton_absorption_cut_study.pdf}
+    \caption{Values of absorption estimated with 10\% variations on cuts used
+             to select H(e,e'p) events.}
+    \label{fig:proton_absorption_cut_study}
+\end{figure}
+
+To estimate the systematic uncertainty of this measurement, we varied the limits
+of the following cuts by $\pm10\%$: $E_miss$, HMS delta, HMS xptar/yptar.
+The absorption values for each of these variations are shown in
+Figure~\ref{fig:proton_absorption_cut_study} along with the mean and standard
+deviation of these estimates.
+We use this value, $A=9.03\pm0.71\%$ as our final estimate of the proton
+absorption, where the uncertainty is the quadrature sum of the systematic and
+statistical uncertainties.
+Note that the theoretical estimate of absorption is within the uncertainty in
+this measurement.
 
 % TODO: list runs
-% TODO: list cuts and a description of the method for choosing these cuts
-% TODO: include systematics study (10% cut variation)
 % TODO: include a caveat about our poor statistics and a suggestion that this
 %       measurement be duplicated in a future experiment?
 % TODO: include reference to Carlos's HMS measurement
+% TODO: discuss momentum (in)dependence of cross sections
