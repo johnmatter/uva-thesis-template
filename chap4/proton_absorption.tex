@@ -25,6 +25,8 @@ Our estimate of the absorption is $A=1-e^{-\sum_i X_i/\bar\lambda_i}$ where
 $X_i$ is the thickness of each material in the proton's path.
 Table~\ref{tab:shms_materials} lists the properties of relevant materials in
 the SHMS.
+Nuclear collision and interaction lengths are taken from
+Ref~\cite{pdg_material_properties}.
 Based on this table, we estimate the absorption to be $A=8.56\%$.
 
 
@@ -205,8 +207,34 @@ statistical uncertainties.
 Note that the theoretical estimate of absorption is within the uncertainty in
 this measurement.
 
+
+While there are significant variations in proton-nucleus cross sections below
+\SI{1}{\giga\electronvolt},
+these cross sections reach plateaus around \SI{1}{\giga\electronvolt}
+that have been measured up to the TeV range.
+An incomplete catalog of hadron-nucleus cross section measurements can be found
+in Refs %TODO: cite refs here.
+% TODO: refs to be added to main.bib
+% https://www.sciencedirect.com/science/article/pii/0370269384901412
+% https://pdg.lbl.gov/2020/reviews/rpp2020-rev-cross-section-plots.pdf
+% https://journals.aps.org/prc/abstract/10.1103/PhysRevC.54.1329
+% https://journals.aps.org/prc/abstract/10.1103/PhysRevC.20.1857
+% http://adsabs.harvard.edu/full/1983ApJS...51..271L
+% https://www.sciencedirect.com/science/article/pii/0550321373903519
+% https://arxiv.org/abs/1411.7737
+% https://arxiv.org/abs/0802.2241
+% https://www.sciencedirect.com/science/article/pii/0370269379902260
+
+
+Because these cross sections and thus the free path lengths are independent of
+proton momentum over the range we studied (approximately 4 to
+\SI{10}{\giga\electronvolt}), there is no momentum dependence in either our
+estimate or measurement of proton absorption in the SHMS.
+Therefore any uncertainty in proton absorption will only contribute to the
+magnitude of measured transparencies, and not the presence or absence of a rise
+in transparency with $Q^2$ characteristic of the onset of CT.
+
 % TODO: list runs
 % TODO: include a caveat about our poor statistics and a suggestion that this
 %       measurement be duplicated in a future experiment?
 % TODO: include reference to Carlos's HMS measurement
-% TODO: discuss momentum (in)dependence of cross sections
