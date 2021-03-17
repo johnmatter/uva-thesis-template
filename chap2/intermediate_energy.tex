@@ -121,9 +121,24 @@ have been measured extensively over a wide range of kinematics.
 Complications involving $s$ near a charm threshold and oscillatory $s$
 dependence mentioned in previous section are not relevant for A(e,e'p); for
 quasielastic scattering $s$ is always approximately $m_p^2$.
-This is also a scale where $\sigma_{tot}(pp)$ is relatively independent of $s$, as
-shown in Fig%TODO: add the fig from the PDG Data Book
+This is also a scale where $\sigma_{tot}(pp)$ is relatively independent of $s$,
+as shown in Fig~\ref{pdg_pp_cross_section}.
 
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{chap2/pdg_pp_cross_section.pdf}
+    \caption{
+             Total, elastic, and inelastic $pp$ cross sections versus
+             $p_{lab}$ and $sqrt{s}$.
+             Note that the total cross section is relatively constant over the
+             range of momenta studied in E12-06-107, about
+             \SIrange{4}{10}{\gigva\electronvolt}.
+             Figure reproduced from Ref~\cite{pdg_2020}.
+            }
+    \label{fig:pdg_pp_cross_section}
+\end{figure}
+
+% TODO: expand here
 Use the PWIA approximation to measure transparency
 
 \begin{equation}
@@ -131,13 +146,13 @@ Use the PWIA approximation to measure transparency
                   {\int_V \, d^3p_m \, dE_m \, Y_{PWIA}(E_m, \vec{p}_m)}
 \end{equation}
 
-Previous measurements taken at SLAC, MIT Bates, and JLab for several nuclear
-targets.
-These transparency measurments, compiled in Fig%TODO: add the old quasielastic transparency data figure
-are independent of $Q^2$ over the range of 2 to \SI{8}{\giga\electronvolt}.
+Previous transparency measurements, compiled in Fig~\ref{fig:aeep}, were taken
+at SLAC, MIT Bates, and JLab for several nuclear targets.
+These transparency measurments are independent of $Q^2$ over the range of 2 to
+\SI{8}{\giga\electronvolt}.
 This is consistent with the Glauber prediction, which is to say, an absence of
 color transparency.
-Cite the models.
+%TODO: Cite the models.
 
 % TODO: Do we have a PDF version of this?
 \begin{figure}[!h]
@@ -220,11 +235,11 @@ model predictions described below.
     \label{fig:pion_electroproduction_transparency_Q2_dependence}
 \end{figure}
 
-Larson et al.~\cite{Larson_2006} use a semiclassical formula based on the eikonal approximation
-and a parameterization of final state interactions in terms of an effective
-cross section based on a quantum diffusion model~\cite{Farrar_1988}, in which
-the strength of the interaction is proportional to the pion's propagation
-distance through the nucleus.
+Larson et al.~\cite{Larson_2006} use a semiclassical formula based on the
+eikonal approximation and a parameterization of final state interactions in
+terms of an effective cross section based on a quantum diffusion
+model~\cite{Farrar_1988}, in which the strength of the interaction is
+proportional to the pion's propagation distance through the nucleus.
 The transparency is given by a single integral over the path of the outgoing
 pion, where the nuclear density $\rho(r)$ is of Woods-Saxon form,
 \begin{equation}
@@ -265,7 +280,7 @@ model~\cite{Farrar_1988}, with formation and production times determined by
 Monte Carlo simulation of the Lund string hadronization
 model~\cite{Anderson_1983} as described in Ref~\cite{Gallmeister_2005}.
 The produced hadrons are then propagated through the nuclear medium using the
-Boltzmann-Uehling-Uhlenbeck equation.
+Boltzmann-Uehling-Uhlenbeck (BUU) equation.
 This propagation models elastic and inelastic rescattering of outgoing hadrons.
 
 
@@ -325,10 +340,11 @@ $l_{fr}$ can be mistaken for an increase with $Q^2$, the signature of CT.
 
 
 The first measurements of nuclear transparency for incoherent diffractive
-$\rho^0$ leptoproduction were performed at Fermilab by the E665
-collaboration (cite) and at CERN by the NMC collaboration (cite) using muon
-beams of \SI{450}{\giga\electronvolt} and \SI{200}{\giga\electronvolt}
-respectively.
+$\rho^0$ leptoproduction were performed
+at Fermilab by the E665 collaboration \cite{Adams_1995} and
+at CERN by the NMC collaboration \cite{Arneodo_1994}
+using muon beams of \SI{450}{\giga\electronvolt} and
+\SI{200}{\giga\electronvolt} respectively.
 At these energies, the $l_{fr}$ is comparable to the nuclear radius and
 the $l_c$ is much larger than the nuclear radius; the $q\bar{q}$
 state is frozen.
@@ -336,7 +352,7 @@ E665 took data with XYZ targets, while NMC took data with XYZ targets.
 The results for carbon and calcium, shown together in Fig(ref), are consistent
 with each other and show a slight increase in transparency.
 This is only suggestive of an onset of CT due to limited statistics and
-substantial background.(cite?)
+substantial background.
 
 
 E665 also studied the $A$-dependence of the cross section, fitting their data
@@ -348,10 +364,10 @@ The increase of $\alpha$ at higher $Q^2$ is again only suggestive of CT due to
 the large uncertainty.
 
 
-The HERMES collaboration at DESY(cite) measured nuclear transparency as a
-function of $Q^2$ and $l_{fr}$ for coherent and incoherent $\rho^0$
-leptoproduction from \ch{^{14}N} using a \SI{27.5}{\giga\electronvolt} positon
-beam.
+The HERMES collaboration at DESY~\cite{Ackerstaff_1999} measured nuclear
+transparency as a function of $Q^2$ and $l_{fr}$ for coherent and incoherent
+$\rho^0$ leptoproduction from \ch{^{14}N} using a \SI{27.5}{\giga\electronvolt}
+positron beam.
 Their measurements for exclusive incoherent electroproduction, shown in
 Fig(ref), show an increase in transparency at lower $l_{fr}$ consistent with an
 introduction of initial state interactions between the nuclear medium and the
@@ -373,14 +389,15 @@ the slope $P_1$ is a common free parameter among the bins.
 The extracted slopes for incoherent and coherent production were $0.70\pm0.21$
 and \SI{0.089\pm0.046}{\per\giga\electronvolt\squared} respectively.
 These slopes agree with the predictions of a model using the light cone Green
-function formalism, incorporating the effects of coherence length and CT(cite).
+function formalism, incorporating the effects of coherence length and
+CT~\cite{Kopeliovich_2002}.
 As with the E665 and NMC results, the HERMES results are only suggestive of the
 onset of CT due to their limited statistics.
 
 
 The CLAS collaboration measured nuclear transparency for exclusive
 incoherent $\rho^0$ production off carbon and iron relative to deuterium using
-a \SI{5}{\giga\electronvolt} electron beam at JLab.
+a \SI{5}{\giga\electronvolt} electron beam at JLab~\cite{ElFassi_2012}.
 % The $t$ distributions were fit to a form $Ae^{-bt}$.
 These transparencies are shown as a function of $l_{fr}$ in Fig(ref).
 As seen in Fig(ref), these transparencies are independent of $l_{fr}$ because
@@ -389,21 +406,46 @@ radii of carbon and iron, \SI{2.9}{\femto\meter} and \SI{4.6}{\femto\meter}
 respectively.
 As a result, any increase in transparency as a function of $Q^2$ cannot be a
 result of varying $l_{fr}$, but rather a signal of CT.
-The $Q^2$ dependence of these transparency measurements, shown in Fig(ref) was
-fit to a linear form $T=aQ^2+b$.
-The slope $a$ was compared to the predictions of three models.
 
 
-Kopeliovich-Nemchick-Schmidt (KNS) (cite) model blah blah blah
+The $Q^2$ dependence of these transparency measurements is shown in Fig(ref)
+along with the predictions of two models.
+The Frankfurt-Miller-Strikman (FMS) model~\cite{Frankfurt_2008} uses a standard
+Glauber calculation, using the quantum diffusion model's modified
+hadron-nucleus cross section~\cite{Farrar_1988} to implement CT. This model
+also includes the effects of the decay of the $\rho^0$ meson.
+The Gallmestier-Kaskulov-Mosel (GKM) model~\cite{Gallmeister_2011} is similar
+to Kaskulov et al.'s model~\cite{Kaskulov_2008} of pion electroproduction,
+which uses the BUU formalism to transport (pre)hadrons through the nucleus.
+Both models predict the behavior of the CLAS carbon data quite well, but the
+GKM modek underestimates the iron transparency.
 
 
-Frankfurt-Miller-Strikman (FMS) (cite) model blah blah blah
+These data were also fit to a linear form $T=aQ^2+b$,
+and the slope $a$ was compared to the predictions of the above two models as
+well as a third, the Kopeliovich-Nemchick-Schmidt (KNS)
+model~\cite{Kopeliovich_2007}.
+The KNS model uses the same light cone Green function formalism used in the
+context of the HERMES $\rho^0$ production data.
+The results of these fits and the model predictions are shown in
+Table~\ref{tab:CLAS_slopes}.
 
-
-Gallmestier-Kaskulov-Mosel (GKM) (cite) model blah blah blah
-
-
-All three models predict the slope and magnitude of the CLAS carbon
-transparency measurements well within statistical precision.
-The KNS and FMS models also predict the CLAS iron transparency measurements,
-while the GKM model underestimates its magnitude.
+\begin{table}[h]
+    \centering
+    \label{tab:CLAS_slopes}
+    \caption{
+            Slope parameters from a fit to the $Q^2$ dependence of CLAS
+            nuclear transparency data taken for carbon and
+            iron~\cite{ElFassi_2012}. Also shown are predictions of the
+            KNS~\cite{Kopeliovich_2007},
+            GKM~\cite{Gallmeister_2011}, and
+            FMS~\cite{Frankfurt_2008} models.
+            }
+    \begin{tabular}{ccccc}
+        \hline
+         Nucleus &  Measured slopes (\si{\per\giga\electronvolt\squared}) & \multicolumn{3}{c}{Model predictions} \\ \cline{3-5}
+                 &                                                        &  KNS  &  GKM  &  FMS                  \\ \hline
+         C       &  $0.044\pm0.015_{stat}\pm0.019_{sys}$                  & 0.06  & 0.06  & 0.025                 \\
+         Fe      &  $0.053\pm0.008_{stat}\pm0.013_{sys}$                  & 0.047 & 0.047 & 0.032                 \\ \hline
+    \end{tabular}
+\end{table}
