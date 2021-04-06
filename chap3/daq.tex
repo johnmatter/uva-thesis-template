@@ -1,10 +1,11 @@
 \section{Trigger and Data Acquisition Systems}
-\label{section:daq}
+\label{sec:daq}
 
 The signals from each detector's PMTs (or in the case of the drift chambers,
 each wire) are digitized by ADC250~\cite{fADC_manual} flash analog-to-digital
 converters (fADCS) or CAEN V1190~\cite{CAEN_1190_manual} time-to-digital
 converters (TDCs).
+% TODO: describe fADC mode 9 output (pulse pedestal, amplitude, integral, time)
 
 The HMS detector hut contains a VXS crate with TDCs that process signals from
 the HMS drift chambers.
@@ -16,7 +17,7 @@ detectors, as well as sums of signals from other detectors.
 These sums form ``pretrigger'' signals that are sent to a Trigger Interface
 (TI) module which then distributes a specified trigger signal to synchronize
 readout of the fADCs and TDCs in every read-out controller (ROC).
-This analog trigger signal is called a ``Level 1 Accept''.
+This analog trigger signal is called a ``Level 1 Accept,'' or L1 for short.
 A copy of the Level 1 pretrigger is sent to every ROC which, when subtracted
 from the raw TDC time, improves timing resolution from $\sim$\SI{25}{ns} to
 $\sim$\SI{0.1}{ns}.
@@ -154,7 +155,7 @@ The EDTM pulser fires every trigger in the system, and is also sent to its own
 TDC and scaler channels.
 By comparing the number of accepted EDTM triggers to the number of EDTM trigger
 counts seen by the scaler, one can estimate deadtime.
-This process is dicussed at more length in a later section.
+This process is dicussed in more detail in Section~\ref{sec:deadtime}.
 
 \subsection{Reference Times}
 The reference time for an event is an OR-ed version of pretrigger signals
@@ -169,3 +170,4 @@ fADCs and TDCs in a given ROC), to the TDC which will latch onto the leading
 edge of the faster \SI{10}{GHz} clock.
 The \textit{hcana} analyzer subtracts the reference time from detectors' raw
 TDC times to yield a timing resolution of $\sim$\SI{0.1}{ns}.
+This process is dicussed in more detail in Section~\ref{sec:reftime}.

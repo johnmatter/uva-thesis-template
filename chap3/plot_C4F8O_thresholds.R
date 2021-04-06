@@ -55,7 +55,7 @@ pCer <- ggplot(plotMe,
                    y=1-beta,
                    color=pid
                    )
-               ) + 
+               ) +
         geom_line() +
         geom_hline(yintercept=cherenkovThresh) +
         scale_x_continuous(breaks = seq(0,pMax,1)) +
