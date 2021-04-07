@@ -148,14 +148,15 @@ They are as follows:
 \end{itemize}
 
 \subsubsection{Electronic Dead Time Measurement (EDTM) Pulser}
+\label{sec:edtm}
 To estimate the deadtime due to all electronics involved in data acquisition, a
-pulser with a low frequency (3 Hz in our experiment) is inserted into the
+pulser with a low frequency (\SI{3}{\hertz} in our experiment) is inserted into the
 trigger logic.
 The EDTM pulser fires every trigger in the system, and is also sent to its own
 TDC and scaler channels.
 By comparing the number of accepted EDTM triggers to the number of EDTM trigger
 counts seen by the scaler, one can estimate deadtime.
-This process is dicussed in more detail in Section~\ref{sec:deadtime}.
+This process is dicussed in more detail in Section~\ref{sec:livetime}.
 
 \subsection{Reference Times}
 The reference time for an event is an OR-ed version of pretrigger signals
