@@ -1,0 +1,74 @@
+\section{\textit{hcana}}
+Hall C has developed a new analysis framework,
+\textit{hcana}~\cite{hcana_github}, written in C++ to replace ENGINE, the old
+analysis framework written in Fortran.
+\textit{hcana} is an extension of the Hall A analyzer, Podd~\cite{podd_github},
+a modular framework based on the CERN ROOT framework~\cite{cenr_root}.
+Event reconstruction or ``replay'' in \textit{hcana} proceeds in the following order:
+
+% TODO: rewrite as pseudocode looping over events and detectors? could be messy. obviously don't want to get granular to the point of the hodoscope for-loop hell
+% TODO: clarify that "detectors" aren't calculating anything; classes representing detectors calculate
+\begin{enumerate}
+
+    \item The analyzer unpacks hits stored as raw EVIO data and stores them in
+        lists stored by ROC, slot, and channel number.
+        A text file containing a ``detector map'' associates these front-end
+        electronics identifiers with a particular detector,
+        plane/wire/PMT/etc., and type (ADC or TDC).
+
+    \item The \texttt{Decode()} method converts these lists of raw hits into
+        physically meaningful ADC quantities (pulse amplitude, pulse time,
+        pulse integral, pulse pedestal) and TDC times for every detector.
+
+    \item Tracking detectors run the \texttt{CoarseTrack()} method to generate
+        a list of candidate tracks.
+
+    \item Non-tracking detectors run the \texttt{CoarseProcess()} method,
+        placing fiducial cuts on ADC and TDC values to select ``good'' hits.
+        This step also performs any relevant calculation that does not require
+        accurate tracking information, such as calculating the number of
+        photoelectrons collected by each PMT in a Cherenkov detector.
+
+    \item The analyzer then calculates precise tracking information for each
+        event.
+        All candidate tracks are transported from the focal plane to the target
+        using the optics reconstruction matrix elements.
+
+    \item The best track among all candidate, the ``golden track,'' is selected
+        using one of three methods called Simple, Prune, and Scin.
+
+    \item Non-tracking detectors run the \texttt{FineProcess()} method to
+        calculate quantities that depend on accurate tracking information,
+        such as the ``track-normalized energy'' deposited in the calorimeter,
+        $E/p$.
+
+    \item Finally, physics modules that calculate quantities such as invariant
+        mass $W$, momentum transfer $Q^2$, and missing energy $E_m$ are run.
+
+\end{enumerate}
+% TODO: incldue description of EPICS decoding?
+
+
+% Describing the software on this level might get messier than it's worth
+% Each detector has a \texttt{Decode()} method that it inherits from the
+% \texttt{THcDetector} class.
+% Non-tracking detectors have \texttt{CoarseProcess()} and \texttt{FineProcess()}
+% methods that calculate relevant quantities such as the total number of
+% photolectrons for a Cherenkov detector.
+% Similarly, tracking detectors have \texttt{CoarseTrack()} and
+% \texttt{FineTrack()} methods.
+% Every detector belongs to an instance of the \texttt{THcSpectrometer} class.
+
+
+After this event loop is run for all events of interest in a raw CODA file,
+TTrees containing reconstructed data are written to a ROOT file.
+\textit{hcana} also allows the user to specify a set of TH1 and TH2 histograms
+to be generated for each run.
+Such standardized histograms are convenient for quality assurance and debugging
+problems during data acquisition.
+Replayed ROOT files can then be analyzed with further scripts written for the
+purpose of detector calibration or physics analysis.
+
+
+The sections that follow in this chapter will describe the details of each step
+outlined in the list above.
