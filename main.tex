@@ -13,6 +13,7 @@
 \usepackage{cmap}
 \usepackage[T1]{fontenc}
 \usepackage{indentfirst}
+\usepackage{mathtools}
 
 \usepackage{textgreek}
 
@@ -57,6 +58,17 @@
 \renewcommand\theadalign{tr}
 
 \DeclareSIUnit\atm{atm}
+
+% % abs and norm definitions
+% \DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+% \DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+% % Swap the definition of \abs* and \norm*, so that \abs and \norm resizes the size of the brackets, and the starred version does not.
+% \makeatletter
+% \let\oldabs\abs
+% \def\abs{\@ifstar{\oldabs}{\oldabs*}}
+% \let\oldnorm\norm
+% \def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+% \makeatother
 
 %-------------------------------------------
 \begin{document}
