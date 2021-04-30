@@ -1,1 +1,67 @@
 \section{Optics}
+
+\subsection{Target Variable Reconstruction Algorithm}
+Reconstructing target variables from focal plane variables is an iterative
+process that makes use of optimized \textit{reconstruction matrix elements}.
+
+% TODO clean up wording here.
+\begin{enumerate}
+    \item Estimate $x_tar$ from BPM and fast raster.
+    \item Use matrices to get yptar, xptar, ytar
+    \item Add mispointing
+    \item Do calculation as outlined below to get a new estimate of $x_{tar}$
+    \item Return to Step 2 until convergence.
+\end{enumerate}
+
+To derive these equations, consider Figure and assume for now that the
+labelled distances are all known.
+Assume, as a first estimate, that the $x^{vert}_{tar}$ coordinate in the
+spectrometer coordinate system is given by the BPM and fast raster measurements
+\begin{equation}
+x^{vert}_{tar} = -y^{beam} = -(y_0^{beam} - y_{fr})
+\end{equation}
+
+The reconstructed $y^{rec}_{tar}$ coordinate in the spectrometer coordinate
+system is
+\begin{equation} \label{eqn:yrectar}
+y^{rec}_{tar} = y^{vert}_{tar} - \frac{dy}{dz} z^{vert}_{tar}
+              = y^{vert}_{tar} - y'_{tar} z^{vert}_{tar}
+\end{equation}
+
+The vertex coordinates in the spectrometer coordinate system can be obtained
+with a simple rotation from the target coordinate system
+\begin{align} \label{eqn:yzverttar}
+y^{vert}_{tar} &= z^{vert}_v \sin\theta + x^{vert}_v \cos\theta \\
+z^{vert}_{tar} &= z^{vert}_v \cos\theta - x^{vert}_v \sin\theta
+\end{align}
+
+The $x^{vert}_{v}$ and $y^{vert}_{v}$ coordinates in the
+target coordinate system are given by the BPM and fast raster
+measurements\footnote{Recall that these use a right-handed coordinate system}
+\begin{align}
+x^{vert}_v &= -x^{beam} = -(y_0^{beam} - x_{fr}) \\
+y^{vert}_v &= y^{beam} = y_0^{beam} - y_{fr}
+\end{align}
+
+Plugging equations~\ref{eqn:yzverttar} into equation~\ref{eqn:yrectar} and
+solving for $z^{vert}_v$,
+\begin{align}
+y^{rec}_{tar} &= (z^{vert}_v \sin\theta + x^{vert}_v \cos\theta) -
+                 y'_{tar} (z^{vert}_v \cos\theta - y^{vert}_v \sin\theta) \\
+              &= (\sin\theta-y'_{tar}\cos\theta)z^{vert}_v +
+                 (\cos\theta + y'_{tar} \sin\theta) x^{vert}_v \\
+              &= (\sin\theta-y'_{tar}\cos\theta)z^{vert}_v -
+                 (\cos\theta + y'_{tar} \sin\theta) x^{beam}
+\end{align}
+
+\begin{equation}
+z^{vert}_v = \frac{y^{rec}_{tar} + x^{beam} (\cos\theta + y'_{tar} \sin\theta)}
+                  {\sin\theta - y'_{tar}\cos\theta}.
+\end{equation}
+
+The above then provides a new estimate of $x^{rec}_{tar}$
+\begin{equation}
+x^{rec}_{tar} = x^{vert}_{tar} - x'+{tar}z^{vert}_{tar} - x^{off}
+\end{equation}
+
+\subsection{Reconstruction Matrix Optimization}
