@@ -95,7 +95,7 @@ In the HMS there are 52 total paddles, so the system of linear equations is
 or in matrix notation
 
 \begin{gather}
-    C\boldsymbol{\lambda}
+    C\vec{\lambda}
     =
     \begin{bmatrix}
         c_{1,1} & c_{1,2} & \cdots & c_{1,52} \\
@@ -113,7 +113,7 @@ or in matrix notation
 Solving this for all $\lambda$s requires accumulating statistics from a run with
 many events $k$:
 \begin{gather}
-    C\boldsymbol{\lambda}
+    C\vec{\lambda}
     =
     \begin{bmatrix}
         \sum_k c_{1,1} & \sum_k c_{1,2} & \cdots & \sum_k c_{1,52} \\
@@ -128,7 +128,7 @@ many events $k$:
     \left[ \begin{array}{c}  \sum_k b_{12} \\  \sum_k b_{13} \\  \sum_k b_{14} \\  \sum_k b_{23} \\  \sum_k b_{24} \\  \sum_k b_{34}  \end{array} \right]
 \end{gather}
 
-\textit{hcana} solves for $boldsymbol{\lambda}$ using singular value
+\textit{hcana} solves for $\vec{\lambda}$ using singular value
 decomposition, yielding a set of corrections $t_\lambda = \lambda_i$ for every
 paddle $i$.
 

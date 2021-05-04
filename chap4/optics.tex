@@ -105,8 +105,8 @@ values of $x'_{tar}$, $y_{tar}$, and $y'_{tar}$.
 % also xtar prop to xptar for given z
 The collinearity of $x_{tar}$ and $\delta_{tar}$ makes optimization of matrix
 elements with non-zero powers of $x_{tar}$ difficult.
-As such, these elements are set to zero during optimization and taken from a
-COSY model during reconstruction.
+As such, these elements are set to zero during the optimization steps and taken
+from a COSY model during reconstruction.
 
 
 Describe sieve/foil event selection here.
@@ -116,9 +116,9 @@ Consider a particular event $e$.
 Let $o_e$ be one of the target variables $x'$, $y$, or $y'$ for this event,
 $\hat{o}_e$ the ``true'' value of the variable,
 and
-$o^{rec}_e$ the reconstructed estimate
+$o^{rec}_e$ the estimate reconstructed
 from the corresponding optics matrix $O_{ijkml}$.
-The $\chi^2$ for a set of matrices $O_{ijklm}$ is
+For a set of matrices $O_{ijklm}$, $\chi^2$ is
 
 \begin{align}
     \chi^2 &= \sum_e (\hat{o}_e - o^{rec}_e)^2 \\
@@ -133,7 +133,61 @@ $\bar{i}$, $\bar{j}$, $\bar{k}$, $\bar{l}$, and $\bar{m}$
 should be zero.
 \begin{equation}
     \frac{d\chi^2}{dO_{ijklm}}
-    = -2 \sum_e \left( \hat{o}_e \sum_{ijkml} O_{ijkml} x^i_{fp} x'^j_{fp} y^k_{fp} y'^l_{fp} x^m_{tar} \right)
+    = -2 \sum_e \left( \hat{o}_e - \sum_{ijkml} O_{ijkml} x^i_{fp} x'^j_{fp} y^k_{fp} y'^l_{fp} x^m_{tar} \right)
       x^{\bar{i}}_{fp} x'^{\bar{j}}_{fp} y^{\bar{k}}_{fp} y'^{\bar{l}}_{fp} x^{\bar{m}}_{tar}
     = 0
 \end{equation}
+
+For compactness of notation, let
+\begin{equation} \label{eqn:index_abbreviation}
+    n = (i,j,k,l,m)
+\end{equation}
+\begin{equation}
+    \lambda_n = x^{i}_{fp} x'^{j}_{fp} y^{k}_{fp} y'^{l}_{fp} x^{m}_{tar}
+\end{equation}
+\begin{equation}
+    \Lambda^e = \sum_n O_n \lambda^e_n
+\end{equation}
+
+Note that $\Lambda^e$ can be separated into parts that are dependent on and
+independent of $x_{tar}$, $\Lambda^e = \Lambda^e_{ind} + \Lambda^e_{dep}$
+by limiting the sums to include either
+only indices $n'\in\text{ind}$ with zero powers of $x_{tar}$.
+or
+only indices $n''\in\text{dep}$ with nonzero powers of $x_{tar}$.
+Rewriting the condition for minimizing $\chi^2$ with these definitions,
+\begin{align}
+    0 &= \sum_e (\hat{o}_e - \Lambda^e) \lambda_{\bar{n}} \\
+      &= \sum_e (\hat{o}_e - \Lambda^e_{dep} - \Lambda^e_{ind}) \lambda_{\bar{n}}
+\end{align}
+
+\begin{align}
+    \sum_e (\hat{o}_e - \Lambda^e_{dep}) \lambda_{\bar{n}} &= \sum_e \Lambda^e_{ind} \lambda_{\bar{n}} \\
+            &= \sum_e \sum_{n\in\text{ind}} O_n \lambda_n \lambda_{\bar{n}} \\
+            &= \sum_{n\in\text{ind}} O_n \sum_e \lambda_n \lambda_{\bar{n}} \\
+\end{align}
+
+
+There is one equation of this form for each $x_{tar}$-independent term indexed
+by $\bar{n}$.
+Together, they can be written in matrix notation
+\begin{equation}
+    \vec{b} = A \vec{x}
+\end{equation}
+where the matrix and vector elements are
+\begin{equation}
+    A_{ij} = \sum_e \lambda_i \lambda_j
+\end{equation}
+\begin{equation}
+    x_i = O_i
+\end{equation}
+\begin{equation}
+    b_i = \sum_e(\hat{o}_e - \Lambda^e_{dep}) \lambda_i
+\end{equation}
+and $i$ and $j$ are both abbreviations of the full set of indices as defined in
+equation~\ref{eqn:index_abbreviation}.
+This is now a well-posed problem that can be solved using SVD.
+Recall that the terms included in this optimization step are only the
+$x_{tar}$-independent terms.
+After SVD, the $x_{tar}$-dependent terms from COSY are reintroduced to form the
+full matrix elements used in reconstruction.
