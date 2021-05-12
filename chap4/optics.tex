@@ -8,10 +8,10 @@ and polynomial combinations of $x_{tar}$ and focal plane variables
 $x_{fp}$, $x'_{fp}$ $y_{fp}$, and $y'_{fp}$.
 
 \begin{align} \label{eqn:optics_reconstruction}
-    x'_{tar}     &= \sum_{ijklm} X'_{ijkml} x^i_{fp} x'^j_{fp} y^k_{fp} y'^l_{fp} x^m_{tar} \\
-    y_{tar}      &= \sum_{ijklm} Y_{ijkml}  x^i_{fp} x'^j_{fp} y^k_{fp} y'^l_{fp} x^m_{tar} \\
-    y'_{tar}     &= \sum_{ijklm} Y'_{ijkml} x^i_{fp} x'^j_{fp} y^k_{fp} y'^l_{fp} x^m_{tar} \\
-    \delta_{tar} &= \sum_{ijklm} D_{ijkml}  x^i_{fp} x'^j_{fp} y^k_{fp} y'^l_{fp} x^m_{tar}
+    x'_{tar}     &= \sum_{ijklm} X'_{ijklm} x^i_{fp} x'^j_{fp} y^k_{fp} y'^l_{fp} x^m_{tar} \\
+    y_{tar}      &= \sum_{ijklm} Y_{ijklm}  x^i_{fp} x'^j_{fp} y^k_{fp} y'^l_{fp} x^m_{tar} \\
+    y'_{tar}     &= \sum_{ijklm} Y'_{ijklm} x^i_{fp} x'^j_{fp} y^k_{fp} y'^l_{fp} x^m_{tar} \\
+    \delta_{tar} &= \sum_{ijklm} D_{ijklm}  x^i_{fp} x'^j_{fp} y^k_{fp} y'^l_{fp} x^m_{tar}
 \end{align}
 
 % TODO clean up wording here.
@@ -155,12 +155,12 @@ Let $o_e$ be one of the target variables $x'$, $y$, or $y'$ for this event,
 $\hat{o}_e$ the ``true'' value of the variable,
 and
 $o^{rec}_e$ the estimate reconstructed
-from the corresponding optics matrix $O_{ijkml}$.
+from the corresponding optics matrix $O_{ijklm}$.
 For a matrix $O_{ijklm}$, the residual sum of squares $RSS$ is
 
 \begin{align}
     RSS &= \sum_e (\hat{o}_e - o^{rec}_e)^2 \\
-           &= \sum_e \left( \hat{o}_e - \sum_{ijkml} O_{ijkml} x^i_{fp} x'^j_{fp} y^k_{fp} y'^l_{fp} x^m_{tar} \right)^2
+           &= \sum_e \left( \hat{o}_e - \sum_{ijklm} O_{ijklm} x^i_{fp} x'^j_{fp} y^k_{fp} y'^l_{fp} x^m_{tar} \right)^2
 \end{align}
 
 
@@ -171,7 +171,7 @@ $\bar{i}$, $\bar{j}$, $\bar{k}$, $\bar{l}$, and $\bar{m}$
 should be zero.
 \begin{equation}
     \frac{dRSS}{dO_{\bar{i}\bar{j}\bar{k}\bar{l}\bar{m}}}
-    = -2 \sum_e \left( \hat{o}_e - \sum_{ijkml} O_{ijkml} x^i_{fp} x'^j_{fp} y^k_{fp} y'^l_{fp} x^m_{tar} \right)
+    = -2 \sum_e \left( \hat{o}_e - \sum_{ijklm} O_{ijklm} x^i_{fp} x'^j_{fp} y^k_{fp} y'^l_{fp} x^m_{tar} \right)
       x^{\bar{i}}_{fp} x'^{\bar{j}}_{fp} y^{\bar{k}}_{fp} y'^{\bar{l}}_{fp} x^{\bar{m}}_{tar}
     = 0
 \end{equation}
