@@ -1,1 +1,76 @@
 \section{Efficiency}
+In general, the efficiency of a given detector system is estimated by using
+information from other systems to select a set of ``clean'' events that can
+reasonably be expected to produce a signal in that particular system.
+Let $N_{should}$ be the number of events selected by a cut $C_{should}$ that
+should show a signal in detector $D$, and $N_{did}$ be the subset of those
+events that pass a cut $C_{did} = C_{should} \wedge C_{D}$,
+where $C_{D}$ is an additional cut on information from the detector
+$D$ under consideration and $\wedge$ represents the logical operation
+\textit{and}.
+Then the efficiency of the $D$ is $\epsilon_D = N_{did}/N_{should}$.
+
+\subsection{Calorimeters and Cherenkovs}
+
+\subsection{Tracking}
+
+\subsection{Trigger}
+
+\subsection{Livetime}
+When a trigger is accepted, the DAQ system is unable to accept additional
+triggers for a time determined by the gate widths of front end electronics and
+the time it takes for CODA to write the event to disk.
+The time during which the DAQ is unable to accept another event is referred to
+as deadtime.
+The inverse concept, livetime, refers to the total time that the DAQ is
+\textit{not} occupied by processing incoming triggers.
+The total livetime $TLT$ is a correction applied to the charge normalized yield
+to account for events that are missed because of this phenomenon.
+
+% TODO: edtm logic diagram
+The EDTM (see Section~\ref{sec:edtm}) pulser allows an estimate of the total
+livetime in a given run.
+It sends regular pulses at a low frequency (\SI{3}{\hertz} in our experiment) at the
+trigger logic level in the counting house.
+By comparing the number of triggers that are accepted by the DAQ to the number
+of pulses that are counted by the EDTM scaler, we can estimate the total
+livetime as
+\begin{equation}
+    TLT = \frac{N_{EDTM,accepted}}{N_{EDTM,scaler}}
+\end{equation}
+where $N_{EDTM,accepted}$ is the number of events with a non-zero hit in the
+EDTM TDC spectrum and $N_{EDTM,scaler}$ is the total number of EDTM triggers
+counted by the EDTM scaler.
+% TODO: Peter Bosted's correction. I don't understand his derivation.
+% Let n be accepted, N be scaler count. Then L=n/N
+% Let j be the current, and jc be the "cut current"
+% Let f=j/jc
+% Then Peter's correction is Lnew = (L-(1-f))/f
+% The assumption here is that livetime is 100% when the beam is "off"
+% i.e. below the cut value (typically a couple uA) used by hcana
+
+
+% TODO: trigger rate figure
+Because livetime should be dependent on trigger rate and the trigger rates
+vary between our kinematic settings, we calculate a per-run livetime to
+correct each run's yield.
+Moreover, the EDTM system was not functional when we took our first set of data
+for $Q^2$ of \SI{8}{\giga\electronvolt\squared}.
+To estimate the livetime for these data, we performed a linear fit of the other
+kinematics' $TLT$ dependence on SHMS 3/4 trigger rate and used this fit to
+estimate the livetime for the $Q^2$=\SI{8}{\giga\electronvolt\squared} runs.
+
+% TODO: LTE vs pTRIG1 (SHMS 3/4)
+
+The computer livetime can be estimated as
+\begin{equation}
+    TLT = \frac{N_{phys,accepted}-N_{EDTM,accepted}}{N_{phys,scaler}-N_{EDTM,scaler}}
+\end{equation}
+The computer livetime for our data is neglible because CODA was configured to
+only take coincidence events, whose rates were all quite low (below
+\SI{6}{\hertz}) for all our kinematics.
+
+% TODO: computer livetime vs pTRIG6
+
+% TODO: add refs for Eric and Dave's slides
+
