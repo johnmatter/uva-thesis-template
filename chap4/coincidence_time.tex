@@ -11,10 +11,10 @@ different coincidence time peaks; the differing particle masses result in
 differing velocities for a given momentum.
 
 % TODO: Clarify coincidence TDC start/top
-Given single arm TDC trigger times $t_H$ and $t_P$ and coincidence TDC trigger
-time $t_{coin}$, the uncorrected coincidence time is
+Given single arm TDC trigger times $t^H$ and $t^P$ and coincidence TDC trigger
+time $t^{coin}$, the uncorrected coincidence time is
 \begin{equation}
-    t^{coin}_{uncorrected} = t^H - t^P - t_{coin}
+    t^{coin}_{uncorrected} = t^H - t^P - t^{coin}
 \end{equation}
 
 Using the particles' velocities, models of the spectrometers' optics, and
@@ -42,7 +42,7 @@ Then the SHMS (HMS) correction $\Delta t^{P(H)}$ is
 
 The corrected coincidence time is
 \begin{equation}
-    t^{coin}_{corrected} = (t_P - \Delta t^P) - (t_H - \Delta t^H) - t_{offset}
+    t^{coin}_{corrected} = (t^P - \Delta t^P) - (t^H - \Delta t^H) - t_{offset}
 \end{equation}
 where $t_{offset}$ is an offset due to signal propagation times which can be
 corrected for in PARAM files if desired.

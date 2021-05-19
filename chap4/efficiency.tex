@@ -2,21 +2,192 @@
 In general, the efficiency of a given detector system is estimated by using
 information from other systems to select a set of ``clean'' events that can
 reasonably be expected to produce a signal in that particular system.
-Let $N_{should}$ be the number of events selected by a cut $C_{should}$ that
-should show a signal in detector $D$, and $N_{did}$ be the subset of those
-events that pass a cut $C_{did} = C_{should} \wedge C_{D}$,
-where $C_{D}$ is an additional cut on information from the detector
-$D$ under consideration and $\wedge$ represents the logical operation
+Let $N^{should}$ be the number of events selected by a cut $C^{should}$ that
+should show a signal in detector $D$, and $N^{did}$ be the subset of those
+events that pass a cut $C^{did} = C^{should} \land C^{D}$,
+where $C^{D}$ is an additional cut on information from the detector
+$D$ under consideration and $\land$ represents the logical operation
 \textit{and}.
-Then the efficiency of the $D$ is $\epsilon_D = N_{did}/N_{should}$.
+Then the efficiency of $D$ is $\epsilon^D = N^{did}/N^{should}$.
 
-\subsection{Calorimeters and Cherenkovs}
+\subsection{HMS Calorimeter} \label{sec:hcal_eff}
+A set of electrons that should have normalized track energy deposition
+approximately equal to one are selected using the cuts in
+Table~\ref{tab:hcal_cuts}.
+
+\begin{table}[h]
+    \centering
+    \caption{List of cuts used to estimate HMS Calorimeter efficiency.}
+    \label{tab:hcal_cuts}
+    \begin{tabular}[t]{| c | l | l |}
+        \hline
+                   &  Variables              &  Cut \\ \hline
+        \hline
+        \multirow{4}{*}{\makecell[ml]{$C^{should}$}}
+        &  HMS Cherenkov NPE      &  H.cer.npeSum>0                         \\ \cline{2-3}
+        &  $\delta_{HMS}$         &  -10.0 < H.gtr.dp \&\& H.gtr.dp < 10.0  \\ \cline{2-3}
+        &  $\beta_{HMS}$          &  0.8 < H.gtr.beta \&\& H.gtr.beta < 1.2 \\ \cline{2-3}
+        &  Good hodoscope time    &  H.hod.goodstarttime==1                 \\ \hline
+        \hline
+        \multirow{2}{*}{\makecell[ml]{$C^{HCal}$}}
+        &  HMS Calorimeter Energy &  \makecell{0.8 < H.cal.etottracknorm \&\&  \\
+                                               H.cal.etottracknorm < 1.15} \\ \hline
+    \end{tabular}
+\end{table}
+
+Events are divided into $\delta$ bins of width 5 and efficiencies
+$\epsilon_i=N_i^{did}/N_i^{should}$ are calculated for each bin.
+A 95\% confidence interval for each bin's estimated efficiency is obtained
+using the Clopper-Pearson method.
+% TODO: This is a little unclear; sigma should be the difference between epsilon and the bounds
+A weight $w_i=1/\sigma_i^2$ for each bin is assigned, where $\sigma_i$ is the
+larger of differences between $\epsilon_i$ and the upper and lower CI bounds.
+Then the weighted efficiency is
+\begin{equation}
+    \epsilon = \frac{\sum_i w_i \epsilon_i}
+                    {\sum_j w_j}
+\end{equation}
+with uncertainty
+\begin{equation}
+    \sigma_\epsilon = \frac{1}{\sqrt{\sum_i w_i}}
+\end{equation}
+
+\subsection{HMS Cherenkov}
+A set of electrons that should fire the Cherenkov
+are selected using the cuts in
+Table~\ref{tab:hcer_cuts}.
+A weighted efficiency is calculated as discussed in Section~\ref{sec:hcal_eff}
+
+\begin{table}[h]
+    \centering
+    \caption{List of cuts used to estimate HMS Chereknov efficiency.}
+    \label{tab:hcer_cuts}
+    \begin{tabular}[t]{| c | l | l |}
+        \hline
+                   &  Variables              &  Cut \\ \hline
+        \hline
+        \multirow{5}{*}{\makecell[ml]{$C^{should}$}}
+        &  HMS Calorimeter Energy &  \makecell{0.8 < H.cal.etottracknorm \&\&  \\
+                                               H.cal.etottracknorm < 1.15} \\ \cline{2-3}
+        &  $\delta_{HMS}$         &  -10.0 < H.gtr.dp \&\& H.gtr.dp < 10.0  \\ \cline{2-3}
+        &  $\beta_{HMS}$          &  0.8 < H.gtr.beta \&\& H.gtr.beta < 1.2 \\ \cline{2-3}
+        &  Good hodoscope time    &  H.hod.goodstarttime==1                 \\ \hline
+        \hline
+        \multirow{1}{*}{\makecell[ml]{$C^{HCer}$}}
+        &  HMS Cherenkov NPE      &  H.cer.npeSum>0                         \\ \hline
+    \end{tabular}
+\end{table}
+
+% TODO: mirror
+Discuss how we dealt with the broken mirror.
+
+\subsection{SHMS Noble Gas Cherenkov}
+The SHMS Noble Gas Cherenkov was used as a pion veto.
+The SHMS central momenta used in this experiment range from
+5.122 to \SI{8.505}{\giga\electronvolt}.
+The pion threshold in this detector is \SI{4.65}{\giga\electronvolt} while the
+the proton threshold is \SI{999999999}{\giga\electronvolt}.
+A set of protons that should not fire the Cherenkov
+are selected using the cuts in Table~\ref{tab:pcer_cuts}.
+A weighted efficiency is calculated as discussed in Section~\ref{sec:hcal_eff}
+
+\begin{table}[h]
+    \centering
+    \caption{List of cuts used to estimate SHMS Noble Gas Chereknov efficiency.}
+    \label{tab:pcer_cuts}
+    \begin{tabular}[t]{| c | l | l |}
+        \hline
+                   &  Variables              &  Cut \\ \hline
+        \hline
+        \multirow{3}{*}{\makecell[ml]{$C^{should}$}}
+        &  $\delta_{SHMS}$        &  -10.0 < P.gtr.dp \&\& P.gtr.dp < 10.0  \\ \cline{2-3}
+        &  $\beta_{SHMS}$         &  P.gtr.beta < 1.4 \\ \cline{2-3}
+        &  Good hodoscope time    &  P.hod.goodstarttime==1                 \\ \hline
+        \hline
+        \multirow{1}{*}{\makecell[ml]{$C^{PCer}$}}
+        &  SHMS Cherenkov NPE     &  P.ngcer.npeSum<0.1                     \\ \hline
+    \end{tabular}
+\end{table}
 
 \subsection{Tracking}
 
+\begin{table}[h]
+    \centering
+    \caption{List of cuts used to estimate HMS tracking efficiency.}
+    \label{tab:htrack_cuts}
+    \begin{tabular}[t]{| c | l | l |}
+        \hline
+                   &  Variables              &  Cut \\ \hline
+        \hline
+        \multirow{11}{*}{\makecell[ml]{$C^{should}$}}
+        & Fiducial cut              & H.hod.goodscinhit==1 \\ \cline{2-3}
+        & $\beta_{notrack}$         & \makecell{0.5 < H.hod.betanotrack \&\& \\
+                                                H.hod.betanotrack < 1.4} \\ \cline{2-3}
+        & Few hits in DC 1          & \makecell{(H.dc.1x1.nhit + H.dc.1u2.nhit + \\
+                                                 H.dc.1u1.nhit + H.dc.1v1.nhit + \\
+                                                 H.dc.1x2.nhit + H.dc.1v2.nhit) < 35} \\ \cline{2-3}
+        & Few hits in DC 1          & \makecell{(H.dc.2x1.nhit + H.dc.2u2.nhit + \\
+                                                 H.dc.2u1.nhit + H.dc.2v1.nhit + \\
+                                                 H.dc.2x2.nhit + H.dc.2v2.nhit) < 35} \\ \cline{2-3}
+        & SHMS Cherenkov NPE        & P.ngcer.npeSum<0.1 \\ \cline{2-3}
+        & HMS Cherenkov NPE         & H.cer.npeSum>0 \\ \hline
+
+        \multirow{1}{*}{\makecell[ml]{$C^{HTrack}$}}
+        & At least one track found  & H.dc.ntrack>0 \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \caption{List of cuts used to estimate SHMS tracking efficiency.}
+    \label{tab:htrack_cuts}
+    \begin{tabular}[t]{| c | l | l |}
+        \hline
+                   &  Variables              &  Cut \\ \hline
+        \hline
+        \multirow{11}{*}{\makecell[ml]{$C^{should}$}}
+        & Fiducial cut              & P.hod.goodscinhit==1 \\ \cline{2-3}
+        & Good hodoscope time       & P.hod.goodstarttime==1 \\ \cline{2-3}
+        & $\beta_{notrack}$         & P.hod.betanotrack < 1.2 \\ \cline{2-3}
+        & Few hits in DC 1          & \makecell{(P.dc.1x1.nhit + P.dc.1u2.nhit + \\
+                                                 P.dc.1u1.nhit + P.dc.1v1.nhit + \\
+                                                 P.dc.1x2.nhit + P.dc.1v2.nhit) < 25} \\ \cline{2-3}
+        & Few hits in DC 1          & \makecell{(P.dc.2x1.nhit + P.dc.2u2.nhit + \\
+                                                 P.dc.2u1.nhit + P.dc.2v1.nhit + \\
+                                                 P.dc.2x2.nhit + P.dc.2v2.nhit) < 25} \\ \cline{2-3}
+        & SHMS Cherenkov NPE        & P.ngcer.npeSum<0.1 \\ \cline{2-3}
+        & HMS Cherenkov NPE         & H.cer.npeSum>0 \\ \hline
+
+        \multirow{1}{*}{\makecell[ml]{$C^{PSingleTrack}$}}
+        & One track found           & P.dc.ntrack==1 \\ \hline
+
+
+        \multirow{17}{*}{\makecell[ml]{$C^{PMultipleTrack}$}}
+        & \makecell{More than one track \\ found} & P.dc.ntrack > 1 \\ \cline{2-3}
+        & \makecell{Few hits on negative \\ side ADCs} & 
+                \makecell{P.hod.1x.totNumGoodNegAdcHits<5 \&\& \\ 
+                          P.hod.1y.totNumGoodNegAdcHits<5 \&\& \\
+                          P.hod.2x.totNumGoodNegAdcHits<5 \&\& \\
+                          P.hod.2y.totNumGoodNegAdcHits<5} \\ \cline{2-3}
+        & Good focal plane time     &
+                \makecell{-10 < P.hod.1x.fptime      \&\& \\
+                                P.hod.1x.fptime < 50 \&\& \\
+                          -10 < P.hod.1y.fptime      \&\& \\
+                                P.hod.1y.fptime < 50 \&\& \\
+                          -10 < P.hod.2x.fptime      \&\& \\
+                                P.hod.2x.fptime < 50 \&\& \\
+                          -10 < P.hod.2y.fptime      \&\& \\
+                                P.hod.2y.fptime < 50} \\ \cline{2-3}
+        & $\delta$                   & -15 < P.gtr.dp \&\& P.gtr.dp < 15 \\ \cline{2-3}
+        & $y_{tar}$                  & -5 < P.gtr.y \&\& P.gtr.y < 5 \\ \cline{2-3}
+        & $x'_{tar}$                & -0.2 < P.gtr.th \&\& P.gtr.th < 0.2 \\ \cline{2-3}
+        & $y'_{tar}$                & -0.2 < P.gtr.ph \&\& P.gtr.ph < 0.2 \\ \hline
+    \end{tabular}
+\end{table}
+
 \subsection{Trigger}
 
-\subsection{Livetime}
+\subsection{Livetime} \label{sec:livetime}
 When a trigger is accepted, the DAQ system is unable to accept additional
 triggers for a time determined by the gate widths of front end electronics and
 the time it takes for CODA to write the event to disk.
