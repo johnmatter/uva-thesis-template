@@ -1,1 +1,24 @@
-\section{Tracking}
+\section{Tracking Algorithm}
+The \textit{hcana} tracking algorithm fits a trajectory to the position of hits
+recorded by the drift chamber sense wires.
+As discussed in Section~\ref{sec:dc_calib}, the transverse distance between a
+sense wire and a particle passing by it can be precisely estimated by
+converting a reference-time-subtracted TDC time to a drift distance.
+Left/right ambiguity resolved by looking at nearby pairs of planes that have
+identical wire orientations and spacing, but with cells displaced by half a
+cell.
+In each drift chamber, hits that are close ``enough'' to each other are grouped
+into \textit{space points}.
+The hits in each space point are fit to create \textit{stubs}, halves of a
+complete track.
+Stubs in both chambers are paired to form candidate tracks that are saved for
+further cleaning if the paired stubs are collinear ``enough.''
+
+
+In the event that multiple track candidates are found for an event, two options
+for selecting the best track (referred to as the \textit{golden track}) exist.
+The simplest method selects the track with the lowest $\chi^2$ value.
+The other method, referred to as \textit{pruning}, involves a series of quality
+assurance tests that reject suboptimal tracks.
+If none of the tracks pass all the tests, this method defaults to selecting the
+track with the loest $\chi^2$.
