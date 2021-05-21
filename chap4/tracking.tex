@@ -4,9 +4,13 @@ recorded by the drift chamber sense wires.
 As discussed in Section~\ref{sec:dc_calib}, the transverse distance between a
 sense wire and a particle passing by it can be precisely estimated by
 converting a reference-time-subtracted TDC time to a drift distance.
-Left/right ambiguity resolved by looking at nearby pairs of planes that have
-identical wire orientations and spacing, but with cells displaced by half a
+Based on a single hit, it is impossible to tell whether the particle passed by
+on the left or right side of the wire.
+This ambiguity is resolved by looking at nearby pairs of planes that have
+identical wire orientation and spacing, but with cells displaced by half a
 cell.
+
+
 In each drift chamber, hits that are close ``enough'' to each other are grouped
 into \textit{space points}.
 The hits in each space point are fit to create \textit{stubs}, halves of a
