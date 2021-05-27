@@ -13,6 +13,7 @@ all: pdf
 pdf:
 	$(LATEX) $(SRCNAME)
 	$(BIBTEX) $(SRCNAME)
+	./mpost_all.sh
 	$(LATEX) $(SRCNAME)
 	$(LATEX) $(SRCNAME)
 
