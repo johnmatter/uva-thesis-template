@@ -81,7 +81,7 @@ factorized~\cite{Dieperink_1975, DeForest_1983, Frullani_1984}
 % 1975 is the review paper of PWIA
 % 1983 is the paper that kind of generalizes the 1976 He3 paper
 % 1984 is a more recent review that I had trouble finding, found(!), lost, but can't find anymore
-\begin{equation}
+\begin{equation} \label{eqn:born_cross_section}
     \frac{d^6 \sigma}{dE_{e'} d\Omega_{e'} dE_{p'} d\Omega_{p'}} = p_{p'} E_{p'} \sigma_{ep} S(E_s, \vec{p}_p)
 \end{equation}
 where $\Omega_{e'}$ and $\Omega_{p'}$ are the solid angles of the outgoing particles,
@@ -98,9 +98,33 @@ which was initially calculated in Ref~\cite{Dieperink_1976} for quasielastic
 scattering from ${}^3He$.
 This cross section is set by imposing momentum and energy conservation at the
 $\gamma p$ vertex.
-% This cross section is valid for energy transfers $\omega$ below \SI{\approx150}{\mega\electronvolt}.
+% i.e. J dot q = rho omega
 The normalization condition, given nuclear charge $Z$, for the spectral
 function is
 \begin{equation}
 \int d^3p_p dE_s S(E_s, \vec{p}_p) = Z
 \end{equation}
+
+$E_s$ and $p_p$ can be estimated by measuring missing energy and momentum
+\begin{equation}
+    E_m = \omega - T_{p'} - T_{A-1}
+\end{equation}
+\begin{equation}
+    \vec{p}_m = \vec{p}_{p'} - \vec{q}
+\end{equation}
+where the kinetic energy is $T=E-m$.
+These measured quantities differ from $E_s$ and $p_p$ due to FSI, radiative
+effects, and the spectrometers' finite resolutions.
+
+
+The cross section in Equation~\ref{eqn:born_cross_section} assumes the recoil
+nucles $A-1$ remains in its ground state.
+Coincidence data can include events where this is not the case, for
+instance where the recoil nucleus is excited or one spectrometer arm is
+triggered by a pion.
+Data taken at Saclay~\cite{Mougey_1976} for quasielastic scattering from
+${}^{12}C$
+suggest that a cut on missing energy below $\SI{\sim100}{MeV}$ limits the rates
+of the former.
+Cutting on missing energy and using cuts on quantities from particle
+identification (PID) detectors limits coincidence events other than $ep$.
