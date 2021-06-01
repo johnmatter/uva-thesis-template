@@ -111,23 +111,59 @@ Equation~\ref{eqn:spectroscopic_sum_rule}, is obeyed.
 \begin{equation}
     L_i(E) =
     \begin{cases}
-        L_i(E) / \int^{\infty}_{E_{min}} dE L_i(E) & \text{if $E \geq E_{min}$} \\
+        L_i(E) / \int^{\infty}_{E_{min}} L_i(E) dE & \text{if $E \geq E_{min}$} \\
         0 & \text{if $E<E_{min}$}
     \end{cases}
 \end{equation}
 
 
-The wavefunctions $\varphi_i(\vec{p})$ are solutions to the Schroedinger
-equation with a sum of
-a Coulomb potential $V_C$,
-Woods-Saxon potential $-V_0 f(\mathbf{\vec{r}}$,
+The wavefunctions $\varphi_i(\vec{p})$ are Fourier transforms of solutions
+$\psi(\vec{r})$ to the Schroedinger equation with a potential given by the sum
+of a
+Woods-Saxon potential $-V_0 f(\vec{r})$,
+Coulomb potential $V_C(r)$,
 and spin-orbit coupling,
 \begin{equation}
-    V(\vec{r}) = -V_{0} f(r)
+    V(\vec{r}) = - V_{0} f(r)
+                 + V_{C}(r)
                  + V_{SO} \left(\frac{\hbar}{m_\pi c}\right)^{2}
                           \frac{2}{r} \frac{df}{dr}
                           \vec{l}\cdot\vec{s}
-                 + V_{C}(r)
+\end{equation}
+
+The Woods-Saxon potential is characterized by
+depth $V_0$,
+radius $R_0=r_0(A-1)^{1/3}$, and
+diffuseness $a$
+parameters and a form given by a Fermi-Dirac distribution
+\begin{equation}
+    f(r) = \frac{1}{1+e^{\frac{r-R_0}{a}}}
+\end{equation}
+The Coulomb potential is that of a uniform sphere of radius
+$R_c=r_c(A-1)^{1/3}$.
+
+
+The model parameters were obtained from fits to the Saclay
+measurements~\cite{Mougey_1976, Frullani_1984} of the ${}^{12}C$ spectral
+functions.
+The wavefunctions were obtained using the method described in
+Ref~\cite{,Giusti_1988, Giusti_1987, Blok_1991}.
+% TODO: table of relevant parameters?
+
+
+
+Short range nucleon-nucleon correlations push protons to higher missing energy
+and momentum than accounted for by the IPSM.
+Without correcting for this, simulated yields would be artificially large.
+Assuming this leads to a uniform suppression of the spectral function below the
+Fermi momentum, the spectral functions can be corrected by a constant factor,
+assuming one consistently works in the same volume $V_m$ of $(E_m,\vec{p}_m)$ phase
+space.
+Given spectral functions $S_{SRC}$,that include the effects of short range
+correlations, the correction is given by
+\begin{equation}
+    \frac{\int_{V_m} S_{IPSM}(E_m,\vec{p}_m) dE_m d^3p_m}
+         {\int_{V_m} S_{SRC} (E_m,\vec{p}_m) dE_m d^3p_m}
 \end{equation}
 
 
