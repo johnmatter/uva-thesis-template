@@ -1,1 +1,136 @@
 \section{Simulation}
+The simulated yields are taken from Monte Carlo simulations of scattering
+processes, radiative effects, and spectrometer performance.
+These simulations are carried out by the FORTRAN program
+\textit{SIMC}~\cite{simc_github, simc_wiki}.
+
+
+\textit{SIMC} was initially written for the NE18 experiment at
+SLAC~\cite{Makins_1994} and subsequently adapted for the HMS and SOS
+spectrometers in JLab's Hall C.
+Further development added support for more scattering processes, the pair of
+HRS spectrometers in Hall A, and more recently the new SHMS spectrometer in
+Hall C.
+
+
+\textit{SIMC} generates events over a wide phase space, starting from beam and
+target geometry; propagates the events through the spectrometers, accounting
+for final state interactions, energy loss, multiple scattering, and
+spectrometer acceptance and resolution; reconstructs target variables from
+tracks fit at the focal plane; then applies a weight based on a model cross
+section for the initial kinematics of each event.
+
+
+%------------------
+% TODO: move most of this to chap 4 or an appendix?
+
+The general structure of SIMC's simulation for (quasi)elastic
+scattering is described below.
+\begin{enumerate}
+    \item Initialization
+    \begin{itemize}
+        \item Choose a reaction and final state
+        % \item Disable/enable implementation of (or correction for) raster, eloss ...
+    \end{itemize}
+
+    \item Event Generation
+    \begin{itemize}
+        \item Generate an event vertex based on target geometry,
+              beam width, beam raster, and beam energy
+        \item Generate $\theta_e$, $\phi_e$, $p_e$,
+                       $\theta_p$, $\phi_p$, $p_p$
+    \end{itemize}
+
+    \item Event Propagation
+    \begin{itemize}
+        \item Adjust event for radiative effects, Coulomb corrections, particle decays, etc.
+        \item Propagate particles through spectrometers using COSY models,
+              applying energy loss and multiple scattering in the target and
+              detectors.
+    \end{itemize}
+
+    \item Event Reconstruction
+    \begin{itemize}
+        \item Fit tracks in the focal plane
+        \item Reconstruct target variables $\delta$, $x'_{tar}$, $y'_{tar}$, $y_{tar}$
+    \end{itemize}
+
+    \item Normalization and Saving to Disk
+    \begin{itemize}
+        \item Calculate $E_m$ and $\vec{p}_m$ if simulating quasielastic scattering
+        \item Calculate per-event weight from spectral function, cross section,
+              radiative correction weight, and event generation weight.
+        \item Calculate normalization factor \textit{normfac} from luminosity,
+              phase space factors, and total number of events generated.
+        \item Save per-event physics quantities and weights in an Ntuple in a
+              PAW HBOOK.
+    \end{itemize}
+\end{enumerate}
+
+\begin{equation}
+    \text{normfac} = \frac{\mathcal{L} \Delta E_p \Delta \Omega_p \Delta E_e \Delta \Omega_e}
+                          {N_{gen}}
+\end{equation}
+
+\textit{SIMC}'s output \texttt{.hbook} files can be converted to \texttt{.root}
+files for analysis alongside \textit{hcana} output using the utility
+\textit{h2root}.
+
+% Good note explaining normfac
+% https://hallaweb.jlab.org/12GeV/experiment/E12-07-108/Publications/Technical/Spectrometer/SIMC/simc_extra.pdf
+% Gaskell/Arrington talk on simc
+% https://hallaweb.jlab.org/collab/meeting/2009-winter/talks/Analysis%20Workshop%20--%20Dec%2014/simc_overview.pdf
+
+The spectral functions used in SIMC are based on the independent particle shell
+model (IPSM), which assumes nucleons occupy shells with quantum numbers $n$,
+$l$, $j$, similar to the model of electron orbitals in atomic physics.
+% preetty good slides
+% http://indico.ictp.it/event/7641/session/21/contribution/46/material/0/0.pdf
+In this model, the spectral function can be factored into a sum of per-shell
+energy and momentum distributions
+\begin{equation}
+    S(E_m,\vec{p}_m) = \sum_i N_i \norm{\varphi_i(\vec{p})}^2 L_i(E_m)
+\end{equation}
+where $N_i$ is the occupation number of the $i$th shell,
+$\varphi_i(\vec{p})$ is the bound state wavefunction,
+and $L_i(E_m)$ is an energy profile.
+
+
+% TODO: Give one of these Ls a tilde or prime to account for normalization?
+The energy profile of each nuclear shell $i$ with binding energy $E_i$ is
+given by a Lorentzian with finite width $\Gamma_i$ that accounts for the finite
+lifetime of the one-hole state.
+\begin{equation}
+    L_i(E) = \frac{1}{\pi} \frac{\Gamma/2}{(E-E_i)^2 + \Gamma^2/4}
+\end{equation}
+
+The separation energy $E$ cannot be less than the minimum proton removal
+energy $E_{min}=m_p + m_{A-1} - m_A$, so these profiles are cut off below
+$E_min$ and normalized to ensure the spectroscopic sum rule,
+Equation~\ref{eqn:spectroscopic_sum_rule}, is obeyed.
+\begin{equation}
+    L_i(E) =
+    \begin{cases}
+        L_i(E) / \int^{\infty}_{E_{min}} dE L_i(E) & \text{if $E \geq E_{min}$} \\
+        0 & \text{if $E<E_{min}$}
+    \end{cases}
+\end{equation}
+
+
+The wavefunctions $\varphi_i(\vec{p})$ are solutions to the Schroedinger
+equation with a sum of
+a Coulomb potential $V_C$,
+Woods-Saxon potential $-V_0 f(\mathbf{\vec{r}}$,
+and spin-orbit coupling,
+\begin{equation}
+    V(\vec{r}) = -V_{0} f(r)
+                 + V_{SO} \left(\frac{\hbar}{m_\pi c}\right)^{2}
+                          \frac{2}{r} \frac{df}{dr}
+                          \vec{l}\cdot\vec{s}
+                 + V_{C}(r)
+\end{equation}
+
+
+
+
+% TODO: describe FSI etc in some detail
