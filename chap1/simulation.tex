@@ -14,72 +14,74 @@ Hall C.
 
 
 \textit{SIMC} generates events over a wide phase space, starting from beam and
-target geometry; propagates the events through the spectrometers, accounting
-for final state interactions, energy loss, multiple scattering, and
-spectrometer acceptance and resolution; reconstructs target variables from
-tracks fit at the focal plane; then applies a weight based on a model cross
-section for the initial kinematics of each event.
+target geometry.
+Generating events over a region of phase space wider than the spectrometers'
+acceptance allows simulation of events that will be thrown into the acceptance
+window, for example because of multiple scattering or energy loss.
+Events are then propagated through the spectrometers, accounting for final
+state interactions, energy loss, multiple scattering, and spectrometer
+acceptance and resolution.
+Target variables are reconstructed from tracks fit at the focal plane.
+Then weight is calculated based on a model cross section for the initial
+kinematics of each event.
 
 
 %------------------
 % TODO: move most of this to chap 4 or an appendix?
 
-The general structure of SIMC's simulation for (quasi)elastic
-scattering is described below.
-\begin{enumerate}
-    \item Initialization
-    \begin{itemize}
-        \item Choose a reaction and final state
-        % \item Disable/enable implementation of (or correction for) raster, eloss ...
-    \end{itemize}
+% The general structure of SIMC's simulation for (quasi)elastic
+% scattering is described below.
+% \begin{enumerate}
+%     \item Initialization
+%     \begin{itemize}
+%         \item Choose a reaction and final state
+%         % \item Disable/enable implementation of (or correction for) raster, eloss ...
+%     \end{itemize}
 
-    \item Event Generation
-    \begin{itemize}
-        \item Generate an event vertex based on target geometry,
-              beam width, beam raster, and beam energy
-        \item Generate $\theta_e$, $\phi_e$, $p_e$,
-                       $\theta_p$, $\phi_p$, $p_p$
-    \end{itemize}
+%     \item Event Generation
+%     \begin{itemize}
+%         \item Generate an event vertex based on target geometry,
+%               beam width, beam raster, and beam energy
+%         \item Generate $\theta_e$, $\phi_e$, $p_e$,
+%                        $\theta_p$, $\phi_p$, $p_p$
+%     \end{itemize}
 
-    \item Event Propagation
-    \begin{itemize}
-        \item Adjust event for radiative effects, Coulomb corrections, particle decays, etc.
-        \item Propagate particles through spectrometers using COSY models,
-              applying energy loss and multiple scattering in the target and
-              detectors.
-    \end{itemize}
+%     \item Event Propagation
+%     \begin{itemize}
+%         \item Adjust event for radiative effects, Coulomb corrections, particle decays, etc.
+%         \item Propagate particles through spectrometers using COSY models,
+%               applying energy loss and multiple scattering in the target and
+%               detectors.
+%     \end{itemize}
 
-    \item Event Reconstruction
-    \begin{itemize}
-        \item Fit tracks in the focal plane
-        \item Reconstruct target variables $\delta$, $x'_{tar}$, $y'_{tar}$, $y_{tar}$
-    \end{itemize}
+%     \item Event Reconstruction
+%     \begin{itemize}
+%         \item Fit tracks in the focal plane
+%         \item Reconstruct target variables $\delta$, $x'_{tar}$, $y'_{tar}$, $y_{tar}$
+%     \end{itemize}
 
-    \item Normalization and Saving to Disk
-    \begin{itemize}
-        \item Calculate $E_m$ and $\vec{p}_m$ if simulating quasielastic scattering
-        \item Calculate per-event weight from spectral function, cross section,
-              radiative correction weight, and event generation weight.
-        \item Calculate normalization factor \textit{normfac} from luminosity,
-              phase space factors, and total number of events generated.
-        \item Save per-event physics quantities and weights in an Ntuple in a
-              PAW HBOOK.
-    \end{itemize}
-\end{enumerate}
+%     \item Normalization and Saving to Disk
+%     \begin{itemize}
+%         \item Calculate $E_m$ and $\vec{p}_m$ if simulating quasielastic scattering
+%         \item Calculate per-event weight from spectral function, cross section,
+%               radiative correction weight, and event generation weight.
+%         \item Calculate normalization factor \textit{normfac} from luminosity,
+%               phase space factors, and total number of events generated.
+%         \item Save per-event physics quantities and weights in an Ntuple in a
+%               PAW HBOOK.
+%     \end{itemize}
+% \end{enumerate}
 
-\begin{equation}
-    \text{normfac} = \frac{\mathcal{L} \Delta E_p \Delta \Omega_p \Delta E_e \Delta \Omega_e}
-                          {N_{gen}}
-\end{equation}
-
-\textit{SIMC}'s output \texttt{.hbook} files can be converted to \texttt{.root}
-files for analysis alongside \textit{hcana} output using the utility
-\textit{h2root}.
+% \textit{SIMC}'s output \texttt{.hbook} files can be converted to \texttt{.root}
+% files for analysis alongside \textit{hcana} output using the utility
+% \textit{h2root}.
 
 % Good note explaining normfac
 % https://hallaweb.jlab.org/12GeV/experiment/E12-07-108/Publications/Technical/Spectrometer/SIMC/simc_extra.pdf
 % Gaskell/Arrington talk on simc
 % https://hallaweb.jlab.org/collab/meeting/2009-winter/talks/Analysis%20Workshop%20--%20Dec%2014/simc_overview.pdf
+
+\subsection{Spectral Functions}
 
 The spectral functions used in SIMC are based on the independent particle shell
 model (IPSM), which assumes nucleons occupy shells with quantum numbers $n$,
@@ -101,7 +103,7 @@ The energy profile of each nuclear shell $i$ with binding energy $E_i$ is
 given by a Lorentzian with finite width $\Gamma_i$ that accounts for the finite
 lifetime of the one-hole state.
 \begin{equation}
-    L_i(E) = \frac{1}{\pi} \frac{\Gamma/2}{(E-E_i)^2 + \Gamma^2/4}
+    L_i(E) = \frac{1}{\pi} \frac{\Gamma_i/2}{(E-E_i)^2 + \Gamma_i^2/4}
 \end{equation}
 
 The separation energy $E$ cannot be less than the minimum proton removal
@@ -147,9 +149,8 @@ The model parameters were obtained from fits to the Saclay
 measurements~\cite{Mougey_1976, Frullani_1984} of the ${}^{12}C$ spectral
 functions.
 The wavefunctions were obtained using the method described in
-Ref~\cite{,Giusti_1988, Giusti_1987, Blok_1991}.
+Ref~\cite{Giusti_1988, Giusti_1987, Blok_1991}.
 % TODO: table of relevant parameters?
-
 
 
 Short range nucleon-nucleon correlations push protons to higher missing energy
@@ -166,6 +167,42 @@ correlations, the correction is given by
          {\int_{V_m} S_{SRC} (E_m,\vec{p}_m) dE_m d^3p_m}
 \end{equation}
 
+
+\subsection{Multiple Scattering}
+
+\textit{SIMC} includes a list of the effective thickness in radiation lengths
+$t_{eff}$ of every material a particle passes through.
+As the simulated particle with momentum $p$ passes through each material, a
+rescattering angle $\theta$ is calculated using the approximation of
+Moli\`{e}re's multiple scattering theory given in Equation (6) of
+Ref~\cite{Lynch_1991},
+\begin{equation}
+    \theta = \frac{E_s}{p \beta}
+             \sqrt{t_{eff}}
+             \left[1 + \epsilon \log_{10}{\left( \frac{t_{eff}}{\beta^2} \right)}\right]
+\end{equation}
+where $E_s=\SI{13.6}{\mega\electronvolt}$ and $\epsilon=0.088$ are parameters
+taken from fits to multiple scattering measurements taken at
+Fermilab~\cite{Shen_1979}.
+These measurements were taken with incident pions, kaons, and protons at
+momenta between 50 and \SI{200}{\giga\electronvolt} on hydrogen, beryllium,
+carbon, aluminum, copper, tin, and lead targets.
+
+\subsection{Energy Loss}
+
+\subsection{Coulomb Corrections}
+
+\subsection{Final State Interactions}
+
+\subsection{Pauli Blocking}
+
+\subsection{Radiative Corrections}
+
+\subsection{Weighting and Normalization}
+\begin{equation}
+    \text{normfac} = \frac{\mathcal{L} \Delta E_p \Delta \Omega_p \Delta E_e \Delta \Omega_e}
+                          {N_{gen}}
+\end{equation}
 
 
 
