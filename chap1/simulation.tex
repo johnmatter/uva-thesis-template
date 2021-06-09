@@ -150,6 +150,7 @@ measurements~\cite{Mougey_1976, Frullani_1984} of the ${}^{12}C$ spectral
 functions.
 The wavefunctions were obtained using the method described in
 Ref~\cite{Giusti_1988, Giusti_1987, Blok_1991}.
+% TODO: clarify: is this still the DWEEPY stuff others describe?
 % TODO: table of relevant parameters?
 
 
@@ -166,6 +167,8 @@ correlations, the correction is given by
     \frac{\int_{V_m} S_{IPSM}(E_m,\vec{p}_m) dE_m d^3p_m}
          {\int_{V_m} S_{SRC} (E_m,\vec{p}_m) dE_m d^3p_m}
 \end{equation}
+% DD: A more realistic estimate of the SRC correction would have different
+% values for the p and s-shell with the overall correction averaging to 12%
 
 \subsection{Coulomb Corrections}
 Coulomb distortions of the PWIA model arise from electromagnetic interactions
@@ -188,8 +191,10 @@ $R_0=1.1 A^{1/3}+0.86 A^{-1/3}$ is the radius of the nucleus.
 \textit{SIMC} uses the prescription described in Ref~\cite{Aste_2005}, which
 takes this energy to be
 \begin{equation}
-    \Delta E = \frac{1.125(Z-1)\alpha}{R_0}
+    \Delta E = \frac{f(Z-1)\alpha}{R_0}
 \end{equation}
+where the factor $f$ is of order 1; SIMC uses $f=1.125$.
+
 
 Assuming the incoming electron is not deflected, its initial momentum at the
 interaction vertex becomes
@@ -207,9 +212,105 @@ and opposite correction is applied to the outgoing electron momentum,
 
 \subsection{Final State Interactions}
 
-\subsection{Pauli Blocking}
+
+% \subsection{Pauli Blocking}
+% TODO: write Pauli blocking section? I don't think we actually use it in QE simulation?
+% Basic idea:
+% In Fermi gas, all states below k_F are filled.
+% When a pion is produced in A(e,e'pi+)n, the recoil neutron might not have
+% anywhere to go!
+% So occupation levels are smoothed out.
+% SIMC uses Fantoni 1984 data for this.
 
 \subsection{Radiative Corrections}
+Based on the work of Mo and Tsai~\cite{Mo_1969}.
+Calculated for coincidence elastic and quasielastic scattering by Makins et.
+al~\cite{Ent_2001, Makins_1994}.
+% McKee has a good discussion it seems. DD too.
+
+Generates a weight based on internal and external Bremsstrahlung, appropriately
+populating the Em Pm plane?
+
+WAnt to know the cross section for an electron scattering off a proton into a
+solid angle $d\Omega_e$, producing photons with total momentum in the range
+$d^3\omega$, $\frac{d\sigma}{d\Omega_e d^3\omega}$.
+
+\subsubsection{Internal Bremsstrahlung}
+First order, set up the diagrams, do trace calculations, and you get
+\begin{align}
+    \frac{d\sigma}{d\Omega_e d^3\omega} &=
+        \left.\frac{d \sigma^{(1)}}{d \Omega_{e}}\right|_{e p}
+        \frac{-\alpha}{4 \pi^{2} \omega^{0}}
+        \left[ \frac{k'}{\omega \cdot k'} -
+                \frac{p'}{\omega \cdot p'} -
+               \frac{k}{\omega \cdot k} +
+               \frac{p}{\omega \cdot p}
+        \right]^2 \\
+     &= \left. \frac{d\sigma^{(1)}}{d\Omega_e}\right|_{ep}
+         \frac{A(\Omega_\gamma)}{\omega^0}
+\end{align}
+
+where $\left. \frac{d\sigma^{(1)}}{d\Omega_e}\right|_{ep}$ is the single photon
+exchange $ep$ cross section,
+and $A(\Omega_\gamma)$ depends only on the photon direction $\hat{\omega}$.
+
+Let
+\begin{equation}
+    B(p_i, p_j, \Delta E_m) = \int_0^{\Delta E_m} d^3 \omega
+    \frac{1}{8\pi^2\omega^0}
+    \frac{p_i \cdot p_j}{(\omega \cdot p_i)(\omega \cdot p_j)}
+\end{equation}
+and
+\begin{equation}
+    \lambda = \int d\Omega_\gamma A(\hat{\omega})
+\end{equation}
+
+Allowing the emission of multiple Bremsstrahlung photons, with a total energy
+$E_{tot}$,
+
+\begin{equation}
+    \frac{d\sigma}{d\Omega_e d^3\omega} =
+        \left.\frac{d \sigma^{(1)}}{d \Omega_{e}}\right|_{e p}
+        (1-\sigma_{hard})
+        (-\delta'_{soft}(E_{tot})
+        e^{-\delta_{soft}(E_{tot})}
+        F(\lambda)
+\end{equation}
+
+where $F(\lambda)=\frac{e^{-C\lambda}}{\Gamma(1+\lambda)}$ and $C$ is the
+Euler-Mascheroni constant.
+% TODO: clarify: is \delta'_{soft}(E) = \frac{d\delta_{soft}(E)}{dE}?
+
+
+The contribution from one photon Bremsstrahlung is
+\begin{equation}
+    \delta_{soft}(\Delta E_m) = 2\alpha \sum_{i,j} \Theta(p_i) \Theta(p_j)
+                                                   \bar{B}(p_i,p_j,\Delta E_m)
+\end{equation}
+where $\bar{B}(p_i,p_j,\Delta E_m)$ is $B(p_i,p_j,\Delta E_m)$ without the
+infrared divergent term
+$p_i$ is one of $k,k',p,p'$
+and
+$\Theta(p_i)$ is the sign function.
+
+The contribution from one-loop diagrams is
+\begin{equation}
+    \delta_{hard} = 2\alpha \left[ -\frac{3}{4\pi}\log(-q^2/m^2) +
+    \frac{1}{\pi} - \sum_i \delta^{vp}_i(q^2)\right]
+\end{equation}
+where
+\begin{equation}
+    \delta^{vp}_i = \frac{1}{3 \pi}
+                        \left(
+                            -\frac{5}{3} - \frac{4 m_{i}^{2}}{q^{2}} +
+                            \left(1+\frac{2 m_{i}^{2}}{q^{2}}\right)
+                            \sqrt{1-\frac{4 m_{i}^{2}}{q^{2}}}
+                            \log \left[\frac{1+\sqrt{1-\frac{4 m_{i}^{2}}{q^{2}}}}
+                                            {\sqrt{1-\frac{4 m_{i}^{2}}{q^{2}}-1}}
+                                 \right]
+                        \right)
+\end{equation}
+is the vacuum polarization correction due to quark flavor $i$.
 
 \subsection{Multiple Scattering}
 
