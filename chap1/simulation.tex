@@ -223,37 +223,47 @@ and opposite correction is applied to the outgoing electron momentum,
 % SIMC uses Fantoni 1984 data for this.
 
 \subsection{Radiative Corrections}
-Based on the work of Mo and Tsai~\cite{Mo_1969}.
-Calculated for coincidence elastic and quasielastic scattering by Makins et.
-al~\cite{Ent_2001, Makins_1994}.
-% McKee has a good discussion it seems. DD too.
-
-Generates a weight based on internal and external Bremsstrahlung, appropriately
-populating the Em Pm plane?
-
-WAnt to know the cross section for an electron scattering off a proton into a
-solid angle $d\Omega_e$, producing photons with total momentum in the range
-$d^3\omega$, $\frac{d\sigma}{d\Omega_e d^3\omega}$.
+The method for radiative corrections in \textit{SIMC} is based on the work of
+Mo and Tsai~\cite{Mo_1969}.
+The full derivation by Makins et. al~\cite{Ent_2001, Makins_1994} for
+coincidence elastic and quasielastic scattering done is quite length.
+What follows in this subsection is an overview of the main results.
+In brief, \textit{SIMC} calculates vertex corrections and the energy radiated
+as internal and external Bremsstrahlung, modifies the simulated particles'
+vertex 4-momenta accordingly, and applies a weight to the event.
 
 \subsubsection{Internal Bremsstrahlung}
-First order, set up the diagrams, do trace calculations, and you get
+The cross section for scattering an electron into a solid angle $d\Omega_e$
+accompanied by the emission of a single photon is
 \begin{align}
     \frac{d\sigma}{d\Omega_e d^3\omega} &=
         \left.\frac{d \sigma^{(1)}}{d \Omega_{e}}\right|_{e p}
-        \frac{-\alpha}{4 \pi^{2} \omega^{0}}
+        \frac{-\alpha}{4 \pi^{2} (\omega^{0})^2}
         \left[ \frac{k'}{\omega \cdot k'} -
                 \frac{p'}{\omega \cdot p'} -
                \frac{k}{\omega \cdot k} +
                \frac{p}{\omega \cdot p}
         \right]^2 \\
      &= \left. \frac{d\sigma^{(1)}}{d\Omega_e}\right|_{ep}
-         \frac{A(\Omega_\gamma)}{\omega^0}
+         \frac{A(\hat{\omega})}{\omega^0}
 \end{align}
 
-where $\left. \frac{d\sigma^{(1)}}{d\Omega_e}\right|_{ep}$ is the single photon
+where $\left. \frac{d\sigma^{(1)}}{d\Omega_e}\right|_{ep}$ is the single-photon
 exchange $ep$ cross section,
-and $A(\Omega_\gamma)$ depends only on the photon direction $\hat{\omega}$.
+and $A(\hat{\omega})$ is the angular distribution of single photon Bremsstrahlung.
+The kinematic terms on the right hand side come from the
+amplitudes given by the Feynman diagrams in Fig~\ref{fig:single_photon_brem_feynman}
 
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{chap1/single_photon_brem_feynman.pdf}
+    \caption{
+             Figure reproduced from Ref~\cite{Ent_2001}.
+             }
+    \label{fig:single_photon_brem_feynman}
+\end{figure}
+
+% TODO: remove some of this derivation stuff so we only have main results
 Let
 \begin{equation}
     B(p_i, p_j, \Delta E_m) = \int_0^{\Delta E_m} d^3 \omega
@@ -295,8 +305,12 @@ $\Theta(p_i)$ is the sign function.
 
 The contribution from one-loop diagrams is
 \begin{equation}
-    \delta_{hard} = 2\alpha \left[ -\frac{3}{4\pi}\log(-q^2/m^2) +
-    \frac{1}{\pi} - \sum_i \delta^{vp}_i(q^2)\right]
+    \delta_{hard} = 2\alpha
+                    \left[
+                        -\frac{3}{4\pi}\log\left(\frac{-q^2}{m_e^2}\right)
+                        + \frac{1}{\pi}
+                        - \sum_i \delta^{vp}_i(q^2)
+                    \right]
 \end{equation}
 where
 \begin{equation}
@@ -305,12 +319,170 @@ where
                             -\frac{5}{3} - \frac{4 m_{i}^{2}}{q^{2}} +
                             \left(1+\frac{2 m_{i}^{2}}{q^{2}}\right)
                             \sqrt{1-\frac{4 m_{i}^{2}}{q^{2}}}
-                            \log \left[\frac{1+\sqrt{1-\frac{4 m_{i}^{2}}{q^{2}}}}
-                                            {\sqrt{1-\frac{4 m_{i}^{2}}{q^{2}}-1}}
+                            \log \left[\frac{\sqrt{1-\frac{4 m_{i}^{2}}{q^{2}}}+1}
+                                            {\sqrt{1-\frac{4 m_{i}^{2}}{q^{2}}}-1}
                                  \right]
                         \right)
 \end{equation}
-is the vacuum polarization correction due to quark flavor $i$.
+is the vacuum polarization correction due to flavor $i$ of leptons and light quarks of flavor $i$.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{chap1/single_photon_angular_distribution.pdf}
+    \caption{The angular distribution of first order single photon
+             Bremmstrahlung for three values of momentum transfer $Q^2$.
+             The photon angle, given in degrees, is measured with respect to
+             the direction of the incoming beam electron.
+             The directions $\theta_e$ and $theta_p$ of the scattered electron
+             and proton are indicated by dotted lines.
+             Figure reproduced from Ref~\cite{Ent_2001}.
+             }
+    \label{fig:single_photon_angular_distribution}
+\end{figure}
+
+As shown in Fig~\ref{fig:single_photon_angular_distribution}, the single
+photon angular distribution is peaked around the directions of the incoming and
+outgoing electron, and this focus increases with momentum transfer $Q^2$.
+A broad peak in the direction of the scattered proton also becomes more defined
+with increasing $Q^2$.
+The \textit{peaking approximation} consists of dividing the total energy
+radiated in Bremmstrahlung into three photons of energy $E_e$, $E_{e'}$, and
+$E_{p'}$ that travel in the directions
+$\hat{k}$ of the incoming electron,
+$\hat{k}'$ of the outgoing electron,
+and
+$\hat{p}'$ of the outgoing proton.
+The angular distribution $A(\hat{\omega})$ then becomes
+\begin{equation}
+    A_{peaking}(\hat{\omega}) = \lambda_{e}  \delta(\hat{\omega}-\hat{k}) +
+                                \lambda_{e'} \delta(\hat{\omega}-\hat{k}') +
+                                \lambda_{p'} \delta(\hat{\omega}-\hat{p}')
+\end{equation}
+The form of these $\lambda_i$ terms can be found by breaking up the angular
+distribution $A(\hat{\omega})$ into three terms---one due to electron, one
+due to the proton, and one with the cross terms
+
+\begin{align}
+    A(\hat{\omega}) = -\frac{\alpha(\omega^0)^2}{4\pi^{2}}
+                        &\left[\left(\frac{k^{\prime}}{\omega \cdot k^{\prime}}-\frac{k}{\omega \cdot k}\right)^{2}
+                        + \left(\frac{p^{\prime}}{\omega \cdot p^{\prime}}-\frac{p}{\omega \cdot p}\right)^{2}\right.\nonumber\\
+                        &\left.-2\left(\frac{k^{\prime}}{\omega \cdot k^{\prime}}-\frac{k}{\omega \cdot k}\right)
+                        \left(\frac{p^{\prime}}{\omega \cdot p^{\prime}}-\frac{p}{\omega \cdot p}\right) \right]
+\end{align}
+
+By expanding each of these terms in the polar coordinate $\theta$,
+making approximations about their asymptotic behavior near and away from the peaks,
+and finally integrating them, one can distribute their contents among the three
+directions
+\begin{align}
+    \lambda_e    &= \frac{\alpha}{\pi}\left[\log\left(\frac{4k^2}{m_e^2}\right) +
+                                        2\log\left(\frac{k}{k'}\right) +
+                                        \log\left(\frac{1-cos\theta_e}{2}\right)
+                                        -1\right] \\
+    \lambda_{e'} &= \frac{\alpha}{\pi}\left[\log\left(\frac{4k'^2}{m_e^2}\right) +
+                                        2\log\left(\frac{k}{k'}\right) +
+                                        \log\left(\frac{1-cos\theta_e}{2}\right)
+                                        -1\right] \\
+    \lambda_{p'} &= \frac{\alpha}{\pi}
+                  \left[
+                      \frac{p'^0}{|\vec{p}|}
+                      \log\left(\frac{p'^0+|\vec{p}|}
+                                     {p'^0-|\vec{p}|}\right)
+                      - 2
+                  \right]
+\end{align}
+
+Generalizing to multiphoton Bremsstrahlung,
+\begin{align}
+    \frac{d\sigma}{d\Omega_e dE_e dE_{e'} dE_{p'}} &= \left. \frac{d\sigma^{(1)}}{d\Omega_e}\right|_{ep} \left(1-\delta_{hard}\right) \\
+    &\times\frac{\lambda_e \lambda_{e'} \lambda_{p'}} {\left(kk'\right)^{\lambda_e/2} \left(kk'\right)^{\lambda_{e'}/2} \left(m_p p'^0\right)^{\lambda_{p'}/2}} \\
+    &\times\frac{1}{E_{e}^{1-\lambda_{e}} E_{e'}^{1-\lambda_{e'}} E_{p'}^{1-\lambda_{p'}}}
+\end{align}
+
+\subsubsection{External Bremsstrahlung}
+% our flags:
+% rad_flag = 0; "use best available formulas, generate in (ntail,Egamma) basis"
+% extrad_flag = 2; "use BASIC ext rad formulas x phi"
+External Bremsstrahlung refers to the emission of photons in the fields of
+nuclei other than the nucleus participating in the primary scattering.
+The proton emits a negligible amount of such radiation, but the electron will
+experience these losses as it travels through various materials\footnote{
+SIMC calculates external Bremsstrahlung for the region between the target
+chamber entrance window and the spectrometer entrance windows.
+Energy loss and multiple scattering are the dominant corrections in the magnets
+and detectors.}
+
+Early~\cite{Early_1973} provides a numerical solution for the probability that
+an electron with momentum $k$ radiates a total energy $E^{ext}$ while traveling
+through $t$ radiation lengths of material with atomic number Z,
+\begin{equation}
+    \frac{1}{\Gamma(1+bt)}
+    \frac{bt}{E^{ext}}
+    \left(\frac{E^{ext}}{k}\right)^{bt}
+    \Phi^{ext}\left(\frac{E^{ext}}{k}\right)
+\end{equation}
+where $b$ is a parameter expressing the $Z$ dependence,
+\begin{equation}
+    b = \frac{1}{9}\left(12 + \frac{Z+1}{ZL_1+L_2}\right)
+\end{equation}
+where
+$L_1 = \ln{184.15} - \frac{1}{3} \ln Z$
+and
+$L_2 = \ln{1194} - \frac{2}{3} \ln Z$.
+The function $\Phi^{ext}$ is a correction for large photon energies.
+For the incoming electron, \textit{SIMC} uses the approximate form
+\begin{equation}
+    \Phi^{ext}_e\left(\frac{E_e}{k}\right) = 1 - \frac{bt}{bt-\lambda_e}\frac{E_e}{k}
+\end{equation}
+
+
+\textit{SIMC} combines the internal and external Bremsstrahlung into three
+photon energies $E_e$, $E_{e'}$, and $E_{p'}$
+\begin{align}
+\frac{d\sigma}{d\Omega_{e} dE_{e} dE_{e'} dE_{p'}} =&\left.\frac{d\sigma}{d\Omega_{e}}\right|_{ep} \left(1-\delta_{hard}\right) \\
+    &\times \frac{1}{\Gamma\left(1+b t_{e}\right)}  \frac{bt_{e}  + \lambda_{e}} {k^{bt_{e}} (kk')^{\lambda_{e}/2}}  \frac{1}{E_{e}^{1 -\lambda_{e} -bt_{e}}} \\
+    &\times \frac{1}{\Gamma\left(1+b t_{e'}\right)} \frac{bt_{e'} + \lambda_{e'}}{k^{bt_{e'}}(kk')^{\lambda_{e'}/2}} \frac{1}{E_{e'}^{1-\lambda_{e'}-bt_{e'}}} \\
+    &\times \frac{\lambda_{p'}}{(m_p p')^{\lambda_{p'}/2}} \frac{1}{E_{p'}^{1-\lambda_{p'}}}
+\end{align}
+
+Using the energy distributions contained in this expression,
+\textit{SIMC} generates the radiated energy based on the limits
+$E_{min}$ and $E_{max}$
+imposed by
+the model spectral functions,
+spectrometer acceptances,
+and randomly generated initial and final 4-momenta of particles participating
+in scattering.
+These energies are then subtracted from the particles' vertex energies.
+
+
+Then, \textit{SIMC} generates a weight $W^{event}_{rad}$ for the event based on the
+probabilities of emitting energies $E_i$, where $i$ is one of $e$, $e'$, and
+$p'$.
+The first contribution to this weight,
+$W^{soft}_{rad}=W^{e}_{rad}W^{e'}_{rad}W^{p'}_{rad}$, is due to Bremsstrahlung,
+where
+\begin{equation}
+    W^{e}_{rad} = \frac{1}{\Gamma(1+bt_{e})} \frac{1}{k^{bt_{e}}(kk')^{\lambda_{e}/2}}
+                \left((E^{e}_{max})^{bt+\lambda_{e}}-(E^{e}_{max})^{bt+\lambda_{e}}\right)
+\end{equation}
+\begin{equation}
+    W^{e'}_{rad} = \frac{1}{\Gamma(1+bt_{e'})} \frac{1}{k^{bt_{e'}}(kk')^{\lambda_{e'}/2}}
+                \left((E^{e'}_{max})^{bt+\lambda_{e'}}-(E^{e'}_{max})^{bt+\lambda_{e'}}\right)
+\end{equation}
+\begin{equation}
+    W^{p'}_{rad} =  \frac{1}{(m_p p')^{\lambda_{p'}/2}}
+                \left((E^{p'}_{max})^{\lambda_{p'}}-(E^{p'}_{max})^{\lambda_{p'}}\right)
+\end{equation}
+
+The second contribution $\Phi^{ext}=\Phi^{ext}_{e}\Phi^{ext}_{e'}$
+is due to external radiation.
+The final contribution $(1-\\delta_{hard})$.is due to vertex corrections.
+Altogether, the weight from radiative corrections is
+\begin{equation}
+    W_{rad} = W^{soft}_{rad} \Phi^{ext} (1-\delta_{hard})
+\end{equation}
+
 
 \subsection{Multiple Scattering}
 
@@ -365,7 +537,3 @@ The magnitude of this effect is greater at larger momenta.
     \text{normfac} = \frac{\mathcal{L} \Delta E_p \Delta \Omega_p \Delta E_e \Delta \Omega_e}
                           {N_{gen}}
 \end{equation}
-
-
-
-% TODO: describe FSI etc in some detail
