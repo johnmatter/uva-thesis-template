@@ -1,2 +1,70 @@
 \section{Glauber Multiple Scattering Theory}
+This experiment takes the work of Pandharipande and
+Pieper~\cite{Pandharipande_1992} as the null hypothesis against which the onset
+of color transparency is to be tested.
+This is the same model used in previous measurements of nuclear transparency
+for quasielastic scattering. % TODO: cite previous measurements; garrow etc
+
+
+The model starts with the assumption that the differences between cross
+sections for free and in-medium nucleon-nucleon scattering arise primarily from
+Pauli blocking of final states and effective mass corrections.
+Pandharipande and Pieper find good agreement between experimental results and
+their model's estimates of the imaginary part of the optical potential in
+nuclear matter.
+
+
+The dispersion relation $e(k,\rho)$ for nucleons in nuclear matter with density
+$\rho$ and real part of the optical potential $U(k,\rho)$ is
+\begin{equation}
+    e(k,\rho) = \frac{\hbar^2 k^2}{2m} + U(k,\rho)
+\end{equation}
+
+The velocity of an in-medium nucleon with momentum $k$ differs from that of a
+free nucleon.
+The derivative of the dispersion relation gives this velocity and a
+definition of an effective mass $m^*$
+\begin{equation}
+    \frac{1}{\hbar}\frac{de(k,\rho)}{dk}
+        = \frac{\hbar^2 k}{m} + \frac{1}{\hbar}\frac{d}{dk}U(k,\rho)
+        \equiv \frac{\hbar k}{m^*(k,\rho)}
+\end{equation}
+
+% With this velocity $v'$, transition matrix $t'$, and density of states $D'$,
+% the in-medium nucleon-nucleon scattering cross section in a volume of size
+% $L^3$ can be expressed as
+% \begin{equation}
+%     \frac{d\sigma}{d\Omega} = \frac{L^3}{v'} \frac{2\pi}{\hbar} |t'|^2 D'
+% \end{equation}
+% The equivalent expression holds with unprimed quantities for the vacuum cross
+% section.
+% Assuming the in-medium correlated two-nucleon wave function at small
+% interparticle distances is the same as in the vacuum, the transition matrix
+% $t'$ can be taken to be $t' \approx t$.
+% Using the approximation from Ref~\cite{Krotscheck_1981}, the in-medium density
+% of states is
+% \begin{equation}
+%     D' = D \frac{m^*\left( \sqrt{\frac{1}{2}(k_3^2+k_4^2)}, \rho \right)}{m}
+% \end{equation}
+% and the in-medium differential cross section is
+% \begin{equation}
+% \begin{aligned}
+%     \frac{d \sigma^{\prime}}{d \Omega}=& \frac{v_{\mathrm{rel}}}{v_{\mathrm{rel}}^{\prime}} \frac{D_{f}^{\prime}}{D_{f}} \frac{d \sigma}{d \Omega} \\
+%     =& \frac{\left|\mathbf{k}_{1}-\mathbf{k}_{2}\right|}{m}\left[\left|\frac{\mathbf{k}_{1}}{m^{*}\left(k_{1}, \rho\right)}-\frac{\mathbf{k}_{2}}{m^{*}\left(k_{2}, \rho\right)}\right|\right]^{-1} \\
+%     & \times \frac{m^{*}\left[\sqrt{\left(k_{3}^{2}+k_{4}^{2}\right) / 2}, \rho\right]}{m} \frac{d \sigma}{d \Omega}
+% \end{aligned}
+% \end{equation}
+
+The in-medium cross section for a proton with momentum $k$ scattering off a
+nucleon $a=n,p$ is
+\begin{equation}
+    \widetilde{\sigma}_{pa}(k,\rho)=\frac{m^{*}(k, \rho)}{\hbar k \rho_{a} \tau_{a}(k)}
+\end{equation}
+where $\tau_a$ is the life time of the two-particle-one-hole state.
+The model uses the
+Urbana $\text{v}_{14}+\text{TNI}$ Hamiltonian~\cite{Lagaris_1981_331, Lagaris_1981_349}
+and variational method~\cite{Wiringa_1988, Friedman_1981}
+to calculate an optical potential $U$ for symmetric nuclear matter.
+
+
 Predicts constant $T$.
