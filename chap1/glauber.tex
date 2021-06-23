@@ -6,12 +6,17 @@ This is the same model used in previous measurements of nuclear transparency
 for quasielastic scattering. % TODO: cite previous measurements; garrow etc
 
 
+% TODO: clean this up a lot. This is basically my notes on the paper.
 The model starts with the assumption that the differences between cross
 sections for free and in-medium nucleon-nucleon scattering arise primarily from
 Pauli blocking of final states and effective mass corrections.
 Pandharipande and Pieper find good agreement between experimental results and
 their model's estimates of the imaginary part of the optical potential in
 nuclear matter.
+The model uses the
+Urbana $\text{v}_{14}+\text{TNI}$ Hamiltonian~\cite{Lagaris_1981_331, Lagaris_1981_349}
+and variational method~\cite{Wiringa_1988, Friedman_1981}
+to calculate an optical potential $U$ for symmetric nuclear matter.
 
 
 The dispersion relation $e(k,\rho)$ for nucleons in nuclear matter with density
@@ -23,7 +28,7 @@ $\rho$ and real part of the optical potential $U(k,\rho)$ is
 The velocity of an in-medium nucleon with momentum $k$ differs from that of a
 free nucleon.
 The derivative of the dispersion relation gives this velocity and a
-definition of an effective mass $m^*$
+definition of the effective mass $m^*$
 \begin{equation}
     \frac{1}{\hbar}\frac{de(k,\rho)}{dk}
         = \frac{\hbar^2 k}{m} + \frac{1}{\hbar}\frac{d}{dk}U(k,\rho)
@@ -61,10 +66,22 @@ nucleon $a=n,p$ is
     \widetilde{\sigma}_{pa}(k,\rho)=\frac{m^{*}(k, \rho)}{\hbar k \rho_{a} \tau_{a}(k)}
 \end{equation}
 where $\tau_a$ is the life time of the two-particle-one-hole state.
-The model uses the
-Urbana $\text{v}_{14}+\text{TNI}$ Hamiltonian~\cite{Lagaris_1981_331, Lagaris_1981_349}
-and variational method~\cite{Wiringa_1988, Friedman_1981}
-to calculate an optical potential $U$ for symmetric nuclear matter.
-
-
-Predicts constant $T$.
+With this expression for the cross section, the nuclear transparency $T$ can be
+calculated using a local density approximation and a wavefunction from
+conventional Glauber multiple-scattering theory,
+\begin{equation}
+    T=\frac{1}{Z} \int d^3r' \rho_{p}(\vec{r'}) P_{T}(\vec{r'}^)
+\end{equation}
+where $P_T$, the probability that a proton struck at $\vec{r'}$ emerges without
+rescattering is
+% TODO: rewrite this with the pair distributions (i.e. joint probability)
+\begin{equation}
+    P_{T}(\vec{r'}) =
+    \exp \left\{
+        -\int_{z'}^{\infty} dz'' \left[
+            \widetilde{\sigma}_{pp}(q, \rho(\vec{r''})) \rho_{p}(\vec{r''})
+            +
+            \widetilde{\sigma}_{pp}(q, \rho(\vec{r''})) \rho_{p}(\vec{r''})
+        \right]
+    \right\}
+\end{equation}
