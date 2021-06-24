@@ -70,18 +70,33 @@ With this expression for the cross section, the nuclear transparency $T$ can be
 calculated using a local density approximation and a wavefunction from
 conventional Glauber multiple-scattering theory,
 \begin{equation}
-    T=\frac{1}{Z} \int d^3r' \rho_{p}(\vec{r'}) P_{T}(\vec{r'}^)
+    T=\frac{1}{Z} \int d^3r' \rho_{p}(\vec{r'}) P_{T}(\vec{r'})
 \end{equation}
 where $P_T$, the probability that a proton struck at $\vec{r'}$ emerges without
-rescattering is
-% TODO: rewrite this with the pair distributions (i.e. joint probability)
+rescattering, is
+
+% with align
 \begin{equation}
-    P_{T}(\vec{r'}) =
-    \exp \left\{
-        -\int_{z'}^{\infty} dz'' \left[
-            \widetilde{\sigma}_{pp}(q, \rho(\vec{r''})) \rho_{p}(\vec{r''})
-            +
-            \widetilde{\sigma}_{pp}(q, \rho(\vec{r''})) \rho_{p}(\vec{r''})
-        \right]
-    \right\}
+\begin{aligned}
+    P_{T}(\vec{r'}) = \exp \biggl\{-\int_{z'}^{\infty} dz'' \biggr.\biggl[&g_{p n}(\vec{r'}, \vec{r''}) \widetilde{\sigma}_{p n}\left(k, \rho(\vec{r''})\right) \rho_{n}(\vec{r''})\biggr.\\
+                                                           \biggl.\biggl.+&g_{p p}(\vec{r'}, \vec{r''}) \widetilde{\sigma}_{p p}\left(k, \rho(\vec{r''})\right) \rho_{p}(\vec{r''})\biggr]\biggr\}
+\end{aligned}
 \end{equation}
+
+% % one long line
+% \begin{equation}
+%     P_{T}(\vec{r'}) =
+%     \exp \left\{
+%         -\int_{z'}^{\infty} dz'' \left[
+%             g_{pn}(\vec{r'},\vec{r''})\widetilde{\sigma}_{pn}(k, \rho(\vec{r''})) \rho_{n}(\vec{r''})
+%             +
+%             g_{pp}(\vec{r'},\vec{r''})\widetilde{\sigma}_{pp}(k, \rho(\vec{r''})) \rho_{p}(\vec{r''})
+%         \right]
+%     \right\}
+% \end{equation}
+
+In the above expression, $g_{pa}(\vec{r'},\vec{r''})$ is a pair distribution
+function~\cite{Schiavilla_1987}, the joint probability to find a proton at
+$\vec{r'}$ and nucleon $a$ at $\vec{r''}$.
+
+% TODO: elaborate on why this predicts constant T?
