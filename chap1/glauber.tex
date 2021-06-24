@@ -1,4 +1,22 @@
 \section{Glauber Multiple Scattering Theory}
+The Glauber approximation~\cite{Glauber_1959} supposes that a struck proton
+with momentum $k$ and energy $E$, after quasielastic scattering, subsequently
+scatters from spectator nucleons at angles $\theta$ primarily in the
+forward direction.
+More precisely, if $a$ and $V$ are the radius and strength of the
+nucleon-nucleon interaction, this requires
+$V/E \ll 1$,
+$ka \gg 1$,
+and
+$\theta^2 k a \ll 1$.
+The wavefunction of the proton in these conditions can be written as
+%TODO: clean this up a little and clarify some variables; I'm trying to draw a link between a general Glauber summary and the specifics of the Pandharipande/Pieper paper
+\begin{equation}
+    \psi(\vec{r}) = e^{i\vec{k}\cdot\vec{r}}
+            \exp{ -\frac{1}{2} \int_{z'}^{z} dz'' \sigma(z'') \rho(\vec{r''}) }
+\end{equation}
+
+
 This experiment takes the work of Pandharipande and
 Pieper~\cite{Pandharipande_1992} as the null hypothesis against which the onset
 of color transparency is to be tested.
@@ -25,7 +43,8 @@ $\rho$ and real part of the optical potential $U(k,\rho)$ is
     e(k,\rho) = \frac{\hbar^2 k^2}{2m} + U(k,\rho)
 \end{equation}
 
-The velocity of an in-medium nucleon with momentum $k$ differs from that of a
+% as opposed to phase velocity
+The group velocity of an in-medium nucleon with momentum $k$ differs from that of a
 free nucleon.
 The derivative of the dispersion relation gives this velocity and a
 definition of the effective mass $m^*$
@@ -70,7 +89,7 @@ With this expression for the cross section, the nuclear transparency $T$ can be
 calculated using a local density approximation and a wavefunction from
 conventional Glauber multiple-scattering theory,
 \begin{equation}
-    T=\frac{1}{Z} \int d^3r' \rho_{p}(\vec{r'}) P_{T}(\vec{r'})
+    T=\frac{1}{A} \int d^3r' \rho_{p}(\vec{r'}) P_{T}(\vec{r'})
 \end{equation}
 where $P_T$, the probability that a proton struck at $\vec{r'}$ emerges without
 rescattering, is
