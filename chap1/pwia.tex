@@ -1,12 +1,12 @@
 \section{Plane Wave Impulse Approximation (PWIA)}
 
-Let $E$ and $E'$ be the incoming and outgoing energies of an electron
+Let $E_e$ and $E'_e$ be the incoming and outgoing energies of an electron
 scattering elastically from a proton.
 The cross section for this process, calculated for single photon exchange,
 is given by the Rosenbluth formula
 \begin{equation}
 \frac{d\sigma}{d\Omega} = \left( \frac{d\sigma}{d\Omega} \right)_{Mott}
-                          \frac{E'}{E}
+                          \frac{E'_e}{E_e}
                           \left(
                                 \frac{G_E^2 + \tau G_M^2}{1+\tau} +
                                 2 \tau G_M^2 \tan^2 \frac{\theta}{2}
@@ -23,7 +23,7 @@ elastic scattering off a structureless point particle,
 \begin{equation}
     \left( \frac{d\sigma}{d\Omega} \right)_{Mott} =
                     \frac{\alpha^2 \cos^2 \frac{\theta}{2}}
-                         {4E^2 \sin^4 \frac{\theta}{2}}
+                         {4E_e^2 \sin^4 \frac{\theta}{2}}
 \end{equation}
 
 Because nucleons bound in nuclear targets are off-shell and the particles
@@ -39,8 +39,8 @@ is not valid.
                 \fmfleft{ie,oe}
                 \fmfright{iA,oAm1,op}
 
-                \fmflabel{$(E,\vec{p}_e)$}{ie}
-                \fmflabel{$(E',\vec{p'}_e)$}{oe}
+                \fmflabel{$(E_e,\vec{p}_e)$}{ie}
+                \fmflabel{$(E'_e,\vec{p'}_e)$}{oe}
 
                 \fmflabel{$(E_A,\vec{p}_A)$}{iA}
                 \fmflabel{$(E'_p,\vec{p'}_p)$}{op}
@@ -82,9 +82,9 @@ factorized~\cite{Dieperink_1975, DeForest_1983, Frullani_1984}
 % 1983 is the paper that kind of generalizes the 1976 He3 paper
 % 1984 is a more recent review that I had trouble finding, found(!), lost, but can't find anymore
 \begin{equation} \label{eqn:born_cross_section}
-    \frac{d^6 \sigma}{dE_{e'} d\Omega_{e'} dE_{p'} d\Omega_{p'}} = p_{p'} E_{p'} \sigma_{ep} S(E_s, \vec{p}_p)
+    \frac{d^6 \sigma}{dE'_{e} d\Omega'_{e} dE'_{p} d\Omega'_{p}} = p'_{p} E'_{p} \sigma_{ep} S(E_s, \vec{p}_p)
 \end{equation}
-where $\Omega_{e'}$ and $\Omega_{p'}$ are the solid angles of the outgoing particles,
+where $\Omega'_{e}$ and $\Omega'_{p}$ are the solid angles of the outgoing particles,
 $\sigma_{ep}$ is the off-shell $ep$ cross section,
 and the spectral function $S(E_s, \vec{p}_p)$ represents the probability of
 finding a proton in the nucleus with initial momentum $\vec{p}_p$ and

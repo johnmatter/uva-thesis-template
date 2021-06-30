@@ -1,8 +1,8 @@
 % quasielastic_scattering.t1 -- generated from quasielastic_scattering.mp
 \fmfL(3.89203,3.18466,b){$q_\mu =(\omega ,\vec {q})$}%
 \fmfL(6.2306,2.81006,lb){$(E_s,\vec {p}_p)$}%
-\fmfL(0.63388,-0.12982,rt){$(E,\vec {p}_e)$}%
-\fmfL(0.63388,5.12982,rb){$(E',\vec {p'}_e)$}%
+\fmfL(0.63388,-0.12982,rt){$(E_e,\vec {p}_e)$}%
+\fmfL(0.63388,5.12982,rb){$(E'_e,\vec {p'}_e)$}%
 \fmfL(7.36612,-0.12982,lt){$(E_A,\vec {p}_A)$}%
 \fmfL(8.21088,2.5,l){$(E_{A-1},\vec {p}_{A-1})$}%
 \fmfL(7.36612,5.12982,lb){$(E'_p,\vec {p'}_p)$}%

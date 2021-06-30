@@ -1,8 +1,127 @@
 \section{The Onset of Color Transparency}
 Predicts a rise in $T$ above some threshold $Q^2_0$.
+Both Frankfurt et al. and Cosyn et al. use the quantum diffusion model
 
 \subsection{Frankfurt}
 Frankfurt~\cite{Frankfurt_1995_PRC}.
+
+Frankfurt et al. derive an modified nuclear density $\tilde{\rho}(r)$ that
+takes nucleon correlations into account based on single nucleon density
+functions $\rho(r)$ and two-body correlation functions $g_h(r,r')$,
+\begin{equation}
+    \tilde{\rho}(r)
+        = (A-1) \rho(r)
+          \left[
+               1 + C_h(r_1,r) - \frac{A-1}{2} \int_{z_1} \Gamma(b_1-b')g_h(r,r')\rho(r')d^3r'
+          \right]
+\end{equation}
+Here, $C_h(i,j)$ are two-nucleon correlation factors that are functions of the
+distance $r_{ij}=|\vec{r}_j-\vec{r}_i|$ between nucleons $i$ and
+$j$~\cite{Weise_1972}.
+The single nucleon wave functions $\phi_h(r)$ are the overlap integral between
+wave functions of the $A$-body ground state wave function and the $(A-1)$-body
+recoil nucleus.
+Their normalization requires $\int|\phi_h(r)|d^3r=1$ and
+$\rho(r) = \sum_h \omega_h^2 \left| \phi_h(r) \right|$ where $\omega_h$ is the
+occupation probability of the orbital $h$.
+
+\begin{equation}
+    \Gamma_i(\vec{b}) = \frac{1}{2\pi i k}
+                  \int e^{i\vec{k}_t \cdot \vec{b}} f(\vec{k}_t) d^2k_t
+\end{equation}
+
+\begin{equation}
+    f(k_t) = \left(\frac{k_t}{4\pi}\right)^2
+             \sigma_{tot}^2
+             (1+\alpha^2) e^{bt}
+\end{equation}
+
+\begin{equation}
+    f_{CT}(k_t, z, Q^2) = i\frac{k}{4\pi} \sigma_{eff}(z,Q^2) e^{bt/2}
+                          \frac{G_N\left( t \sigma_{eff}(z,Q^2)/\sigma_{eff} \right)}
+                               {G_N\left( t \right)}
+\end{equation}
+
+\begin{equation}
+    \mathcal{M}_{h}^{\gamma^*A} = \int d^3 r_1 \omega_h \phi_h\left(r_{1}\right)
+                                  \hat{O}^{\mathrm{em}}\left(Q^{2}\right)
+                                  e^{-i \vec{p}_p \cdot \vec{r}_1}
+                                  \exp{- \int_{z_{1}}
+                                  \Gamma\left(b_{1}-b\right) \tilde{\rho}(r) d^3 r}
+\end{equation}
+
+In the distorted wave impulse approximation (DWIA) the cross section can be
+written,
+\begin{equation}
+    \frac{d^6\sigma}{dE'_{e} d\Omega'_{e} d^3p'_{p}} = p'_p E'_p \sigma_{eN} S(\vec{p}_p, E_M, \vec{p'}_p)
+\end{equation}
+where $\sigma_{eN}$ is the cross section for an electron scattering from a
+bound nucleon and $S(\vec{p}_p, E_M, \vec{p'}_p)$ is the distorted
+spectral function.
+For a fixed shell $h$ the spectral function can be written~\cite{Frullani_1984},
+\begin{equation}
+    S(\vec{p}_p, E_M, \vec{p'}_p) = n_h(E_m) |\Phi_h(\vec{p}_p, \vec{p'}_p)|^2
+\end{equation}
+where $n_h(E_m)\propto\omega_h^2$ characterizes the strength of the shell and
+$\Phi_h(\vec{p}_p, \vec{p'}_p)$ is the distorted momentum distribution for
+nucleons in the $h$ shell.
+Using the above matrix amplitude,
+\begin{equation}
+    \left| \Phi_h(\vec{p}_p, \vec{p'}_p)\right|^2
+        = \left|
+            \int d^3 r_1 \Psi_h(r_1) e^{-i \vec{p}_p \cdot \vec{r}_1}
+            \exp{- \int_{z_{1}} \Gamma\left(b_{1}-b\right) \tilde{\rho}(r) d^3 r}
+          \right|
+\end{equation}
+
+The nuclear transparency for the $h$ shell is
+\begin{equation}
+    T_h = \left(\frac{\sigma_{exp}}{\sigma_{PWIA}}\right)
+        = \frac{|\Phi^{DWIA}_h(p_p,p'_p)|^2}
+               {|\Phi^{PWIA}_h(p_p)|^2}
+\end{equation}
+
+The ground state wavefunctions Frankfurt et al. use are calculated in the
+Skyrme-Hartree-Fock model with correlated interactions~\cite{Reinhard_1991}.
+
+Uses the same effective cross section as Cosyn. So I should probably factor
+that out of the next subsection and put it before this one as common material.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{chap1/frankfurt_transparency_without_CT.pdf}
+        % \caption{X plane}
+        \label{fig:frankfurt_transparency_without_CT}
+    \end{subfigure}
+    % \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{chap1/frankfurt_transparency_with_CT.pdf}
+        % \caption{U plane}
+        \label{fig:frankfurt_transparency_with_CT}
+    \end{subfigure}
+    \caption{Transparency calculations for ${}^{12}C(e,e'p)$ based on a model
+             that accounts for nucleon correlations and proton knock-out from
+             particular nuclear shells~\cite{Frankfurt_1995_PRC}.
+             The figure on the left is for a model that does not include CT.
+             The dotted line is the calculation without correlation effects;
+             the dashed line, with the effects of correlation between undetected nucleons;
+             the dash-dotted line, with the effects of correlation between knocked-out proton and undetected nucleons;
+             and solid line, with over-all correlation effects.
+             The figure on the right includes CT.
+             The dashed line is the calculation without correlation effects;
+             the solid line, with corrleation effects.
+             The rise in transparency with $Q^2$ is the characteristic
+             signature of the onset of CT.
+             Note that the effect of nucleon correlations on the CT model is
+             a correction of a few percent.
+             }
+    \label{fig:frankfurt_transparency}
+\end{figure}
+
+
 
 \subsection{Cosyn}
 Cosyn~\cite{Cosyn_2006}. RMSGA + CT (quantum diffusion)
@@ -22,14 +141,14 @@ For a single rescattering,
 \end{equation}
 The profile function for a hadron $h$ scattering from a nucleon $N$ is
 determined by
-the interaction cross section $\sigma_{hN}^{tot}$,
+the interaction cross section $\sigma_{tot}$,
 the ratio of the real and imagniary parts of the scattering amplitude $\epsilon_{hN}$,
 and
 slope parameter $\beta_{hN}$,
 all of which are momentum-dependent.
 \begin{equation}
-    \Gamma_{hN}(\vec{b}) =
-        \frac{\sigma_{hN}^{tot}(1-i\epsilon_{hN})}
+    \Gamma_i(\vec{b}) =
+        \frac{\sigma_{tot}(1-i\epsilon_{hN})}
              {4\pi\beta_{hN}^2}
         \exp{-\frac{\vec{b}^2}{2\beta_{hN}^2}}
 \end{equation}
@@ -41,14 +160,14 @@ phase shift for $N_{scatter}$ rescatterings is simply a product
 
 
 To include CT in the model, Cosyn et al. replace
-the total cross section $\sigma_{hN}^{tot}$
+the total cross section $\sigma_{tot}$
 with
-an effective cross section $\sigma_{hN}^{eff}$.
+an effective cross section $\sigma_{eff}$.
 based on the quantum diffusion model~\cite{Farrar_1988},
 which accounts for reduced interaction between the prehadron and nuclear matter
 over a hadron formation length $l_h$,
 \begin{equation}
-    \sigma_{hN}^{eff} = \sigma_{hN}^{tot}
+    \sigma_{eff} = \sigma_{tot}
     \left\{
         \left[\frac{z}{l_h} +
                \frac{\left\langle n^{2} k_{t}^{2}\right\rangle}{t} \left(1-\left(\frac{z}{l_h}\right)\right)
@@ -59,10 +178,11 @@ over a hadron formation length $l_h$,
 \end{equation}
 In this expression,
 $n$ is the number of valence quarks (2 for mesons, 3 for baryons),
-$k_t=\SI{0.35}{\giga\electronvolt}$ is the average transverse momentum of a quark inside a hadron,
-$z$ is the distance the obejct has traveled since its creation,
+$k_t=\SI{0.35}{\giga\electronvolt}\sim \SI{1}{\giga\electronvolt\squared}/Q^2$
+is the average transverse momentum of a quark inside a hadron,
+$z$ is the distance the object has traveled since its creation,
 and
-$l_h=2p/\Delta M^2$ is the hadronic expansion length.
+$l_h=2p/\Delta M^2$ is the hadronic formation length.
 This length depends on
 the momentum $p$ of the outgoing hadron
 and
