@@ -1,9 +1,88 @@
 \section{The Onset of Color Transparency}
 Predicts a rise in $T$ above some threshold $Q^2_0$.
-Both Frankfurt et al. and Cosyn et al. use the quantum diffusion model
+
+The model presented by Frankfurt et al.~\cite{Frankfurt_1995_PRC} starts by
+calculating the amplitude $\mathcal{M}_{h}^{\gamma^*A}$ for quasielastic
+scattering of a proton from a fixed shell $h$ in a nucleus.
+This amplitude includes the effects of short range nucleon-nucleon
+correlations, both between the ejected proton and remainder nucleons in the
+recoil nucleus as well as between the remainder nucleons.
+Using the distorted wave impulse approximation (DWIA), they derive an
+expression for nuclear transparency whose behavior is dependent on the form of
+nucleon-nucleon interactions.
+These interactions are parameterized by profile functions $\Gamma(\vec{b})$
+that are a function of impact parameter $\vec{b}$.
+They compare two choices of profile function--one which corresponds to the
+absence of CT and one which includes a model of CT in which~\cite{Farrar_1988}
+the PLC grows to the full size of a proton over a length $l_h$, the hadron
+formation length.
+
+
+Cosyn~\cite{Cosyn_2008,Cosyn_2006} RMSGA~\cite{Ryckebusch_2003} + CT (quantum
+diffusion)~\cite{Farrar_1988} + SRC effective nucleon
+density~\cite{Frankel_1994}.
+
+
+Similar to eikonal approximation of equation~\ref{eqn:eikonal_approximation}.
+After rescattering, the outgoing wavefunction $\psi_{out}$ picks up a complex
+phase $\chi(\vec{r})$.
+\begin{equation}
+    \psi_{out}(\vec{r}) = e^{i\chi(\vec{r})} \psi_{in}(\vec{r})
+\end{equation}
+
+This phase can be parameterized as a function of impact parameter $\vec{b}$,
+momentum transfer $Q^2$, etc. by a profile function $\Gamma(\vec{b})$.
+For a single rescattering,
+\begin{equation}
+    \psi_{out}(\vec{r}) = (1-\Gamma(\vec{b})) \psi_{in}(\vec{r})
+\end{equation}
+
+Every residual nucleon in the recoil nucleus lying in the forward path of the
+ejected proton contributes to the total phase.
+Let $\vec{r}$ be the point at which the ejected proton absorbs the virtual
+photon.
+Assume the residual nucleons are frozen at positions
+$\vec{r}_j = z_j \hat{z} + \vec{b}_j$
+where the $\hat{z}$ axis lies along the path of the ejected proton
+and $\vec{b}_j$ are perpendicular to $\hat{z}$.
+The total phase shift for $A$ nucleons is a product
+\begin{equation}
+    e^{i\chi(\vec{r})} = \prod_{j=2}^{A} \left(1-\Gamma_j(\vec{b}_j)\theta(z_j-z)\right)
+\end{equation}
+
+To include CT in the model, Cosyn et al. replace
+the total cross section $\sigma_{tot}$
+with
+an effective cross section $\sigma_{eff}$.
+based on the quantum diffusion model~\cite{Farrar_1988},
+which accounts for reduced interaction between the prehadron and nuclear matter
+over a hadron formation length $l_h$,
+\begin{equation}
+    \sigma_{eff} = \sigma_{tot}
+    \left\{
+        \left[\frac{z}{l_h} +
+               \frac{\left\langle n^{2} k_{t}^{2}\right\rangle}{t} \left(1-\left(\frac{z}{l_h}\right)\right)
+        \right]
+        \theta\left(l_h-z\right) +
+        \theta\left(z-l_h\right)
+    \right\}
+\end{equation}
+In this expression,
+$n$ is the number of valence quarks (2 for mesons, 3 for baryons),
+$k_t=\SI{0.35}{\giga\electronvolt}\sim \SI{1}{\giga\electronvolt\squared}/Q^2$
+is the average transverse momentum of a quark inside a hadron,
+$z$ is the distance the object has traveled since its creation,
+and
+$l_h=2p/\Delta M^2$ is the hadronic formation length.
+This length depends on
+the momentum $p$ of the outgoing hadron
+and
+the mass squared difference between the prehadron and outgoing hadron state.
+Frankfurt et al. use $\Delta M^2 = \SI{0.7}{\giga\electronvolt\squared}$
+for protons, while
+Cosyn et al. use $\Delta M^2 = \SI{1.0}{\giga\electronvolt\squared}$.
 
 \subsection{Frankfurt}
-Frankfurt~\cite{Frankfurt_1995_PRC}.
 
 Frankfurt et al. derive an modified nuclear density $\tilde{\rho}(r)$ that
 takes nucleon correlations into account based on single nucleon density
@@ -35,6 +114,8 @@ occupation probability of the orbital $h$.
              \sigma_{tot}^2
              (1+\alpha^2) e^{bt}
 \end{equation}
+Here $\alpha=\Re{f}/\Im{f}$.
+%All prameters are taken from their refs 29-31
 
 \begin{equation}
     f_{CT}(k_t, z, Q^2) = i\frac{k}{4\pi} \sigma_{eff}(z,Q^2) e^{bt/2}
@@ -50,7 +131,7 @@ occupation probability of the orbital $h$.
                                   \Gamma\left(b_{1}-b\right) \tilde{\rho}(r) d^3 r}
 \end{equation}
 
-In the distorted wave impulse approximation (DWIA) the cross section can be
+In the DWIA the cross section can be
 written,
 \begin{equation}
     \frac{d^6\sigma}{dE'_{e} d\Omega'_{e} d^3p'_{p}} = p'_p E'_p \sigma_{eN} S(\vec{p}_p, E_M, \vec{p'}_p)
@@ -124,67 +205,29 @@ that out of the next subsection and put it before this one as common material.
 
 
 \subsection{Cosyn}
-Cosyn~\cite{Cosyn_2006}. RMSGA + CT (quantum diffusion)
 
-Similar to eikonal approximation of equation~\ref{eqn:eikonal_approximation}.
-After scattering, the outgoing wavefunction $\psi_{out}$ picks up a complex
-phase $\chi(\vec{r})$.
-\begin{equation}
-    \psi_{out}(\vec{r}) = e^{i\chi(\vec{r})} \psi_{in}(\vec{r})
-\end{equation}
-Cosyn et al. introduce a Gaussian \textit{grey disc} profile function
-$\Gamma(\vec{b})$ to parameterize this phase as a function of impact parameter
-$\vec{b}$.
-For a single rescattering,
-\begin{equation}
-    \psi_{out}(\vec{r}) = (1-\Gamma(\vec{b})) \psi_{in}(\vec{r})
-\end{equation}
 The profile function for a hadron $h$ scattering from a nucleon $N$ is
 determined by
-the interaction cross section $\sigma_{tot}$,
-the ratio of the real and imagniary parts of the scattering amplitude $\epsilon_{hN}$,
-and
-slope parameter $\beta_{hN}$,
+the interaction cross section $\sigma^{hN}_{tot}$,
+the ratio $\epsilon_{hN}$ of the scattering amplitude's real and imaginary parts,
+and slope parameter $\beta_{hN}$,
 all of which are momentum-dependent.
+These parameters can be estimated by interpolating data from the Particle Data
+Group.
 \begin{equation}
     \Gamma_i(\vec{b}) =
-        \frac{\sigma_{tot}(1-i\epsilon_{hN})}
+        \frac{\sigma^{hN}_{tot}(1-i\epsilon_{hN})}
              {4\pi\beta_{hN}^2}
         \exp{-\frac{\vec{b}^2}{2\beta_{hN}^2}}
 \end{equation}
-Using the same frozen approximation as the Glauber approximation, the total
-phase shift for $N_{scatter}$ rescatterings is simply a product
+
+The slope parameter $\beta_{hN}$ can be estimated using
+the elastic $\sigma^{hN}_{el}$ and total $\sigma^{hN}_{tot}$ cross sections
+in the following
+approximation~\cite{Ryckebusch_2003}
 \begin{equation}
-    e^{i\chi(\vec{r})} = \prod_i^{N_{scatter}} \left(1-\Gamma_i(\vec{b_i})\right)
+    \beta_{p N}^{2} \approx
+            \frac{(\sigma^{hN}_{tot})^{2} (\epsilon_{hN}^{2}+1)}
+                 {16 \pi \sigma^{hN}_{el}}
 \end{equation}
 
-
-To include CT in the model, Cosyn et al. replace
-the total cross section $\sigma_{tot}$
-with
-an effective cross section $\sigma_{eff}$.
-based on the quantum diffusion model~\cite{Farrar_1988},
-which accounts for reduced interaction between the prehadron and nuclear matter
-over a hadron formation length $l_h$,
-\begin{equation}
-    \sigma_{eff} = \sigma_{tot}
-    \left\{
-        \left[\frac{z}{l_h} +
-               \frac{\left\langle n^{2} k_{t}^{2}\right\rangle}{t} \left(1-\left(\frac{z}{l_h}\right)\right)
-        \right]
-        \theta\left(l_h-z\right) +
-        \theta\left(z-l_h\right)
-    \right\}
-\end{equation}
-In this expression,
-$n$ is the number of valence quarks (2 for mesons, 3 for baryons),
-$k_t=\SI{0.35}{\giga\electronvolt}\sim \SI{1}{\giga\electronvolt\squared}/Q^2$
-is the average transverse momentum of a quark inside a hadron,
-$z$ is the distance the object has traveled since its creation,
-and
-$l_h=2p/\Delta M^2$ is the hadronic formation length.
-This length depends on
-the momentum $p$ of the outgoing hadron
-and
-the mass squared difference between the prehadron and outgoing hadron state.
-Cosyn et al. use $\Delta M^2 = \SI{1}{\giga\electronvolt\squared}$ for protons.
