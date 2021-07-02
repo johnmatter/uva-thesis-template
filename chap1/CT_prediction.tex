@@ -18,44 +18,22 @@ the PLC grows to the full size of a proton over a length $l_h$, the hadron
 formation length.
 
 
-Cosyn~\cite{Cosyn_2008,Cosyn_2006} RMSGA~\cite{Ryckebusch_2003} + CT (quantum
-diffusion)~\cite{Farrar_1988} + SRC effective nucleon
-density~\cite{Frankel_1994}.
+The model presented by Cosyn et al.~\cite{Cosyn_2008,Cosyn_2006} uses a
+relativistic multiple scattering Glauber approximation~\cite{Ryckebusch_2003}
+that accounts for final state interactions by applying a phase to the ejected
+proton's wavefunction.
+This phase is determined by a profile function $\Gamma(\vec{b})$ that
+parameterizes nucleon-nucleon scattering.
+As in the other model, this profile function is modified to include CT effects
+Short range correlations are implemented by means of an effective nucleon
+density~\cite{Frankel_1994} that enters into the calculation of the Glauber
+phase.
 
 
-Similar to eikonal approximation of equation~\ref{eqn:eikonal_approximation}.
-After rescattering, the outgoing wavefunction $\psi_{out}$ picks up a complex
-phase $\chi(\vec{r})$.
-\begin{equation}
-    \psi_{out}(\vec{r}) = e^{i\chi(\vec{r})} \psi_{in}(\vec{r})
-\end{equation}
-
-This phase can be parameterized as a function of impact parameter $\vec{b}$,
-momentum transfer $Q^2$, etc. by a profile function $\Gamma(\vec{b})$.
-For a single rescattering,
-\begin{equation}
-    \psi_{out}(\vec{r}) = (1-\Gamma(\vec{b})) \psi_{in}(\vec{r})
-\end{equation}
-
-Every residual nucleon in the recoil nucleus lying in the forward path of the
-ejected proton contributes to the total phase.
-Let $\vec{r}$ be the point at which the ejected proton absorbs the virtual
-photon.
-Assume the residual nucleons are frozen at positions
-$\vec{r}_j = z_j \hat{z} + \vec{b}_j$
-where the $\hat{z}$ axis lies along the path of the ejected proton
-and $\vec{b}_j$ are perpendicular to $\hat{z}$.
-The total phase shift for $A$ nucleons is a product
-\begin{equation}
-    e^{i\chi(\vec{r})} = \prod_{j=2}^{A} \left(1-\Gamma_j(\vec{b}_j)\theta(z_j-z)\right)
-\end{equation}
-
-To include CT in the model, Cosyn et al. replace
-the total cross section $\sigma_{tot}$
-with
-an effective cross section $\sigma_{eff}$.
-based on the quantum diffusion model~\cite{Farrar_1988},
-which accounts for reduced interaction between the prehadron and nuclear matter
+To include CT effects, both models replace the total cross section
+$\sigma_{tot}$ with an effective cross section $\sigma_{eff}$
+based on a quantum diffusion model~\cite{Farrar_1988}
+that accounts for reduced interaction between the prehadron and nuclear matter
 over a hadron formation length $l_h$,
 \begin{equation}
     \sigma_{eff} = \sigma_{tot}
@@ -69,7 +47,7 @@ over a hadron formation length $l_h$,
 \end{equation}
 In this expression,
 $n$ is the number of valence quarks (2 for mesons, 3 for baryons),
-$k_t=\SI{0.35}{\giga\electronvolt}\sim \SI{1}{\giga\electronvolt\squared}/Q^2$
+$k_t \sim \SI{1}{\giga\electronvolt\squared}/Q^2$
 is the average transverse momentum of a quark inside a hadron,
 $z$ is the distance the object has traveled since its creation,
 and
@@ -82,57 +60,37 @@ Frankfurt et al. use $\Delta M^2 = \SI{0.7}{\giga\electronvolt\squared}$
 for protons, while
 Cosyn et al. use $\Delta M^2 = \SI{1.0}{\giga\electronvolt\squared}$.
 
-\subsection{Frankfurt}
+\subsection{Frankfurt et al.}
 
-Frankfurt et al. derive an modified nuclear density $\tilde{\rho}(r)$ that
-takes nucleon correlations into account based on single nucleon density
-functions $\rho(r)$ and two-body correlation functions $g_h(r,r')$,
-\begin{equation}
-    \tilde{\rho}(r)
-        = (A-1) \rho(r)
-          \left[
-               1 + C_h(r_1,r) - \frac{A-1}{2} \int_{z_1} \Gamma(b_1-b')g_h(r,r')\rho(r')d^3r'
-          \right]
-\end{equation}
-Here, $C_h(i,j)$ are two-nucleon correlation factors that are functions of the
-distance $r_{ij}=|\vec{r}_j-\vec{r}_i|$ between nucleons $i$ and
-$j$~\cite{Weise_1972}.
-The single nucleon wave functions $\phi_h(r)$ are the overlap integral between
-wave functions of the $A$-body ground state wave function and the $(A-1)$-body
-recoil nucleus.
-Their normalization requires $\int|\phi_h(r)|d^3r=1$ and
-$\rho(r) = \sum_h \omega_h^2 \left| \phi_h(r) \right|$ where $\omega_h$ is the
-occupation probability of the orbital $h$.
+% Frankfurt et al. derive an modified nuclear density $\tilde{\rho}(r)$ that
+% takes nucleon correlations into account based on single nucleon density
+% functions $\rho(r)$ and two-body correlation functions $g_h(r,r')$,
+% \begin{equation}
+%     \tilde{\rho}(r)
+%         = (A-1) \rho(r)
+%           \left[
+%                1 + C_h(r_1,r) - \frac{A-1}{2} \int_{z_1} \Gamma(b_1-b')g_h(r,r')\rho(r')d^3r'
+%           \right]
+% \end{equation}
+% Here, $C_h(i,j)$ are two-nucleon correlation factors that are functions of the
+% distance $r_{ij}=|\vec{r}_j-\vec{r}_i|$ between nucleons $i$ and
+% $j$~\cite{Weise_1972}.
+% The single nucleon wave functions $\phi_h(r)$ are the overlap integral between
+% wave functions of the $A$-body ground state wave function and the $(A-1)$-body
+% recoil nucleus.
+% Their normalization requires $\int|\phi_h(r)|d^3r=1$ and
+% $\rho(r) = \sum_h \omega_h^2 \left| \phi_h(r) \right|$ where $\omega_h$ is the
+% occupation probability of the orbital $h$.
 
-\begin{equation}
-    \Gamma_i(\vec{b}) = \frac{1}{2\pi i k}
-                  \int e^{i\vec{k}_t \cdot \vec{b}} f(\vec{k}_t) d^2k_t
-\end{equation}
+% \begin{equation}
+%     \mathcal{M}_{h}^{\gamma^*A} = \int d^3 r_1 \omega_h \phi_h\left(r_{1}\right)
+%                                   \hat{O}^{\mathrm{em}}\left(Q^{2}\right)
+%                                   e^{-i \vec{p}_p \cdot \vec{r}_1}
+%                                   \exp{- \int_{z_{1}}
+%                                   \Gamma\left(b_{1}-b\right) \tilde{\rho}(r) d^3 r}
+% \end{equation}
 
-\begin{equation}
-    f(k_t) = \left(\frac{k_t}{4\pi}\right)^2
-             \sigma_{tot}^2
-             (1+\alpha^2) e^{bt}
-\end{equation}
-Here $\alpha=\Re{f}/\Im{f}$.
-%All prameters are taken from their refs 29-31
-
-\begin{equation}
-    f_{CT}(k_t, z, Q^2) = i\frac{k}{4\pi} \sigma_{eff}(z,Q^2) e^{bt/2}
-                          \frac{G_N\left( t \sigma_{eff}(z,Q^2)/\sigma_{eff} \right)}
-                               {G_N\left( t \right)}
-\end{equation}
-
-\begin{equation}
-    \mathcal{M}_{h}^{\gamma^*A} = \int d^3 r_1 \omega_h \phi_h\left(r_{1}\right)
-                                  \hat{O}^{\mathrm{em}}\left(Q^{2}\right)
-                                  e^{-i \vec{p}_p \cdot \vec{r}_1}
-                                  \exp{- \int_{z_{1}}
-                                  \Gamma\left(b_{1}-b\right) \tilde{\rho}(r) d^3 r}
-\end{equation}
-
-In the DWIA the cross section can be
-written,
+In the DWIA, the cross section can be written
 \begin{equation}
     \frac{d^6\sigma}{dE'_{e} d\Omega'_{e} d^3p'_{p}} = p'_p E'_p \sigma_{eN} S(\vec{p}_p, E_M, \vec{p'}_p)
 \end{equation}
@@ -143,10 +101,14 @@ For a fixed shell $h$ the spectral function can be written~\cite{Frullani_1984},
 \begin{equation}
     S(\vec{p}_p, E_M, \vec{p'}_p) = n_h(E_m) |\Phi_h(\vec{p}_p, \vec{p'}_p)|^2
 \end{equation}
-where $n_h(E_m)\propto\omega_h^2$ characterizes the strength of the shell and
-$\Phi_h(\vec{p}_p, \vec{p'}_p)$ is the distorted momentum distribution for
-nucleons in the $h$ shell.
-Using the above matrix amplitude,
+where $\Phi_h(\vec{p}_p, \vec{p'}_p)$ is the distorted momentum distribution for
+nucleons in the $h$ shell
+and
+$n_h(E_m)$ (proporitonal to the shell's occupation probability) characterizes
+the strength of the shell.
+Frankfurt et al. derive the following expression for the momentum distribution
+by expressing the ground state $A$-body wave function and $(A-1)$-body density
+matrix in terms of two-nucleon correlation functions
 \begin{equation}
     \left| \Phi_h(\vec{p}_p, \vec{p'}_p)\right|^2
         = \left|
@@ -155,18 +117,36 @@ Using the above matrix amplitude,
           \right|
 \end{equation}
 
+The profile function $\Gamma(\vec{b})$ takes the form
+\begin{equation}
+    \Gamma_i(\vec{b}) = \frac{1}{2\pi i k}
+                  \int e^{i\vec{k}_t \cdot \vec{b}} f(\vec{k}_t) d^2k_t
+\end{equation}
+where the nucleon-nucleon scattering amplitude with CT effects is
+\begin{equation}
+    f_{CT}(k_t, z, Q^2) = i\frac{k}{4\pi} \sigma_{eff}(z,Q^2) e^{bt/2}
+                          \frac{G_N\left( t \sigma_{eff}(z,Q^2)/\sigma_{eff} \right)}
+                               {G_N\left( t \right)}
+\end{equation}
+and the amplitude without CT effects is
+\begin{equation}
+    f(k_t) = \left(\frac{k_t}{4\pi}\right)^2
+             \sigma_{tot}^2
+             (1+\epsilon^2) e^{bt}
+\end{equation}
+%All prameters are taken from their refs 29-31
+where $\epsilon$ is the ratio of the scattering amplitude's real and imaginary
+parts.
+
 The nuclear transparency for the $h$ shell is
 \begin{equation}
-    T_h = \left(\frac{\sigma_{exp}}{\sigma_{PWIA}}\right)
+    T_h = \left(\frac{\sigma^{DWIA}}{\sigma^{PWIA}}\right)
         = \frac{|\Phi^{DWIA}_h(p_p,p'_p)|^2}
                {|\Phi^{PWIA}_h(p_p)|^2}
 \end{equation}
 
 The ground state wavefunctions Frankfurt et al. use are calculated in the
 Skyrme-Hartree-Fock model with correlated interactions~\cite{Reinhard_1991}.
-
-Uses the same effective cross section as Cosyn. So I should probably factor
-that out of the next subsection and put it before this one as common material.
 
 \begin{figure}[h]
     \centering
@@ -204,7 +184,34 @@ that out of the next subsection and put it before this one as common material.
 
 
 
-\subsection{Cosyn}
+\subsection{Cosyn et al.}
+
+The model of Cosyn et al. derives eikonal approximation of equation~\ref{eqn:eikonal_approximation}.
+After rescattering, the outgoing wavefunction $\psi_{out}$ picks up a complex
+phase $\chi(\vec{r})$.
+\begin{equation}
+    \psi_{out}(\vec{r}) = e^{i\chi(\vec{r})} \psi_{in}(\vec{r})
+\end{equation}
+
+This phase can be parameterized as a function of impact parameter $\vec{b}$,
+momentum transfer $Q^2$, etc. by a profile function $\Gamma(\vec{b})$.
+For a single rescattering,
+\begin{equation}
+    \psi_{out}(\vec{r}) = (1-\Gamma(\vec{b})) \psi_{in}(\vec{r})
+\end{equation}
+
+Every residual nucleon in the recoil nucleus lying in the forward path of the
+ejected proton contributes to the total phase.
+Let $\vec{r}$ be the point at which the ejected proton absorbs the virtual
+photon.
+Assume the residual nucleons are frozen at positions
+$\vec{r}_j = z_j \hat{z} + \vec{b}_j$
+where the $\hat{z}$ axis lies along the path of the ejected proton
+and $\vec{b}_j$ are perpendicular to $\hat{z}$.
+The total phase shift for $A$ nucleons is a product
+\begin{equation}
+    e^{i\chi(\vec{r})} = \prod_{j=2}^{A} \left(1-\Gamma_j(\vec{b}_j)\theta(z_j-z)\right)
+\end{equation}
 
 The profile function for a hadron $h$ scattering from a nucleon $N$ is
 determined by
