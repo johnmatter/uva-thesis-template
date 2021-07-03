@@ -5,7 +5,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{siunitx}
-\usepackage{physics}
+% \usepackage{physics}
 \usepackage{amssymb}
 \usepackage{chemformula}
 \usepackage{multirow}
@@ -62,16 +62,24 @@
 
 \DeclareSIUnit\atm{atm}
 
-% % abs and norm definitions
-% \DeclarePairedDelimiter\abs{\lvert}{\rvert}%
-% \DeclarePairedDelimiter\norm{\lVert}{\rVert}%
-% % Swap the definition of \abs* and \norm*, so that \abs and \norm resizes the size of the brackets, and the starred version does not.
-% \makeatletter
-% \let\oldabs\abs
-% \def\abs{\@ifstar{\oldabs}{\oldabs*}}
-% \let\oldnorm\norm
-% \def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
-% \makeatother
+% abs and norm definitions
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+% Swap the definition of \abs* and \norm*, so that \abs and \norm resizes the size of the brackets, and the starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+% bra ket notation
+\newcommand{\bra}[1]{\langle#1\rvert} % Bra
+\newcommand{\ket}[1]{\lvert#1\rangle} % Ket
+\newcommand{\qprod}[2]{\langle#1|#2\rangle} %Inner Product
+\newcommand{\braopket}[3]{\langle#1|#2|#3\rangle} % Matrix Element
+\newcommand{\expect}[1]{\langle#1\rangle} % Expectation value
+
 
 %-------------------------------------------
 \begin{document}

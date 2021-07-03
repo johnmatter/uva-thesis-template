@@ -118,13 +118,13 @@ matrix in terms of two-nucleon correlation functions
     \left| \Phi_h(\vec{p}_p, \vec{p'}_p)\right|^2
         = \left|
             \int d^3 r_1 \Psi_h(r_1) e^{-i \vec{p}_p \cdot \vec{r}_1}
-            \exp{- \int_{z_{1}} \Gamma\left(b_{1}-b\right) \tilde{\rho}(r) d^3 r}
+            \exp{\left\{- \int_{z_{1}} \Gamma\left(\vec{b}_1-\vec{b}\right) \tilde{\rho}(r) d^3 r\right\}}
           \right|
 \end{equation}
 
 The profile function $\Gamma(\vec{b})$ takes the form
 \begin{equation}
-    \Gamma_i(\vec{b}) = \frac{1}{2\pi i k}
+    \Gamma(\vec{b}) = \frac{1}{2\pi i k}
                   \int e^{i\vec{k}_t \cdot \vec{b}} f(\vec{k}_t) d^2k_t
 \end{equation}
 where the nucleon-nucleon scattering amplitude with CT effects is
@@ -137,7 +137,7 @@ and the amplitude without CT effects is
 \begin{equation}
     f(k_t) = \left(\frac{k_t}{4\pi}\right)^2
              \sigma_{tot}^2
-             (1+\epsilon^2) e^{bt}
+             (1+\epsilon^2) e^{-bt}
 \end{equation}
 %All prameters are taken from their refs 29-31
 where $\epsilon$ is the ratio of the scattering amplitude's real and imaginary
@@ -209,17 +209,13 @@ For a single rescattering,
     \psi_{out}(\vec{r}) = (1-\Gamma(\vec{b})) \psi_{in}(\vec{r})
 \end{equation}
 
-Every residual nucleon in the recoil nucleus lying in the forward path of the
+Every spectator nucleon in the recoil nucleus lying in the forward path of the
 ejected proton contributes to the total phase.
 Let $\vec{r}$ be the point at which the ejected proton absorbs the virtual
 photon.
-Assume the residual nucleons are frozen at positions
-$\vec{r}_j = z_j \hat{z} + \vec{b}_j$
-where the $\hat{z}$ axis lies along the path of the ejected proton
-and $\vec{b}_j$ are perpendicular to $\hat{z}$.
 The total phase shift for $A$ nucleons is a product
 \begin{equation}
-    e^{i\chi(\vec{r})} = \prod_{j=2}^{A} \left(1-\Gamma_j(\vec{b}_j)\theta(z_j-z)\right)
+    e^{i\chi(\vec{r})} = \prod_{j=2}^{A} \left(1-\Gamma(\vec{b}_j)\theta(z_j-z)\right)
 \end{equation}
 
 The profile function for a hadron $h$ scattering from a nucleon $N$ is
@@ -231,7 +227,7 @@ all of which are momentum-dependent.
 These parameters can be estimated by interpolating data from the Particle Data
 Group.
 \begin{equation}
-    \Gamma_i(\vec{b}) =
+    \Gamma(\vec{b}) =
         \frac{\sigma^{hN}_{tot}(1-i\epsilon_{hN})}
              {4\pi\beta_{hN}^2}
         \exp{-\frac{\vec{b}^2}{2\beta_{hN}^2}}

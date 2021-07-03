@@ -1,20 +1,115 @@
-\section{Glauber Multiple Scattering Theory}
-The Glauber approximation~\cite{Glauber_1959} supposes that a struck proton
-with momentum $k$ and energy $E$, after quasielastic scattering, subsequently
-scatters from spectator nucleons at angles $\theta$ primarily in the
-forward direction.
-More precisely, if $a$ and $V$ are the radius and strength of the
-nucleon-nucleon interaction, this requires
-$V/E \ll 1$,
-$ka \gg 1$,
+\section{Quasielastic Scattering and the Glauber Approximation}
+Let
+$\Psi_0^{(A)}$ be the ground state wave function of the $A$-body target nucleus,
+$\Psi_{\vec{p}}$ the final state wave function of the ejected proton with momentum $\vec{p}$,
 and
-$\theta^2 k a \ll 1$.
-The wavefunction of the proton in these conditions can be written as
-%TODO: clean this up a little and clarify some variables; I'm trying to draw a link between a general Glauber summary and the specifics of the Pandharipande/Pieper paper
-\begin{equation} \label{eqn:eikonal_approximation}
-    \psi(\vec{r}) = e^{i\vec{k}\cdot\vec{r}}
-            \exp{ -\frac{1}{2} \int_{z'}^{z} dz'' \sigma(z'') \rho(\vec{r''}) }
+$\Psi_f^{(A-1)}$ is the final state wave function of the resideul $(A-1)$ nucleus.
+Then, in terms of
+annihilation $\hat{a}_{\vec{k}}$ and
+creation operators $\hat{a}_{\vec{k}}^\dagger$
+for nucleon states of momentum $\vec{k}$,
+the matrix amplitude for $A(e,e'p)$ scattering can be
+written
+\begin{equation}
+    \mathcal{M} = \braopket{\Psi_{\vec{p}}^{(A-1)}}
+                           {\sum_{\vec{k}} \hat{a}^\dagger_{\vec{k}+\vec{q}} \hat{a}_{\vec{k}}}
+                           {\Psi_0^{(A)}}
 \end{equation}
+
+
+The Hamiltonian of the full $A$-body system can be rewritten to separate the
+final state interactions between the ejected proton and the spectator nucleons
+\begin{equation}
+    \hat{H}_{A} = \hat{H}_0 + \hat{H}_{FSI} = (\hat{H}_{A-1} + T_1) + \hat{H}_{FSI}
+\end{equation}
+where $H_{A_1}$ is the Hamiltonian of the recoil nucleus
+$T_1$ is the kinetic energy operator for the ejected proton
+and
+$\hat{H}_{FSI}$ contains the final state interactions.
+
+
+Then, if the state $\Phi_{\vec{p}}$ is an eigenstate of $H_0$ that describes
+the system in the absence of FSI, there is a scattering operator
+$\Omega_{\vec{p}}$ such that
+\begin{equation}
+    \ket{\Psi_{\vec{p}}} = \Omega_{\vec{p}} \ket{\Phi_{\vec{p}}}
+\end{equation}
+
+
+Formally, this operator can be written
+\begin{align}
+    \Omega_{\vec{p}} &= \lim_{t\rightarrow\infty} e^{-i\hat{H}_At}e^{-i\hat{H}_0t} \\
+                     &= \lim_{t\rightarrow\infty} \hat{T} e^{-\int_0^t dt' \hat{H}_{FSI}(t')}
+\end{align}
+where $\hat{T}$ is the time ordering operator and
+\begin{equation}
+    \hat{H}_{FSI}(t) = e^{i\hat{H}_0t} \hat{H}_{FSI} e^{-i\hat{H}_0t}
+\end{equation}
+
+Calculating this expression for a realistic Hamiltonian is difficult, but under
+appropriate circumstances the Glauber approximation~\cite{Glauber_1959} can be
+used to simplify this expression.
+The Glauber approximation assumes that
+the ejected proton moves in a straight line without rescattering
+(the eikonal approximation)
+and
+the spectator nucleons can be treated as fixed
+(the frozen approximation).
+
+Assume the spectator nucleons are frozen at positions
+$\vec{r}_j = z_j \hat{z} + \vec{b}_j$
+where the $\hat{z}$ axis lies along the path of the ejected proton
+and $\vec{b}_j$ are perpendicular to $\hat{z}$.
+
+Let $R=\left\{ \vec{r}_1,\vec{r}_2,\ldots,\vec{r}_A \right\}$ be the
+spatial configuration of the full $A$-body system.
+In the correlated Glauber approximation, the scattering operator can be written
+in coordinate space
+\begin{align}
+    \Omega_{\vec{p}}(R) \equiv \braopket{R}{\Omega_{\vec{p}}}{R}
+        = \hat{P}_z \bigg[ 1 &- \sum_{j=2} \theta(z_j-z_1) \Gamma(\vec{b}_j) \\
+                        &+ \sum_{j=2,k>j} \theta(z_j-z_1) \Gamma(\vec{b}_j) \theta(z_k-z_1) \Gamma(\vec{b}_k) \\
+                        &- \cdots \bigg]
+\end{align}
+
+
+\begin{equation}
+    \Gamma(\vec{b}) = -\frac{i}{2}\int \frac{d^2k_t}{(2\pi)^2} e^{-\vec{k}_t \cdot \vec{b}} f(\vec{k}_t)
+\end{equation}
+
+\begin{equation}
+    f(\vec{k}_t) = i \sigma_{tot} (1-i\epsilon) e^{-k_t^2/2B}
+\end{equation}
+where
+$\hat{P}_z$ is a $z$-ordering operator preventing backscattering of the ejected proton,
+$\epsilon$ is the ratio of the scattering amplitude's real and imaginary parts
+and
+$B$ is a slope parameter.
+
+Let $\rho_p(\vec{r})$ be the proton density in a target nucleus with $Z$
+protons.
+Then the transparency is
+\begin{equation}
+    T = \frac{1}{Z} \int d^3r \rho(\vec{r}) \left| \Omega_{\vec{p}}(\vec{r})\right|^2
+\end{equation}
+
+\subsection{Pandharipande et al.}
+%The Glauber approximation~\cite{Glauber_1959} supposes that a struck proton
+%with momentum $k$ and energy $E$, after quasielastic scattering, subsequently
+%scatters from spectator nucleons at angles $\theta$ primarily in the
+%forward direction.
+%More precisely, if $a$ and $V$ are the radius and strength of the
+%nucleon-nucleon interaction, this requires
+%$V/E \ll 1$,
+%$ka \gg 1$,
+%and
+%$\theta^2 k a \ll 1$.
+%The wavefunction of the proton in these conditions can be written as
+%%TODO: clean this up a little and clarify some variables; I'm trying to draw a link between a general Glauber summary and the specifics of the Pandharipande/Pieper paper
+%\begin{equation} \label{eqn:eikonal_approximation}
+%    \psi(\vec{r}) = e^{i\vec{k}\cdot\vec{r}}
+%            \exp{ -\frac{1}{2} \int_{z'}^{z} dz'' \sigma(z'') \rho(\vec{r''}) }
+%\end{equation}
 
 
 This experiment takes the work of Pandharipande and
