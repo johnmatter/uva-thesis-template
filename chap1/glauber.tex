@@ -1,4 +1,9 @@
 \section{Quasielastic Scattering and the Glauber Approximation}
+Benhar et. al~\cite{Benhar_2000, Rohe_2005} present a calculation of nuclear
+transparency for quasielastic scattering in the correlated Glauber
+approximation.
+What follows is a summary of their method.
+
 Let
 $\Psi_0^{(A)}$ be the ground state wave function of the $A$-body target nucleus,
 $\Psi_{\vec{p}}$ the final state wave function of the ejected proton with momentum $\vec{p}$,
@@ -67,23 +72,26 @@ In the correlated Glauber approximation, the scattering operator can be written
 in coordinate space
 \begin{align}
     \Omega_{\vec{p}}(R) \equiv \braopket{R}{\Omega_{\vec{p}}}{R}
-        = \hat{P}_z \bigg[ 1 &- \sum_{j=2} \theta(z_j-z_1) \Gamma(\vec{b}_j) \\
-                        &+ \sum_{j=2,k>j} \theta(z_j-z_1) \Gamma(\vec{b}_j) \theta(z_k-z_1) \Gamma(\vec{b}_k) \\
+        = \hat{P}_z \bigg[ 1 &- \sum_{j=2} \theta(z_j-z_1) \Gamma(\vec{b}_j-\vec{b}) \nonumber \\
+                        &+ \sum_{j=2,k>j} \theta(z_j-z_1) \Gamma(\vec{b}_j-\vec{b}) \theta(z_k-z_1) \Gamma(\vec{b}_k) \nonumber \\
                         &- \cdots \bigg]
 \end{align}
-
-
+where $\hat{P}_z$ is a $z$-ordering operator preventing backscattering of the
+ejected proton and the step functions $\theta(z)$ ensure causality.
+The profile function $\Gamma(\vec{b})$ is a function of impact parameter
+$\vec{b}$ and contains all the information about the scattering process.
+It is a Fourier transform of the scattering amplitude $f(\vec{k}_t)$ which can
+be extracted from measured cross sections.
 \begin{equation}
     \Gamma(\vec{b}) = -\frac{i}{2}\int \frac{d^2k_t}{(2\pi)^2} e^{-\vec{k}_t \cdot \vec{b}} f(\vec{k}_t)
 \end{equation}
 
+The scattering amplitude takes the parameterized form
 \begin{equation}
     f(\vec{k}_t) = i \sigma_{tot} (1-i\epsilon) e^{-k_t^2/2B}
 \end{equation}
-where
-$\hat{P}_z$ is a $z$-ordering operator preventing backscattering of the ejected proton,
-$\epsilon$ is the ratio of the scattering amplitude's real and imaginary parts
-and
+where $\epsilon$ is the ratio of the scattering amplitude's real and imaginary
+parts and
 $B$ is a slope parameter.
 
 Let $\rho_p(\vec{r})$ be the proton density in a target nucleus with $Z$
@@ -92,6 +100,29 @@ Then the transparency is
 \begin{equation}
     T = \frac{1}{Z} \int d^3r \rho(\vec{r}) \left| \Omega_{\vec{p}}(\vec{r})\right|^2
 \end{equation}
+
+The integrand can be expanded in terms of $n$-body distribution functions
+$\rho^{(n)}_{p N \ldots N}(\vec{r}_1, \vec{r}_2, \cdots, \vec{r}_n)$ that express the
+joint probability of finding the ejected proton at $\vec{r}_1$ and the $n-1$
+spectator nucleons at positions $\{\vec{r}_2, \cdots, \vec{r}_n\}$.
+
+\begin{align}
+    \rho_{p}(\vec{r}_1)&\left| \Omega_{\vec{p}}(\vec{r})\right|^2 = \nonumber \\
+        &1 - \frac{1}{\rho_{p}(\vec{r}_1)} \bigg[ \int d^3 \vec{r}_2 \theta(z_2-z)\Gamma(\vec{b}_2-\vec{b}) \rho^{(2)}_{pN}(\vec{r}_1,\vec{r}_2) \nonumber \\
+            - &\int d^3 \vec{r}_2 d^3 \vec{r}_3 \theta(z_2-z)\Gamma(\vec{b}_2-\vec{b}) \theta(z_3-z)\Gamma(\vec{b}_3-\vec{b}) \rho^{(3)}_{pNN}(\vec{r}_1,\vec{r}_2, \vec{r}_3) \nonumber \\
+            + &\int d^3 \vec{r}_2 d^3 \vec{r}_3 d^3 \vec{r}_4 \cdots \bigg]
+\end{align}
+
+The quantity in brackets contains the effects of final state interactions,
+which result in a decrease in transparency from the PWIA result, $T=1$.
+Each term represents a contributions from $n-1$ rescatterings.
+The single rescattering term can be written as
+$\rho^{(2)}_{pN}(\vec{r}_1,\vec{r}_2)=\rho_p(\vec{r}_1)\rho_N(\vec{r}_2)g(\vec{r}_1,\vec{r}_2)$,
+where the function $g(\vec{r}_1,\vec{r}_2)$ describes the correlations between
+nucleons~\cite{Schiavilla_1987}.
+At short ranges $r=\norm{\vec{r}_1-\vec{r}_2}$, $g(r)\ll1$ because of the
+strongly repulsive core of the nucleon-nucleon interaction.
+At large $r$, $g(r) \rightarrow 1$ because of asymptotic freedom.
 
 \subsection{Pandharipande et al.}
 %The Glauber approximation~\cite{Glauber_1959} supposes that a struck proton
@@ -218,5 +249,24 @@ In the above expression, $g_{pa}(\vec{r'},\vec{r''})$ is a pair distribution
 function~\cite{Schiavilla_1987}, the joint probability to find a proton at
 $\vec{r'}$ and nucleon $a$ at $\vec{r''}$.
 
-% TODO: elaborate on *why* this predicts constant T?
-The prediction
+Glauber models such as this predict that nuclear transparency $T$ remains
+constant for increasing momentum transfer $Q^2$, as shown by the dotted line in
+Fig~\ref{fig:aeep_transparency_intro}.
+
+% TODO: Do we have a PDF version of this?
+\begin{figure}[!h] \label{fig:aeep_transparency_intro}
+    \centering
+    \includegraphics[width=0.6\textwidth]{chap2/aeep_transparency.png}
+    \caption{Transparency measurements from several experiements studying
+             quasielastic electron scattering from deuterium, carbon, iron,
+             and gold.
+             Data taken at JLab~\cite{Abbot_1998, Garrow_2002, Rohe_2005} are shown as solid points.
+             Data taken at SLAC~\cite{Makins_1994, ONeill_1995} are shown as large open symbols.
+             Data taken at Bates~\cite{Garino_1992} are shown as small open symbols.
+             The dotted line is a Glauber calculation from~\cite{Pandharipande_1992} for carbon data..
+             Solid lines are constant-value fits to data above \SI{2}{\giga\electronvolt}.
+            }
+    \label{fig:aeep}
+\end{figure}
+
+
