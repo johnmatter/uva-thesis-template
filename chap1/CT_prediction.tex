@@ -224,19 +224,12 @@ sections calculated in
 a relativistic multiple scattering Glauber approximation (RMSGA)
 and
 a relativistic plane wave approximation (RPWIA).
+They do so using the RMSGA formalism for $A(e,e'p)$ reactions developed by
+Ryckebusch et al.~\cite{Ryckebusch_2003}.
 
 
-\begin{equation}
-    \frac{d^5\sigma}{d E'_e d \Omega'_e d \Omega'_p} =
-        \frac{m_{e}^{2} M_{p} M_{A-1}}{(2 \pi)^{5} M_{A}}
-        \frac{k^{\prime} k_{p}}{k}
-        f_{rec }^{-1}
-        \sum_{if}\left|\mathcal{M}_{fi}\right|^{2}
-\end{equation}
-
-
-After rescattering, the outgoing wavefunction $\psi_{out}$ picks up a complex
-phase $\chi(\vec{r})$.
+Briefly stated, the Glauber approximation consists of assigning a complex phase
+$\chi(\vec{r})$ the outgoing proton wavefunction $\psi_{out}$
 \begin{equation}
     \psi_{out}(\vec{r}) = e^{i\chi(\vec{r})} \psi_{in}(\vec{r})
 \end{equation}
@@ -275,17 +268,45 @@ Group.
 The slope parameter $\beta_{hN}$ can be estimated using
 the elastic $\sigma^{hN}_{el}$ and total $\sigma^{hN}_{tot}$ cross sections
 in the following
-approximation~\cite{Ryckebusch_2003}
+approximation
 \begin{equation}
     \beta_{p N}^{2} \approx
             \frac{(\sigma^{hN}_{tot})^{2} (\epsilon_{hN}^{2}+1)}
                  {16 \pi \sigma^{hN}_{el}}
 \end{equation}
 
+More rigorously, the analysis starts with an expression for the differential
+cross section
+\begin{equation}
+    \frac{d^5\sigma}{d E'_e d \Omega'_e d \Omega'_p} =
+        \frac{m_{e}^{2} m_{p} M_{A-1}}{(2 \pi)^{5} M_{A}}
+        \frac{p'_e p_p}{p_e}
+        f_{rec}^{-1}
+        \sum_{if}\left|\mathcal{M}_{fi}\right|^{2}
+\end{equation}
+where $f_{rec}$ is a hadronic recoil factor
+\begin{equation}
+    f_{rec}=\frac{E_{A-1}}{E_{A}} \mid
+                    1+\frac{E_{p}}{E_{A-1}}\left(1-\frac{\vec{q} \cdot \vec{p}_{p}}{p_{p}^{2}}\right)
+\end{equation}
 
+To evaluate this expression, Ryckebusch et al. write the matrix elements of the
+electromagnetic current operator $\hat{J^\mu}$ in terms of solutions
+$\phi(\vec{r})$ of the Dirac equation
+\begin{equation}
+    \left\langle J^{\mu}\right\rangle=\int d \vec{r} \phi_{p_{p} m_{s}}^{\dagger}(\vec{r}) \mathcal{G}^{\dagger}(\vec{b}, z) \gamma^{0} J^{\mu}(\vec{r}) e^{i \vec{q} \cdot \vec{r}} \phi_{\alpha}(\vec{r})
+\end{equation}
+where $\mathcal{G}$ is the Dirac-Glauber phase
+\begin{equation}
+    \mathcal{G}(\vec{b}, z)=\prod_{\alpha_{\text{occ}}\neq\alpha}\left[1-\int d \vec{r}^{\prime}\left|\phi_{\alpha_{\mathrm{occ}}}\left(\vec{r}^{\prime}\right)\right|^{2} \theta\left(z^{\prime}-z\right) \Gamma\left(\vec{b}^{\prime}-\vec{b}\right)\right]
+\end{equation}
 
+The RPWIA is a special case of this phase with $\mathcal{G}=1$.
+That is, the RPWIA does not include any FSI effects.
+
+With this formalism, Cosyn et al. arrive at the following expression for
+nuclear transparency:
 \begin{equation}
     T= \frac{\sum_{\alpha} \int d q Y(q) \int d \vec{p}_{m} \left(\frac{d^5\sigma}{d E'_e d \Omega'_e d \Omega'_p} \right)_{\mathrm{RMSGA}}}
             {\sum_{\alpha} \int d q Y(q) \int d \vec{p}_{m} \left(\frac{d^5\sigma}{d E'_e d \Omega'_e d \Omega'_p} \right)_{\mathrm{RPWIA}}}
 \end{equation}
-
