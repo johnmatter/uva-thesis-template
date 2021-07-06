@@ -1,15 +1,38 @@
 \section{Charge-normalized Yield}
-Experimental yields for each kinematic setting were corrected using
-kinematic-specific trigger efficiencies, PID efficiencies, tracking
-efficiencies, and electronic livetimes.
-Due to limited statistics, the same proton absorption correction calculated
-using $Q^2=\SI{11.5}{\giga\electronvolt}$ was used for all kinematics.
-The same LH2 boiling correction is used for all runs.
+Experimental yields $Y$ for each kinematic setting were corrected using
+kinematic-specific efficiencies $\epsilon$
+(PID, tracking, hodoscope), and
+total electronic livetimes $TLT$.
+Due to limited statistics, the same proton absorption correction $A$,
+calculated using $Q^2=\SI{11.5}{\giga\electronvolt}$ data,
+was used for all kinematics.
+The same LH2 boiling correction for current $I$ in \si{\micro\ampere},
+$f_{boil}(I)=1-0.000385I$
+is used for all hydrogen runs.
+
+\begin{equation}
+Y_{exp} = \frac{N_{coin}}{Q}
+          \frac{f_{boil}(I)}{A * TLT}
+          \left[
+              \epsilon_{track}
+              \epsilon_{cer}
+              \epsilon_{cal}
+              \epsilon_{hodo}
+          \right]_{HMS}^{-1}
+          \left[
+              \epsilon_{track}
+              \epsilon_{cer}
+              \epsilon_{hodo}
+          \right]_{SHMS}^{-1}
+\end{equation}
 
 
 The carbon yields in both data and simulation were integrated over
+the the region
 $E_{miss} < \SI{0.08}{\giga\electronvolt}$
-$p_{miss} < \SI{0.3}{\giga\electronvolt}$.
+and
+$\norm{\vec{p}_{miss}} < \SI{0.3}{\giga\electronvolt}$; this cut removes
+any accidental coincidences from pions in the SHMS.
 Nucleon-nucleon short-range correlations shift the single particle strength
 to higher $p_{miss}$ than predicted by the IPSM spectral functions.
 To correct for this, a correction factor of 1.11 $\pm$ 0.03\,\cite{ONeill_1995}

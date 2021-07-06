@@ -86,7 +86,8 @@ The SHMS Noble Gas Cherenkov was used as a pion veto.
 The SHMS central momenta used in this experiment range from
 5.122 to \SI{8.505}{\giga\electronvolt}.
 The pion threshold in this detector is \SI{4.65}{\giga\electronvolt} while the
-the proton threshold is \SI{999999999}{\giga\electronvolt}.
+the proton threshold is \SI{30}{\giga\electronvolt}, well above the range of
+the SHMS magnets.
 A set of protons that should not fire the Cherenkov
 are selected using the cuts in Table~\ref{tab:pcer_cuts}.
 A weighted efficiency is calculated as discussed in Section~\ref{sec:hcal_eff}
@@ -164,8 +165,8 @@ A weighted efficiency is calculated as discussed in Section~\ref{sec:hcal_eff}
 
         \multirow{17}{*}{\makecell[ml]{$C^{PMultipleTrack}$}}
         & \makecell{More than one track \\ found} & P.dc.ntrack > 1 \\ \cline{2-3}
-        & \makecell{Few hits on negative \\ side ADCs} & 
-                \makecell{P.hod.1x.totNumGoodNegAdcHits<5 \&\& \\ 
+        & \makecell{Few hits on negative \\ side ADCs} &
+                \makecell{P.hod.1x.totNumGoodNegAdcHits<5 \&\& \\
                           P.hod.1y.totNumGoodNegAdcHits<5 \&\& \\
                           P.hod.2x.totNumGoodNegAdcHits<5 \&\& \\
                           P.hod.2y.totNumGoodNegAdcHits<5} \\ \cline{2-3}
@@ -185,7 +186,53 @@ A weighted efficiency is calculated as discussed in Section~\ref{sec:hcal_eff}
     \end{tabular}
 \end{table}
 
-\section{Target Boiling}
+\subsection{Target Boiling}
+At high beam currents and energies, energy deposition in liquid cryotargets
+cause localized boiling.
+This causes local drops in density which decrease measured charge-normalized
+yields from what would be expected for a liquid target with constant density.
+A beam current-dependent \textit{target boiling correction} can be extracted
+with a luminosity scan, which consists of taking data with cryotargets over
+a range of currents.
+A linear fit of the drop in yield with increased current provides a
+correction that can be used with production data at any beam current.
+
+Table~\ref{tab:target_boiling_runs} lists the HMS and SHMS singles runs used to
+study target boiling.
+
+\begin{table}[h]
+    \centering
+    \caption{List of runs used to study target boiling and the corresponding nominal beam currents.}
+    \label{tab:target_boiling_runs}
+    \begin{tabular}[t]{| c | l | l | l |}
+        \hline
+         Target          &  Current [\si{\micro\ampere}]  &  SHMS run  & HMS run\\ \hline
+        \hline
+        \multirow{7}{*}{\makecell[ml]{$LH_2$}}
+        & 10 & 3210       & 2078,2080 \\ \cline{2-4}
+        & 20 & 3211       & 2081 \\ \cline{2-4}
+        & 35 & 3212, 3213 & 2082, 2083 \\ \cline{2-4}
+        & 45 & 3214       & 2084 \\ \cline{2-4}
+        & 55 & 3215       & 2085 \\ \cline{2-4}
+        & 70 & 3207       & 2076 \\ \cline{2-4}
+        & 80 & 3206       & 2075 \\ \hline
+        \multirow{1}{*}{\makecell[ml]{Aluminum Dummy}}
+        & 40 & 3226 & 2096 \\ \hline
+        \multirow{3}{*}{\makecell[ml]{1.5\% ${}^{12}C$}}
+        & 60 & 3223 & 2093 \\ \cline{2-4}
+        & 50 & 3224 & 2094 \\ \cline{2-4}
+        & 35 & 3225 & 2095 \\ \hline
+    \end{tabular}
+\end{table}
+
+The average of the normalized slopes and intercepts of the fits to SHMS and HMS
+runs was used to correct the yields for production hydrogen runs of the form
+% TODO: confirm this number. It's what we have in the spreadsheet.
+\begin{equation}
+    f_{boil}(I)=1-0.000385I
+\end{equation}
+
+
 
 \subsection{Trigger}
 
