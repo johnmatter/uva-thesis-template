@@ -130,7 +130,7 @@ superharps, IHA3H07A and IHA3H07B.
 
 Each BPM consists of four antennae attached to a cylindrical cavity that froms
 part of the beamline enclosure.
-Two pairs of antannae are located opposite each other, with each pair \ang{90}
+Two pairs of antennae are located opposite each other, with each pair \ang{90}
 from the other, forming an X'Y' coordinate system rotated \ang{45} from the
 X and Y axes of the EPICS (left-handed) coordinate system.
 The beam induces a signal in each antenna, which is tuned to \SI{499}{Hz}
@@ -152,7 +152,7 @@ parallel electronics chain to the EPICS data.
 
 \subsubsection{Beam Current Monitors}
 The system for monitoring beam current consists of several resonant-cavity BCMs
-and one parametric-curent-transformer Unser monitor.
+and one parametric-current-transformer Unser monitor.
 
 
 The Unser current monitor~\cite{Unser_1991} consists of a toroidal pickup
@@ -182,7 +182,7 @@ In contrast to the Unser, the BCMs have a relatively stable offset.
 
 The output of both the Unser and BCMs\footnote{The BCMs' RF outputs must first
 be sent through an analog (for BCM1 and BCM2) or digital (for BCM4A, BCM4B, and
-BCM4C) downconverter.} are sent to voltage-to-frequency converters whose ouputs
+BCM4C) downconverter.} are sent to voltage-to-frequency converters whose outputs
 are sent to DAQ scalers as well as a VME crate for processing and integration
 into the EPICS stream.
 

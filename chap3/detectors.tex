@@ -87,11 +87,11 @@ The transition from a triplet state is similar.
 Decay from $T_0$ to $S_0$ is possible, but suppressed by selection rules.
 The decay typically takes place when two $T_0$ molecules interact with each
 other, resulting in one in the excited $S^*$ state, one in the ground state,
-and heat dissipated in the medium. The excited $S^*$ molecule then rediatively
+and heat dissipated in the medium. The excited $S^*$ molecule then radiatively
 decays as in the singlet case.
 
 Light produced in the SHMS quartz plane is Cherenkov radiation, which is
-discussed further in the subsection on Threshold Chereknov Counters.
+discussed further in the subsection on Threshold Cherenkov Counters.
 % No neutrons produce C rad, so can use S2Y as a veto
 
 Both ends of each HMS paddle are read out by Philips XP2282B PMTs, with
@@ -203,10 +203,10 @@ The electrons are collected by sense wires which are read out by
 16-channel discriminators attached to the chamber supports.
 The discriminators are fed, via 16-channel ribbon cables, to CAEN 1190
 TDCs~\cite{CAEN_1190_manual} in a VXS crate in the detector huts.
-When the 1190s receive a pre-trigger, they record the time of the last several
+When the 1190s receive a pretrigger, they record the time of the last several
 hits\footnote{The trigger and readout electronics will be discussed in more
 detail in the next section.}.
-The time between the pre-trigger and the time at which the electron cloud hits
+The time between the pretrigger and the time at which the electron cloud hits
 a wire can be used to determine the distance at which the initial ionization
 occurred.
 Using this information from every wire plane in both chambers allows
@@ -279,7 +279,7 @@ A = 2 \pi \alpha \int_{\lambda_1}^{\lambda_2} \epsilon_c(\lambda)QE(\lambda)G(\l
 
 The gas Cherenkov detectors in the HMS and SHMS use spherical mirrors to focus
 Cherenkov radiation onto PMTs mounted on the back of the detector. The SHMS
-aerogel Cherenkov consists of an aeorogel tray, covered in either GORE or
+aerogel Cherenkov consists of an aerogel tray, covered in either GORE or
 Millipore diffusion materials~\cite{Horn_2017}, mounted between two columns
 of PMTs.
 
@@ -365,11 +365,12 @@ generates Cherenkov radiation that is collected by PMTs mounted on the ends
 of the lead glass blocks.
 The amount of light collected is proportional to the deposited energy.
 Electrons, positrons, and photons will deposit all of their energy.
-For the kinematics of E12-06-102, this is between 2 and 6 GeV.
+For the kinematics of E12-06-102, this is between 2 and
+\SI{6}{\giga\electronvolot}.
 These particles will produce a peak centered around 1 in the distribution of
 the track-normalized energy deposition, $E/p$.
 A pion, whose mass is much greater than an electron's, will typically deposit
-about 300 MeV.
+about \SI{300}{\mega\electronvolot}.
 A negative pion undergoing a charge-exchange reaction in the bulk of the
 calorimeter can produce a neutral pion which will decay into two photons,
 resulting in a significant fraction of energy being deposited.
