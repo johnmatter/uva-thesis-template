@@ -12,12 +12,13 @@
             HMS Calorimeter Energy &  0.8 < H.cal.etottracknorm \&\& H.cal.etottracknorm < 1.15 \\ \hline
             HMS Cherenkov NPE      &  H.cer.npeSum>0                                            \\ \hline
             SHMS NG Cherenkov Veto &  P.ngcer.npeSum<0.1                                        \\ \hline
-            $\delta_{HMS}$         &  -10.0 < H.gtr.dp \&\& H.gtr.dp < 10.0                     \\ \hline
-            $\delta_{SHMS}$        &  -10.0 < P.gtr.dp \&\& P.gtr.dp < 12.0                     \\ \hline
+            $\delta_{HMS}$         &  -8.0  < H.gtr.dp \&\& H.gtr.dp <  8.0                     \\ \hline
+            $\delta_{SHMS}$        &  -10.0 < P.gtr.dp \&\& P.gtr.dp < 15.0                     \\ \hline
             $\beta_{HMS}$          &  0.6 < H.gtr.beta \&\& H.gtr.beta < 1.4                    \\ \hline
-            $\beta_{SHMS}$         &  0.8 < H.gtr.beta \&\& H.gtr.beta < 1.2                    \\ \hline
+            $\beta_{SHMS}$         &  0.8 < P.gtr.beta \&\& P.gtr.beta < 1.4                    \\ \hline
             $E_{miss}$             &  P.kin.secondary.emiss<0.1                                 \\ \hline
             $p_{miss}$             &  abs(P.kin.secondary.pmiss)<0.1                            \\ \hline
+            $p_{miss}$             &  -0.1 < P.kin.secondary.pmiss \&\& P.kin.secondary.pmiss < 0.1 \\ \hline
             Good hodoscope times   &  H.hod.goodstarttime==1 \&\& P.hod.goodstarttime==1        \\ \hline
         \end{tabular}
     }
@@ -26,7 +27,7 @@
 \begin{table}[h]
     \centering
     \caption{List of cuts used to select clean ${}^{12}C(e,e'p)$ events.}
-    \label{tab:lh2_cuts}
+    \label{tab:c12_cuts}
     \resizebox{1.0\textwidth}{!}{
         \begin{tabular}[t]{| l | l |}
             \hline
@@ -35,12 +36,12 @@
             HMS Calorimeter Energy &  0.8 < H.cal.etottracknorm \&\& H.cal.etottracknorm < 1.15 \\ \hline
             HMS Cherenkov NPE      &  H.cer.npeSum>0                                            \\ \hline
             SHMS NG Cherenkov Veto &  P.ngcer.npeSum<0.1                                        \\ \hline
-            $\delta_{HMS}$         &  -10.0 < H.gtr.dp \&\& H.gtr.dp < 10.0                     \\ \hline
-            $\delta_{SHMS}$        &  -10.0 < P.gtr.dp \&\& P.gtr.dp < 12.0                     \\ \hline
+            $\delta_{HMS}$         &  -8.0  < H.gtr.dp \&\& H.gtr.dp <  8.0                     \\ \hline
+            $\delta_{SHMS}$        &  -10.0 < P.gtr.dp \&\& P.gtr.dp < 15.0                     \\ \hline
             $\beta_{HMS}$          &  0.6 < H.gtr.beta \&\& H.gtr.beta < 1.4                    \\ \hline
-            $\beta_{SHMS}$         &  0.8 < H.gtr.beta \&\& H.gtr.beta < 1.2                    \\ \hline
+            $\beta_{SHMS}$         &  0.8 < P.gtr.beta \&\& P.gtr.beta < 1.4                    \\ \hline
             $E_{miss}$             &  P.kin.secondary.emiss<0.08                                \\ \hline
-            $p_{miss}$             &  abs(P.kin.secondary.pmiss)<0.3                            \\ \hline
+            $p_{miss}$             &  -0.3 < P.kin.secondary.pmiss \&\& P.kin.secondary.pmiss < 0.3 \\ \hline
             Good hodoscope times   &  H.hod.goodstarttime==1 \&\& P.hod.goodstarttime==1        \\ \hline
         \end{tabular}
     }

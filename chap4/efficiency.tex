@@ -212,19 +212,23 @@ $C^{should} \land (C^{PMultipleTrack} \lor C^{PSingleTrack}$).
     \end{tabular}
 \end{table}
 
-\subsection{Target Boiling}
+\subsection{Luminosity Scan}
 At high beam currents and energies, energy deposition in liquid cryotargets
 cause localized boiling.
 This causes local drops in density which decrease measured charge-normalized
 yields from what would be expected for a liquid target with constant density.
 A beam current-dependent \textit{target boiling correction} can be extracted
-with a luminosity scan, which consists of taking data with cryotargets over
-a range of currents.
+with a luminosity scan, which consists of measuring charge-normalized yields
+over a range of beam currents with the same spectrometer settings.
 A linear fit of the drop in yield with increased current provides a
 correction that can be used with production data at any beam current.
 
 Table~\ref{tab:target_boiling_runs} lists the HMS and SHMS singles runs used to
 study target boiling.
+These runs were taken immediately before and after this experiment.
+Both the HMS and SHMS were set at scattering angles of \SI{25}{\degree} and
+central momenta of \SI{4.4}{\giga\electronvolt} to collect electrons scattered
+from hydrogren and carbon targets.
 
 \begin{table}[h]
     \centering
@@ -252,13 +256,19 @@ study target boiling.
 \end{table}
 
 The average of the normalized slopes and intercepts of the fits to SHMS and HMS
-runs was used to correct the yields for production hydrogen runs of the form
+hydrogen runs was used as a correction to the production hydrogen yields of the
+form
 % TODO: confirm this number. It's what we have in the spreadsheet.
 \begin{equation}
     f_{boil}(I)=1-0.000385I
 \end{equation}
 
-
+The slopes of fits to carbon yields were consistent with zero, as should be the
+case for a solid target;
+if the yields are appropriately corrected for rate-dependent effects (i.e.
+deadtime and detector efficiencies) the yield should be independent of current.
+The variation in carbon yields from the luminosity scan was used as an estimate
+of the systematic uncertainty due to deadtime and detector efficiencies.
 
 \subsection{Trigger}
 Let $P_i$ be the efficiency of the $i$th hodoscope plane.
