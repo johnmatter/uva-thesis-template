@@ -1,0 +1,6 @@
+% elastic_scattering.t1 -- generated from elastic_scattering.mp
+\fmfL(4,2.71088,b){$q_\mu =(\nu ,\vec {q})$}%
+\fmfL(0.63388,-0.12982,rt){$(E_e,\vec {p}_e)$}%
+\fmfL(0.63388,5.12982,rb){$(E'_e,\vec {p'}_e)$}%
+\fmfL(7.36612,-0.12982,lt){$(E_p,\vec {p}_p)$}%
+\fmfL(7.36612,5.12982,lb){$(E'_p,\vec {p'}_p)$}%

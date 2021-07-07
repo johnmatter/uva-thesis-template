@@ -30,7 +30,6 @@ Because nucleons bound in nuclear targets are off-shell and the particles
 involved can interact with the surrounding nuclear medium, the Rosenbluth model
 is not valid.
 
-% TODO: add Feynman diagram for A(e,e'p)
 \begin{figure}[H]
     \centering
     \vspace{1cm}
@@ -49,7 +48,7 @@ is not valid.
 
                 \fmf{fermion}{ie,v1,oe}
 
-                \fmf{photon,label=$q_\mu=(\omega,,\vec{q})$}{v1,v3}
+                \fmf{photon,label=$q_\mu=(\nu,,\vec{q})$}{v1,v3}
 
                 \fmf{dbl_plain_arrow}{iA,v2}
                 \fmfblob{16}{v2}
@@ -60,7 +59,7 @@ is not valid.
         \end{fmffile}
     \vspace{1cm}
     \caption{Feynman diagram for $A(e,e'p)$ scattering in the PWIA.}
-    \label{fig:ele_int_conv}
+    \label{fig:feynman_aeep}
 \end{figure}
 
 
@@ -99,7 +98,7 @@ which was initially calculated in Ref~\cite{Dieperink_1976} for quasielastic
 scattering from ${}^3He$.
 This cross section is set by imposing momentum and energy conservation at the
 $\gamma p$ vertex.
-% i.e. J dot q = rho omega
+% i.e. J dot q = rho nu
 The normalization condition, given nuclear charge $Z$, for the spectral
 function is
 \begin{equation} \label{eqn:spectroscopic_sum_rule}

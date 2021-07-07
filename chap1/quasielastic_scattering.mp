@@ -15,7 +15,7 @@ vlabel ("$(E_A,\vec {p}_A)$", __iA);
 vlabel ("$(E'_p,\vec {p'}_p)$", __op);
 vlabel ("$(E_{A-1},\vec {p}_{A-1})$", __oAm1);
 vconnect ("fermion", __ie, __v1, __oe);
-vconnect ("photon,label=$q_\mu =(\omega ,,\vec {q})$", __v1, __v3);
+vconnect ("photon,label=$q_\mu =(\nu ,,\vec {q})$", __v1, __v3);
 vconnect ("dbl_plain_arrow", __iA, __v2);
 vblob ((16), __v2);
 vconnect ("fermion,label=$(E_s,,\vec {p}_p)$", __v2, __v3);

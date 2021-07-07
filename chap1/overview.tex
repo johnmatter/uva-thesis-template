@@ -47,20 +47,49 @@ French physicist Jean Perrin's measurements of the sedimentation of small
 particles in liquid confirmed Einstein's hypothesis, work for which he was
 awarded the Nobel Prize in 1926.
 
-TODO: make what follows waaaaaaaaaaaay less colloquial; I copied it from something else I was writing
 
-Around 1910, Rutherford, Geiger, and Marsden used a beam of alpha particles
-incident on a gold foil to study atomic structure.
-Their results~\cite{Rutherford_1911} suggested that the atom is composed of a
-small, dense, positively charged nucleus surrounded by a cloud of electrons.
+Rutherford, Geiger, and Marsden carried out a series of experiments between
+1908 and 1913 in which they fired a beam of alpha particles
+at thin metal foils to study atomic-scale structure~\cite{Rutherford_1911}.
+The distribution of scattered particles they observed suggested that the atom
+is composed of a small, dense, positively charged nucleus surrounded by a cloud
+of electrons.
 
 In the century since, physicists have used other particle beams to study the
-substructure of nuclei as well as the nucleons (i.  e.  protons and neutrons)
+substructure of nuclei as well as the nucleons (i.e. protons and neutrons)
 that compose nuclei.
 The culmination of decades of such experiments is a theory called quantum
 chromodynamics (QCD): the theory that quarks and gluons are the fundamental
 building blocks that make up hadrons, a category of composite particles that
 includes protons and neutrons.
+QCD also describes the interactions between such particles--the
+\textit{strong nuclear force}.
+
+
+QCD is part of the ``Standard Model'' of particle physics, which holds that
+everything in the universe is made up of a handful of basic building blocks
+whose interactions are governed by a few fundamental forces.
+These building blocks, collectively called fermions, belong to two groups of
+particles--quarks and leptons.
+The quarks are typically found confined inside hadrons, while leptons can move
+about more freely.
+The interactions between these particles are mediated by force-carrying
+particles called bosons that carry discrete packages of energy and momentum
+between fermions.
+
+Each of the three fundamental forces has one or more bosons associated with it.
+The strong nuclear force, as mentioned above, has the gluon.
+The electromagnetic force (quantum electrodynamics or QED) has the photon.
+The weak nuclear force, responsible for beta decay among other things, has the
+positively and negatively charged $W$ bosons and the neutral $Z$ boson.
+There are a number of theories that have tried to incorporate the fourth
+fundamental force, gravity, in a way that is consistent with the Standard
+Model.
+Unfortunately, this pursuit has proven difficult and no such theory has been
+proven correct.
+Figure~\ref{fig:Standard_Model_of_Elementary_Particles} displays the full list
+of fundamental particles in the Standard Model, along with some of their
+properties.
 
 \begin{figure}[!h]
     \centering
@@ -71,61 +100,112 @@ includes protons and neutrons.
     \label{fig:Standard_Model_of_Elementary_Particles}
 \end{figure}
 
+
+\section{Electron scattering}
 The Thomas Jefferson National Accelerator Facility (JLab) in Newport News, VA
 is home to the Continuous Electron Beam Accelerator Facility (CEBAF).
-The CEBAF beam delivers a 12 GeV beam of polarized electrons to four
+The CEBAF beam delivers a beam of high energy polarized electrons to four
 experimental halls.
-Most JLab experiments study the debris produced when the CEBAF electron beam
+Most JLab experiments study the debris produced when the electron beam
 hits a fixed nuclear target.
 By studying this debris, physicists are able to obtain new insights into
 nuclear and nucleon structure, exotic configurations of quarks, and other
-facets of QCD.
+features of QCD.
+Electron beams such as the CEBAF are powerful tools for studying nuclear
+structure
+because the processes involved in electron-nucleus scattering experiments are
+governed by QED (a theory which is very well understood and calculable to high
+degrees of precision).
 
-\subsubsection{Scattering in classical physics}
-Now what exactly is “quasielastic scattering”?
-Elastic scattering is something you might be familiar with from introductory
-physics courses.
-In Newtonian physics, an elastic collision is one in which kinetic energy is
-conserved.
-A canonial example is an air hockey puck hitting another puck on a frictionless
-plane.
-An inelastic collision is one in which kinetic energy is not conserved.
-A canonical example is two wads of gum colliding and sticking together in zero
-gravity.
+\begin{figure}[H]
+    \centering
+    \vspace{1cm}
+        \begin{fmffile}{chap1/elastic_scattering}
+            \setlength{\unitlength}{1cm}
+            \begin{fmfgraph*}(8,5)
+                \fmfleft{ie,oe}
+                \fmfright{ip,op}
 
-\subsubsection{Scattering in nuclear physics}
-In nuclear physics, the canonical example of elastic collisions is an electron
-colliding with a free proton.
-The collision is elastic in the sense that the incoming and outgoing particles
-all retain their “identities.”
+                \fmflabel{$(E_e,\vec{p}_e)$}{ie}
+                \fmflabel{$(E'_e,\vec{p'}_e)$}{oe}
 
-One of the fun aspects of quantum field theory comes from the intersection of
-quantum mechanics and relativity.
-Energy and matter are in some sense interchangeable, so some of the energy
-contained in colliding particles can be converted into mass.
-This is how collisions of proton beams at the LHC create short-lived particles
-like the Higgs boson.
+                \fmflabel{$(E_p,\vec{p}_p)$}{ip}
+                \fmflabel{$(E'_p,\vec{p'}_p)$}{op}
 
-At “low” energies, an electron colliding with a nucleus will kick out a proton
-or neutron.
-Physicists can use this process to study how tightly bound individual nucleons
-are in a particular nucleus.
+                \fmf{fermion}{ie,v1,oe}
+                \fmf{photon,label=$q_\mu=(\nu,,\vec{q})$}{v1,v2}
+                \fmf{fermion}{ip,v2,op}
+            \end{fmfgraph*}
+        \end{fmffile}
+    \vspace{1cm}
+    \caption{Feynman diagram for elastic $ep$ scattering.}
+    \label{fig:feynman_ep}
+\end{figure}
 
-At higher energies, some of this $E=mc^2$ energy can be converted into “new”
+Consider a situation in which an electron and proton collide.
+The tree-level diagram for this process is shown in Fig~\ref{fig:feynman_ep}.
+Let $p_e^\mu=(E_e,\vec{p}_e)$ be the incoming four-momentum of the electron and
+${p'}_e^\mu=(E'_e,\vec{p'}_e)$ be its outgoing four-momentum.
+Similarly, let $p_p^\mu$ and ${p'}_p^\mu$ be the incoming and outgoing
+four-momenta of the proton.
+The virtual photon carries a four-momentum
+$q^\mu=(\nu,\vec{q})=(E_e-E'_e,\vec{p}_e-\vec{p'}_e)$ between the two
 particles.
-Instead of nucleons, particles like pions, kaons, and muons come out of the
-collision.
-At this energy scale, we start probing sub-nucleon structures instead of
-nuclear structures.
-Physicists call these types of interactions “deep inelastic scattering” because
-we are using scattering processes to study the “deep” structure of strongly
-interacting matter.
+An important quantity defined for such processes is the four-momentum transfer
+squared $Q^2=-q^\mu q_\mu$.
+Similarly, $\nu=E_e-E'_e$ is the energy transfer.
 
-Quasielastic scattering is a “low” energy process where the collision looks
-like the elastic case of an electron colliding with a free proton.
-None of the energy is converted into “new” particles.
-The electron transfers momentum to one of a nucleus’s constituent proton,
-removing it from its bound state in the nucleus.
-This interaction is called “quasielastic” because it looks more like an
-electron hitting a free proton than it does a deep inelastic interaction.
+\textit{Elastic scattering} is a process in which an electron and proton
+collide, and both particles retain their identities.
+This process can be seen as a distinct peak at $Q^2=2m_p\nu$ on the bottom axis
+labeled ``PROTON'' in Fig~\ref{fig:nuclear_response_function}.
+This figure is a schematic representation of the nuclear response
+function\footnote{The nuclear response function can be thought of as the
+probability for an interaction to occur between an electron and a proton or
+nucleus at a given value of $Q^2$ and $\nu$.} as a function of $Q^2$ and $\nu$.
 
+For a fixed value of $Q^2$, higher energy transfers $\nu$ result in first
+resonances of the proton and, as the virtual photon probes smaller and
+smaller distances, eventually deep inelastic scattering (DIS).
+DIS processes are possible because the proton is not a point-like particle
+without a substructure, but rather a composite particle composed of quarks.
+The DIS region extends to electron-nucleus scattering at larger $\nu$ (see the
+middle axis labeled ``NUCLEUS.''
+In DIS events, quarks can be knocked out of protons and neutrons to form other
+hadrons such as pions and kaons.
+
+At lower values of $\nu$ for fixed $Q^2$, there is a peak labeled
+quasi-free scattering, which is another term for \textit{quasielastic
+scattering}.
+This is a process in which the struck proton retains its identity and holds
+onto its constituent quarks.
+The process ``looks'' more like elastic scattering involving a free proton than
+it does an inelastic process.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{chap1/nuclear_response_function.pdf}
+    \caption{
+             Reproduced from Ref~\cite{Frois_1985}.
+            }
+    \label{fig:nuclear_response_function}
+\end{figure}
+
+Quasielastic scattering is one type of scattering process that can be studied
+in detail at JLab in Hall C using a pair of apparatuses called spectrometers.
+If both spectrometers are used in tandem to collect both the scattered electron
+and ejected proton, this is called \textit{exclusive} quasielastic scattering.
+Inclusive scattering detects only one of the particles, leaving some abmiguity
+about exactly what process led to its being scattered into a spectrometer.
+
+
+Because the ejected proton interacts with the residual nucleons via the strong
+force, it will interact with the nuclear medium as it exits the nucleus.
+This ``rescattering'' process is well-described by Glauber multiple scattering
+theory~\cite{Glauber_1959}.
+However, there is a distinctive prediction~\cite{Mueller_1982,Brodsky_1982}
+arising from QCD that in exclusive processes at large $Q^2$, initial and final
+state interactions (ISI and FSI) such as Glauber multiple scattering vanish.
+At sufficienctly large $Q^2$, a proton ejected from a nucleus in quasielastic
+scattering behaves as if it were a free proton participating in elastic
+scattering.
