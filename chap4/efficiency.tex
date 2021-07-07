@@ -111,6 +111,32 @@ A weighted efficiency is calculated as discussed in Section~\ref{sec:hcal_eff}
 \end{table}
 
 \subsection{Tracking}
+The tracking efficiency $\epsilon_{track}$ is the probablity of \textit{hcana}
+reconstructing track based on signals wtih drift chamber wires when a particle
+passes through the spectrometer.
+The set of cuts used to select such events are listed in
+Tables~\ref{tab:htrack_cuts} and~\ref{tab:ptrack_cuts}.
+Events that should almost certainly have a good track candidate have
+a reasonable value of $\beta$ estimated from time of flight
+and
+hits in hodoscope paddles in the ``fiducial region'' near the center of the
+acceptance.
+They will also not have ``too many'' drift chamber hits; particles in such
+events may have grazed the edge of dipole window, creating an electromagnetic
+shower, preventing \textit{hcana} from reconstructing the track accurately.
+
+The number of events with multiple candidate tracks in the HMS was small, so
+the efficiency can be estimated by taken $N^{did}$ to be the number of events
+that pass the cut $C^{should} \land C^{HTrack}$.
+To correct for the larger amount of multitrack events in the SHMS, the
+\textit{did} condition was adjusted to ensure that the golden track is located
+in a central region of the acceptance and resulted in a reasonable focal plane
+time.
+Multitrack events were also not counted if they have ``too many'' hits on
+negative side ADCs.
+With this modification, the numerator in the SHMS tracking efficiency is the
+number of events that pass the cut
+$C^{should} \land (C^{PMultipleTrack} \lor C^{PSingleTrack}$).
 
 \begin{table}[h]
     \centering
@@ -127,7 +153,7 @@ A weighted efficiency is calculated as discussed in Section~\ref{sec:hcal_eff}
         & Few hits in DC 1          & \makecell{(H.dc.1x1.nhit + H.dc.1u2.nhit + \\
                                                  H.dc.1u1.nhit + H.dc.1v1.nhit + \\
                                                  H.dc.1x2.nhit + H.dc.1v2.nhit) < 35} \\ \cline{2-3}
-        & Few hits in DC 1          & \makecell{(H.dc.2x1.nhit + H.dc.2u2.nhit + \\
+        & Few hits in DC 2          & \makecell{(H.dc.2x1.nhit + H.dc.2u2.nhit + \\
                                                  H.dc.2u1.nhit + H.dc.2v1.nhit + \\
                                                  H.dc.2x2.nhit + H.dc.2v2.nhit) < 35} \\ \cline{2-3}
         & SHMS Cherenkov NPE        & P.ngcer.npeSum<0.1 \\ \cline{2-3}
@@ -141,7 +167,7 @@ A weighted efficiency is calculated as discussed in Section~\ref{sec:hcal_eff}
 \begin{table}[h]
     \centering
     \caption{List of cuts used to estimate SHMS tracking efficiency.}
-    \label{tab:htrack_cuts}
+    \label{tab:ptrack_cuts}
     \begin{tabular}[t]{| c | l | l |}
         \hline
                    &  Variables              &  Cut \\ \hline
@@ -153,7 +179,7 @@ A weighted efficiency is calculated as discussed in Section~\ref{sec:hcal_eff}
         & Few hits in DC 1          & \makecell{(P.dc.1x1.nhit + P.dc.1u2.nhit + \\
                                                  P.dc.1u1.nhit + P.dc.1v1.nhit + \\
                                                  P.dc.1x2.nhit + P.dc.1v2.nhit) < 25} \\ \cline{2-3}
-        & Few hits in DC 1          & \makecell{(P.dc.2x1.nhit + P.dc.2u2.nhit + \\
+        & Few hits in DC 2          & \makecell{(P.dc.2x1.nhit + P.dc.2u2.nhit + \\
                                                  P.dc.2u1.nhit + P.dc.2v1.nhit + \\
                                                  P.dc.2x2.nhit + P.dc.2v2.nhit) < 25} \\ \cline{2-3}
         & SHMS Cherenkov NPE        & P.ngcer.npeSum<0.1 \\ \cline{2-3}
@@ -235,6 +261,19 @@ runs was used to correct the yields for production hydrogen runs of the form
 
 
 \subsection{Trigger}
+Let $P_i$ be the efficiency of the $i$th hodoscope plane.
+This efficiency is estimated by taking tracks that point to the center of
+the plane's paddles and counting how many times the paddle actually fires.
+Because the triggers used in this experiment were formed by the coincidence of
+three of 4 hodoscope planes, the trigger efficiency is given by the product of
+both spectrometer's 3/4 efficiency,
+\begin{align}
+    \epsilon_{hodo} = P_{3/4} =& P_{1} P_{2} P_{3} P_{4}+P_{1} P_{2} P_{3}\left(1-P_{4}\right)+P_{1} P_{2}\left(1-P_{3}\right) P_{4} \\
+              &+P_{1}\left(1-P_{2}\right) P_{3} P_{4}+\left(1-P_{1}\right) P_{2} P_{3} P_{4}
+\end{align}
+This calculation is carried out by the THcHodoscope::TrackEff() method in
+\textit{hcana} and saved in the text report output saved when a run is
+replayed.
 
 \subsection{Livetime} \label{sec:livetime}
 When a trigger is accepted, the DAQ system is unable to accept additional
