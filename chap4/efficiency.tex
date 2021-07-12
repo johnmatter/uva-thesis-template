@@ -136,7 +136,8 @@ Multitrack events were also not counted if they have ``too many'' hits on
 negative side ADCs.
 With this modification, the numerator in the SHMS tracking efficiency is the
 number of events that pass the cut
-$C^{should} \land (C^{PMultipleTrack} \lor C^{PSingleTrack}$).
+$C^{should} \land (C^{PMultipleTrack} \lor C^{PSingleTrack}$),
+where $\lor$ represents the logical operation \textit{or}.
 
 \begin{table}[h]
     \centering
@@ -260,8 +261,10 @@ hydrogen runs was used as a correction to the production hydrogen yields of the
 form
 % TODO: confirm this number. It's what we have in the spreadsheet.
 \begin{equation}
-    f_{boil}(I)=1-0.000385I
+    f_{boil}(I_{mean})=1-0.000385I_{mean}
 \end{equation}
+where $I_{mean}$ is the mean beam current during the run whose yield is to be
+corrected.
 
 The slopes of fits to carbon yields were consistent with zero, as should be the
 case for a solid target;

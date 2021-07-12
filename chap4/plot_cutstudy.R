@@ -1,3 +1,8 @@
+# source - https://jacksonlab.agronomy.wisc.edu/2016/05/23/15-level-colorblind-friendly-palette/
+colorblind_palette <- c("#000000","#004949","#009292","#ff6db6","#ffb6db",
+                        "#490092","#006ddb","#b66dff","#6db6ff","#b6dbff",
+                        "#920000","#924900","#db6d00","#24ff24","#ffff6d")
+
 d <- read.csv("cutstudy.csv")
 
 constFit <- lm(d$absorption~1)
@@ -12,11 +17,13 @@ p <- d %>% mutate(cut = fct_reorder(cut, desc(factor_order))) %>%
                    ymin=absorption-uncertainty,
                    ymax=absorption+uncertainty)) +
      geom_pointrange(position=position_dodge(width=0.5))+
-     annotate("text", x=-0.165, y=absorptionEstimate*1.01, label=sprintf("mean = %0.2f ± %0.2f", absorptionEstimate, absorptionError)) +
+     annotate("text", x=-0.157, y=absorptionEstimate*1.015,
+              label=TeX(sprintf(r'($\\bar{A}_{exp}$ = %0.2f $\\pm$ %0.2f)', absorptionEstimate, absorptionError))) +
      geom_hline(aes(yintercept=absorptionEstimate), colour="black") +
      annotate("rect", xmin = -Inf, xmax = Inf, ymin = absorptionEstimate-absorptionError, ymax = absorptionEstimate+absorptionError, fill = "black", alpha = .2, color = NA) +
      theme_bw()+
      theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
+     scale_color_manual(values=rev(head(color_blind_palette,n=11))) +
      ylab("Absorption [%]")
 
 absorptionOriginal <- d[d$cut=="Original cuts",]$absorption
@@ -38,6 +45,7 @@ pPctDiff <- d %>% mutate(cut = fct_reorder(cut, desc(factor_order))) %>%
      geom_pointrange(position=position_dodge(width=0.5))+
      theme_bw()+
      theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
+     scale_color_manual(values=rev(head(color_blind_palette,n=11))) +
      ylab("Percent difference [%]")
 
 # Absolute difference
@@ -54,6 +62,7 @@ pAbsDiff <- d %>% mutate(cut = fct_reorder(cut, desc(factor_order))) %>%
      geom_pointrange(position=position_dodge(width=0.5))+
      theme_bw()+
      theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
+     scale_color_manual(values=rev(head(color_blind_palette,n=11))) +
      ylab("Absolute difference [%]")
 
 ggsave("proton_absorption_cut_study.pdf", p, width=7, height=3)

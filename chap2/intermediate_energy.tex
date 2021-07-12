@@ -56,7 +56,7 @@ Here $\delta_1$ is an energy-independent phase shift and $\phi(s)$ has a known
 energy dependence analogous to renormalization-group
 evolution~\cite{Pire_1982, Ralston_1982, Sen_1983}
 \begin{equation}
-    \phi(s) \propto \ln \ln \left( \frac{s}{\Lambda_{QCD}^2} \right)
+    \phi(s) \propto \ln\left\{ \ln \left( \frac{s}{\Lambda_{QCD}^2} \right) \right\}
 \end{equation}
 
 
@@ -201,11 +201,12 @@ cross section~\cite{Farrar_1988}.
     \label{fig:pion_photoproduction_transparency}
 \end{figure}
 
-The slope of the measured transparencies' dependence on $Q^2$ is within 1sigma
-(2sigma) of the Glauber calculation for the theta=70(=90) data.
-The seem to deviate from the Glauber prediction, but a subsequent analysis using
-a relativistic extension of the Glauber approximation showed that these data are
-not conclusive evidence of the onset of CT \cite{Cosyn_2006}.
+The slope of the measured transparencies' dependence on $Q^2$ is within one
+$\sigma$ (two $\sigma$) of the Glauber calculation for the
+$\theta_{CM}=\ang{70}(=\ang{90})$ data.
+The data seem to deviate from the Glauber prediction, but a subsequent analysis
+using a relativistic Glauber approximation showed that these
+data are not conclusive evidence of the onset of CT \cite{Cosyn_2006}.
 
 
 \subsection{Pion electroproduction}
@@ -269,11 +270,11 @@ transparency as a ratio of the differential cross sections from two variations
 of the same model, one with and one without final state interactions.
 This model is based on a microscopic description of pion
 electroproduction from hydrogen~\cite{Kaskulov_2008}.
-The nuclear reaction is broken up into hard partonic DIS and soft hadronic components.
+The nuclear reaction is broken up into hard partonic DIS and soft hadronic
+components.
 It is assumed that the beam electron interacts with a
 nucleon in the nucleus the way it would with a free nucleon (also taking into
 account Fermi motion, Pauli blocking, and nuclear shadowing).
-model of hadronization.
 The time development of the PLC is determined by the quantum diffusion
 model~\cite{Farrar_1988}, with formation and production times determined by
 Monte Carlo simulation of the Lund string hadronization
@@ -283,15 +284,15 @@ Boltzmann-Uehling-Uhlenbeck (BUU) equation.
 This propagation models elastic and inelastic rescattering of outgoing hadrons.
 
 
-The results of this experiment are in agreement with the CT predictions of
+The results of the piCT experiment are in agreement with the CT predictions of
 Larson et al., while Cosyn et al. and Kaskulov et al. overestimate the $P_\pi$
 and $Q^2$ dependence of the data.
 Nevertheless, the observed increase in nuclear transparency is consistent with
 CT.
 
 
-In addition to studying the $Q^2$ dependence of nuclear transparency, this
-experiment fit the data to the form $T=A^{\alpha(Q^2)-1}$ where $A$ is the
+In addition to studying the $Q^2$ dependence of nuclear transparency, piCT
+fit the data to the form $T=A^{\alpha(Q^2)-1}$ where $A$ is the
 number of nucleons in the nucleus and $\alpha(Q^2)$ is a free parameter.
 The results of this fit along with the predictions of Larson et al. and Cosyn et
 al. are shown in Fig~\ref{fig:pion_electroproduction_transparency_A_dependence}.
@@ -302,11 +303,16 @@ without CT.
     \centering
     \includegraphics[width=0.6\textwidth]{chap2/pion_electroproduction_transparency_A_dependence.pdf}
     \caption{
-            The parameter $\alpha(Q^2)$ extracted from a fit of nuclear
-            transparency to form $T=A^{\alpha(Q^2)-1}$.
+            The parameter $\alpha(Q^2)$ extracted from the form
+            $T=A^{\alpha(Q^2)-1}$
+            fit to nuclear transparency measured by the piCT experiment.
             The inner bars are statistical uncertainties only.
             The outer bars are the statistical, systematic, and model
             uncertainties added in quadrature.
+            Red points are data taken with low transverse photon polarization
+            ($\epsilon\approx0.25$).
+            Black points are data taken with high transverse photon polarization
+            ($\epsilon\approx0.5$).
             The solid, dashed and dotted lines are the predictions of
             the Glauber model of Ref~\cite{Larson_2006},
             the Glauber+CT model of Ref~\cite{Larson_2006},
@@ -318,8 +324,8 @@ without CT.
 
 \subsection{$\rho^0$ meson leptoproduction}
 Because of the hadronic structure of high energy photons,
-a virtual can fluctuate to a small $q\bar{q}$ state with mass $M_{qq}$ and
-propagate through a nucleus.
+a virtual photon can fluctuate to a small $q\bar{q}$ state with mass $M_{qq}$
+and propagate through a nucleus.
 The formation length $l_{fr}=2\nu/(Q^2+M^2_{qq})$ refers to the distance over
 which this $q\bar{q}$ state is frozen.
 The coherence length $l_c=2\nu/(m^2_{v'}-m^2_{v})$ refers to the distance over
@@ -347,7 +353,7 @@ using muon beams of \SI{450}{\giga\electronvolt} and
 At these energies, the $l_{fr}$ is comparable to the nuclear radius and
 the $l_c$ is much larger than the nuclear radius; the $q\bar{q}$
 state is frozen.
-%TODO: fill in blanks; I forgot about this 
+%TODO: fill in blanks; I forgot about this
 E665 took data with XYZ targets, while NMC took data with XYZ targets.
 The results for carbon and calcium, shown together in Fig(ref), are consistent
 with each other and show a slight increase in transparency.

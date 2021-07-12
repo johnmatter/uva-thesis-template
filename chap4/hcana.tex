@@ -11,7 +11,7 @@ Event reconstruction or ``replay'' in \textit{hcana} proceeds in the following o
 \begin{enumerate}
 
     \item The analyzer unpacks hits stored as raw EVIO data and stores them in
-        lists stored by ROC, slot, and channel number.
+        lists sorted by ROC, slot, and channel number.
         A text file containing a ``detector map'' associates these front-end
         electronics identifiers with a particular detector,
         plane/wire/PMT/etc., and type (ADC or TDC).
@@ -62,8 +62,8 @@ Event reconstruction or ``replay'' in \textit{hcana} proceeds in the following o
 
 After this event loop is run for all events of interest in a raw CODA file,
 TTrees containing reconstructed data are written to a ROOT file.
-\textit{hcana} also allows the user to specify a set of TH1 and TH2 histograms
-to be generated for each run.
+\textit{hcana} also allows the user to specify a set of one- and
+two-dimensional histograms to be generated for each run.
 Such standardized histograms are convenient for quality assurance and debugging
 problems during data acquisition.
 Replayed ROOT files can then be analyzed with further scripts written for the

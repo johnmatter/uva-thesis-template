@@ -21,13 +21,14 @@ Because the elastic cross section is peaked in the forward direction, and will
 thus remove few protons from the spectrometer's acceptance, we use the average
 $\bar\lambda$ of $\lambda_T$ and $\lambda_I$ as our estimate of the mean free
 path.
-Our estimate of the absorption is $A=1-e^{-\sum_i X_i/\bar\lambda_i}$ where
+Our theoretical prediction of the absorption is
+$A_{pred}=1-e^{-\sum_i X_i/\bar\lambda_i}$ where
 $X_i$ is the thickness of each material in the proton's path.
 Table~\ref{tab:shms_materials} lists the properties of relevant materials in
 the SHMS.
 Nuclear collision and interaction lengths are taken from
 Ref~\cite{pdg_material_properties}.
-Based on this table, we estimate the absorption to be $A=8.56\%$.
+Based on this table, we estimate the absorption to be $A_{pred}=8.56\%$.
 
 
 \vfill
@@ -114,14 +115,14 @@ Based on this table, we estimate the absorption to be $A=8.56\%$.
     \centering
     \includegraphics[width=1.0\textwidth]{chap4/proton_absorption_plots.pdf}
     \caption{Histograms of the quantities used to guide the selection of cuts
-             for selecting H(e,e'p) events to estimate proton absorption.
+             for selecting $H(e,e'p)$ events to estimate proton absorption.
              The red lines and contours indicate the cuts used.}
     \label{fig:proton_absorption_plots}
 \end{figure}
 
 Using the charge-normalized yields, $Y_{coin}$ and $Y_{sing}$, from coincidence
-HMS singles H(e,e'p) runs, we can measure the proton absorption
-$A=1-Y_{coin}/Y_{sing}$.
+and HMS singles $H(e,e'p)$ runs, we can measure the proton absorption
+$A_{exp}=1-Y_{coin}/Y_{sing}$.
 With a tight cut on spectrometer acceptance and invariant mass $W$ and
 correcting for detector efficiencies and deadtime, $Y_{sing}$ should be an
 accurate count of all electrons that participated in elastic scattering.
@@ -130,8 +131,11 @@ underestimated the ``true'' yield; some portion of the electrons detected in the
 HMS will have corresponding protons that did not form a 3/4 trigger in the SHMS
 because they were absorbed.
 Using our $Q^2 = \SI{11.5}{\giga\electronvolt}$ runs and the cuts listed in
-Table~\ref{tab:proton_absorption_cuts}, we estimate a proton absorption of $A=8.83 \pm 0.69 \%$.
-The uncertainty quoted here is only statistical.
+Table~\ref{tab:proton_absorption_cuts}, we estimate a proton absorption of
+$A_{exp}=8.83 \pm 0.69 \%$.
+The uncertainty quoted here is only statistical--an estimate of the systematic
+uncertainty and a final revised absorption value were obtained from a cut study
+described below.
 
 \begin{table}[h]
     \centering
@@ -165,16 +169,16 @@ histograms in the sequence.
 The relevant histograms are shown in Figure~\ref{fig:proton_absorption_plots}.
 The process can be summarized as follows:
 \begin{enumerate}
-    \item Plot $E_{miss}$ for H(e,e'p) data using HMS Cherenkov and calorimeter cuts to select
+    \item Plot $E_{miss}$ for $H(e,e'p)$ data using HMS Cherenkov and calorimeter cuts to select
         electrons. Select a cut around the peak of this distribution.
-    \item Plot SHMS and HMS delta for H(e,e'p) data using that $E_{miss}$ cut and the HMS PID
+    \item Plot SHMS and HMS delta for $H(e,e'p)$ data using that $E_{miss}$ cut and the HMS PID
         cuts. Select a cut on both.
-    \item Plot HMS and SHMS $x'_{tar}$ vs $y'_{tar}$ for H(e,e'p) data using all prior cuts. Place
+    \item Plot HMS and SHMS $x'_{tar}$ vs $y'_{tar}$ for $H(e,e'p)$ data using all prior cuts. Place
         a tight graphical cut on this distribution.
     \item Plot $z_{tar}$ and $y_{tar}$ for singles dummy data using cuts on HMS delta
         $x'_{tar}$, and $y'_{tar}$. Place cuts on $z_{tar}$ and $y_{tar}$ to
         remove events from the walls of the cell.
-    \item Plot HMS $x_{fp}$ vs $y_{fp}$ for H(e,e'p) data using all prior cuts.
+    \item Plot HMS $x_{fp}$ vs $y_{fp}$ for $H(e,e'p)$ data using all prior cuts.
         Place a loose cut on this focal plane distribution.
     \item Define a subset of ``HMS-only'' cuts from the full set of cuts
         ``coincidence'' cuts selected so far.
@@ -184,7 +188,7 @@ The process can be summarized as follows:
         number of pions showing up as non-zero entries in the SHMS Noble Gas
         Cherenkov NPE sum distribution.
     \item Using these HMS-only cuts, calculate the yields from coincidence and
-        HMS singles H(e,e'p) data.
+        HMS singles $H(e,e'p)$ data.
 \end{enumerate}
 
 
@@ -192,20 +196,22 @@ The process can be summarized as follows:
     \centering
     \includegraphics[width=1.0\textwidth]{chap4/proton_absorption_cut_study.pdf}
     \caption{Values of absorption estimated with 10\% variations on cuts used
-             to select H(e,e'p) events.}
+             to select $H(e,e'p)$ events.}
     \label{fig:proton_absorption_cut_study}
 \end{figure}
 
 To estimate the systematic uncertainty of this measurement, we varied the limits
-of the following cuts by $\pm10\%$: $E_miss$, HMS delta, HMS xptar/yptar.
+of the following cuts by $\pm10\%$: $E_{miss}$, HMS delta, HMS $x'_{tar}$ and
+$y'_{tar}$.
 The absorption values for each of these variations are shown in
 Figure~\ref{fig:proton_absorption_cut_study} along with the mean and standard
 deviation of these estimates.
-We use this value, $A=9.03\pm0.71\%$ as our final estimate of the proton
-absorption, where the uncertainty is the quadrature sum of the systematic and
-statistical uncertainties.
-Note that the theoretical estimate of absorption is within the uncertainty in
-this measurement.
+We use the mean value of these variations,
+$\bar{A}_{exp}=9.03\pm0.71\%$,
+as our final estimate of the proton absorption, where the uncertainty is the
+quadrature sum of the systematic and statistical uncertainties.
+Note that the theoretical estimate of absorption $A_{pred}=8.56\%$
+is within the uncertainty in this measurement.
 
 
 While there are significant variations in proton-nucleus cross sections below

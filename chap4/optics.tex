@@ -43,7 +43,7 @@ This iterative process entails the following steps:
     \label{fig:optics_coordinates}
 \end{figure}
 
-To derive these equations, consider Figure~\ref{fig:optics_coordinates} and
+To derive the optics equations, consider Figure~\ref{fig:optics_coordinates} and
 assume for now that the labeled distances are all known.
 Assume, as a first estimate, that the $x^{vert}_{tar}$ coordinate in the
 spectrometer coordinate system is given by the BPM and fast raster measurements
@@ -107,7 +107,7 @@ an optics target with three thin carbon foils spaced along the $z$ axis.
 
 The ``true'' values, denoted below with a hat, are determined in a two step
 process.
-First, each event is associated with with a particular foil.
+First, each event is associated with a particular foil.
 % SHMS_optics uses 1.3 sigma, HMS_optics uses 3.0
 The three peaks in a histogram of $z^{vert}_v$ are fit with Gaussians, and
 events within $1--3\sigma$ of each peak are assigned that peak's mean value
@@ -191,9 +191,8 @@ For compactness of notation, let
 % TODO: clarify problem reconstructing 5 variables from 4; move to first paragraph??
 The collinearity of $x_{tar}$ and $x'_{tar}$ makes optimization of matrix
 elements with non-zero powers of $x_{tar}$ difficult.
-Previous efforts to fit these terms from data have produced worse fits, so
+Previous efforts to fit these terms from data have produced worse results, so
 these elements are set to zero during the optimization steps.
-and taken
 For reconstruction, they are taken from a COSY~\cite{COSY_9} model of the
 spectrometer magnets.
 
