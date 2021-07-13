@@ -61,5 +61,17 @@ can be assumed not to be associated with the current event.
 By placing lower and upper bounds on the difference between these times on a
 per-PMT basis, we can ensure that \textit{hcana} will choose the correct fADC
 hits for every event.
-Example histograms of these time differences are shown in Figure
-% TODO: fADC-TDC time difference example figure
+Representative histograms of these time differences are shown in
+Figure~\ref{fig:cal_goodNegAdcTdcDiffTime}.
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{chap4/plot_scripts/cal_goodNegAdcTdcDiffTime.pdf}
+    \caption{
+            The difference between fADC pulse times and
+            reference-time-subtracted TDC times for six representative PMTs
+            on one side of one plane of the HMS calorimeter.
+            }
+    \label{fig:cal_goodNegAdcTdcDiffTime}
+\end{figure}

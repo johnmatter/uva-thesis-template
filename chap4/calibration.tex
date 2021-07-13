@@ -184,11 +184,12 @@ The first step in calibrating the drift chambers is determining a $t_0$ for
 every wire.
 This is done by finding the point at which a linear fit of the lower range of
 the drift time spectrum to cross the x axis, as shown in Figure %TODO drift time spectrum fit.
-The calibration script first finds the bin in the histogram
-containing the maximum number of entries. 
+The calibration script first generates a histogram of drift times with bins of
+width \SI{1}{\nano\second}
+and finds the bin in the histogram containing the maximum number of entries.
 Then, it finds the bin containing 20\% of that content.
 A linear fit is then performed over the range covered by that bin plus or minus
-10 bins. % 1 bin = 1 ns
+10 bins.
 The x-intercept of this fit yields $t_0$, which can then be used to create a
 lookup table using equation~\ref{eqn:drift_distance}.
 
