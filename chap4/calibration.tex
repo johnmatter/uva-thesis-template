@@ -16,9 +16,58 @@ is
 Timewalk refers to the correlation between
 the amplitude of an analog signal fed into a leading-edge, fixed-threshold discriminator
 and the time the signal rises rises above the discriminator's threshold.
-See Fig%TODO: include Eric's illustration.
-Fortunately, the fADCs correct for this phenomenon so the pulse time recorded
-by them can be used to correct the TDC time.
+As seen in Fig~\ref{fig:pooser_timewalk}, pulses with a smaller amplitude cross
+a fixed threshold at later times despite starting at the same time.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{chap4/pooser_timewalk.png}
+    \caption{
+            An illustration of the timewalk effect.
+            Pulses with a smaller amplitude cross the fixed threshold at a
+            later time.
+            The TDCs in the Hall C DAQ are prone to this effect.
+            }
+    \label{fig:pooser_timewalk}
+\end{figure}
+
+Fortunately, the fADCs are not prone to this effect so the pulse time recorded
+by an fADC can be used to correct the corresponding TDC time.
+The fADC pulse time is determiend by a constant fraction discriminator (CFD)
+algorithm that finds the time,
+to a precision of \SI{62.5}{\pico\second},
+at which the pulse reaches 50\% of its maximum amplitude.
+This algorithm is illustrated in Fig~\ref{fig:pooser_cfd}, and a comparison of
+pulse times of varying amplitudes is shown in Fig~\ref{fig:pooser_notimewalk}.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{chap4/pooser_cfd.png}
+    \caption{
+            An illustration of the fADCs' CFD algorithm.
+            The algorithm calculates the pedestal amplitude $V_{ped}$ with a
+            fixed-threshold discriminator.
+            It then calculates the half-amplitude $V_{mid}=(V{peak}-V_{ped})/2$
+            and determines which two samples $SN-1$ and $SN+1$ lie on either
+            side of $V_{mid}$.
+            The fADCs' coarse sampling rate is \SI{250}{\mega\hertz}, yielding
+            \SI{4}{\nano\second} between the two samples.
+            This time is divided into 64 subsamples of \SI{62.5}{\pico\second}
+            each, and the time $t_{mid}$ corresponding to $V_{mid}$ is found by
+            linear interpolation..
+            }
+    \label{fig:pooser_cfd}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{chap4/pooser_notimewalk.png}
+    \caption{
+            An illustration of the absence of timewalk in the fADCs' CFD algorithm.
+            }
+    \label{fig:pooser_notimewalk}
+\end{figure}
+
 A plot of the difference between raw TDC time and fADC pulse time
 versus fADC pulse amplitude can be fit to the form
 $t_{TW}(a) = c_1 + \frac{1}{\frac{a}{TDC_{thr}}c2}$
@@ -26,6 +75,19 @@ where $a$ is the pulse amplitude and
 $TDC_{thr}$ is the TDC threshold (\SI{120}{\milli\volt} in this experiment).
 The per-PMT parameters $c_1$ and $c_2$ are extracted from a calibration run
 with large statistics.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{chap4/plot_scripts/hodo_timewalk.pdf}
+    \caption{
+            A two dimensional histogram showing the difference between TDC
+            and fADC pulse times as a function of fADC pulse amplitude.
+            As shown in Fig~\ref{fig:pooser_timewalk}, smaller pulses cross a
+            fixed threshold at a later time, leading to a delayed TDC time.
+            }
+    \label{fig:time_walk_histogram}
+\end{figure}
+
 
     \item \textbf{Cable/light propagation time} $t_{cable}$, $t_{prop}$
 
@@ -183,7 +245,7 @@ and $N$ is the index of the maximum drift time.
 The first step in calibrating the drift chambers is determining a $t_0$ for
 every wire.
 This is done by finding the point at which a linear fit of the lower range of
-the drift time spectrum to cross the x axis, as shown in Figure %TODO drift time spectrum fit.
+the drift time spectrum to cross the x axis, as shown in Fig %TODO drift time spectrum fit.
 The calibration script first generates a histogram of drift times with bins of
 width \SI{1}{\nano\second}
 and finds the bin in the histogram containing the maximum number of entries.
