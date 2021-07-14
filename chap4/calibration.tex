@@ -245,20 +245,57 @@ and $N$ is the index of the maximum drift time.
 The first step in calibrating the drift chambers is determining a $t_0$ for
 every wire.
 This is done by finding the point at which a linear fit of the lower range of
-the drift time spectrum to cross the x axis, as shown in Fig %TODO drift time spectrum fit.
+the drift time spectrum to cross the x axis, as shown in
+Fig~\ref{fig:drift_time_fit}.
+If there are insufficient per-wire statistics to obtain a good fit,
+the distribution for all 16 wires connected to a card may be used instead to
+obtain a per-card $t_0$.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{chap4/drift_time_fit.pdf}
+    \caption{
+            The distribution of drift times for one card in the HMS 2x1 plane.
+            The red line is a linear fit to the range corresponding to 20--60\%
+            of the maximum bin content.
+            The x-intercept of the fit is used as the offset $t_0$ for all
+            wires in the card.
+            }
+    \label{fig:drift_time_fit}
+\end{figure}
+
 The calibration script first generates a histogram of drift times with bins of
 width \SI{1}{\nano\second}
 and finds the bin in the histogram containing the maximum number of entries.
-Then, it finds the bin containing 20\% of that content.
-A linear fit is then performed over the range covered by that bin plus or minus
-10 bins.
+A linear fit is then performed over the bins corresponding to 20--60\% of the
+maximum bin content.
 The x-intercept of this fit yields $t_0$, which can then be used to create a
 lookup table using equation~\ref{eqn:drift_distance}.
+An example of the distribution of uncorrected and corrected drift times is
+shown in Fig~\ref{fig:drift_th2s}.
 
-% TODO corrected and uncorrected drift times; single wire/plane; TH2 all wires in a plane
-% TODO drift distances
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{chap4/uncorrected_drift_times_2x1_TH2.pdf}
+        \caption{Uncorrected drift times.}
+        \label{fig:uncorrected_drift_th2}
+    \end{subfigure}
+    \vspace{0.1cm}
+    \\
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{chap4/corrected_drift_times_2x1_TH2.pdf}
+        \caption{Corrected drift times.}
+        \label{fig:corrected_drift_th2}
+    \end{subfigure}
+    \caption{Two dimensional histograms of wire drift times for the HMS 2x1 plane,
+             before (a) and after (b) $t_0$ correction.}
+    \label{fig:drift_th2s}
+\end{figure}
+
 % TODO residuals
-
 
 \subsection{Cherenkovs}
 
