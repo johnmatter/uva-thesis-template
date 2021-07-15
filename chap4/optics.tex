@@ -123,6 +123,22 @@ their estimated $x$ and $y$ position have their projections fit again.
 The mean of these fits, $x^{hole}$ and $y^{hole}$, are assigned as the ``true''
 values for events whose projected positions at the sieve lie within these
 holes.
+An example histogram illstrating this process for SHMS run 1808 is shown in
+Fig~\ref{fig:shms_xysieve}.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{chap4/shms_xysieve.png}
+    \caption{
+            A 2D histogram of SHMS track positions projected to the sieve.
+            Data were taken with three-foil optics target.
+            Circles in red represent the Gaussians fits to holes with
+            sufficient statistics.
+            The intersections of the magenta grid represents the true locations
+            of the sieve holes.
+            }
+    \label{fig:shms_xysieve}
+\end{figure}
 
 
 These values, combined with information from the BCMs and fast raster, are used
@@ -240,3 +256,6 @@ Recall that the terms included in this optimization step are only the
 $x_{tar}$-independent terms.
 After SVD, the $x_{tar}$-dependent terms from COSY are reintroduced to form the
 full matrix elements used in reconstruction.
+
+Appendix~\ref{app:distributions} contains figures comparing track information
+and physics quantities reconstructed from data and from \textit{SIMC}.
