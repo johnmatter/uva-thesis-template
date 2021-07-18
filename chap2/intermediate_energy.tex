@@ -7,7 +7,7 @@ significant expansion is expected took place at BNL.
 These experiments measured nuclear transparency $T_{pp}$,
 the ratio of the quasielastic cross section for a given target to the free $pp$
 elastic cross section, for large-angle
-($\SI{80}{\deg} < \theta_{cm} < \SI{90}{\deg}$) elastic $pp$ and quasielastic
+($\ang{80} < \theta_{cm} < \ang{90}$) elastic $pp$ and quasielastic
 $A(p,2p)$ scattering.
 To account for Fermi motion and the fact that the square of the invariant
 energy $s$ is different in quasielastic scattering and elastic scattering
@@ -43,7 +43,7 @@ in transparency.
     \label{fig:ap2p}
 \end{figure}
 
-\subsubsection{Interference between two terms}
+% \subsubsection{Interference between two terms}
 One explanation focuses on interference between the amplitudes of two
 perturbative QCD processes~\cite{Ralston_1988}, resulting in a transparency
 that oscillates with $s$.
@@ -87,7 +87,7 @@ by a fit to data:
     \includegraphics[width=0.6\textwidth]{chap2/pire_1982_R}
     \caption{A fit of $R(s)$, defined in equation~\ref{eqn:ap2p_rs}, to data taken from~\cite{Sivers_1976}
              for $pp$ elastic scattering at fixed angle
-             $\theta_{cm}=\SI{90}{\deg}$.
+             $\theta_{cm}=\ang{90}$.
              Figure reproduced from~\cite{Pire_1982}.
             }
     \label{fig:pire_1982_R}
@@ -108,10 +108,15 @@ Given the form of $R(s)$ in equation~\ref{eqn:ap2p_rs}, the transparency
 should oscillate as a function of $s$, with another rise potentially
 appearing around $s\approx\SI{20}{\giga\electronvolt}$.
 
-\subsubsection{New physics?}
-The second explanation is that the energy dependence corresponds to a resonance
+% \subsubsection{New physics?}
+A second explanation is that the energy dependence corresponds to a resonance
 or some threshold for new physics, such as a charm quark resonance or some
-multi-quark state.
+multi-quark state~\cite{Brodsky_1988}. This model also predicts an oscillatory
+behavior, rising again near $s\approx\SI{16}{\giga\electronvolt}$.
+
+A relativistic Glauber multiple scattering approximation model
+incorporating nuclear filtering and color transparency produced fits that are
+in acceptable agreement with the BNL measurements~\cite{VanOvermeire_2007}.
 
 \subsection{Quasielastic electron scattering}
 Cleaner than A(p,2p) because both the electron-proton elastic scattering cross section
@@ -338,7 +343,7 @@ excited state.
 The results of early exclusive diffractive $\rho_0$ leptoproduction
 experiments in the 1990s were suggestive of the onset of CT, but had limited
 statistical power.
-Another factor complicating the study of CT in this exclusive process is the
+Another factor complicating the study of CT in this process is the
 need to separate the effects of $l_{fr}$ and $l_c$.
 If one is not careful, an increase in nuclear transparency with decreasing
 $l_{fr}$ can be mistaken for an increase with $Q^2$, the signature of CT.
@@ -354,11 +359,23 @@ At these energies, the $l_{fr}$ is comparable to the nuclear radius and
 the $l_c$ is much larger than the nuclear radius; the $q\bar{q}$
 state is frozen.
 %TODO: fill in blanks; I forgot about this
-E665 took data with XYZ targets, while NMC took data with XYZ targets.
-The results for carbon and calcium, shown together in Fig(ref), are consistent
+E665 took data with hydrogen, deuterium, carbon, calcium, and lead targets,
+while NMC took data with deuterium,carbon and calcium targets.
+The results for carbon and calcium, shown together in
+Fig~\ref{fig:nmc_e665_transparency}, are consistent
 with each other and show a slight increase in transparency.
 This is only suggestive of an onset of CT due to limited statistics and
 substantial background.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{chap2/nmc_e665_transparency.pdf}
+    \caption{Transparency versus $Q^2$ for $\rho^0$ leptoproduction.
+             Filled symbols are data from NMC~\cite{Arneodo_1994}.
+             Open symbols are data from E665~\cite{Adams_1995}.
+            }
+    \label{fig:nmc_e665_transparency}
+\end{figure}
 
 
 E665 also studied the $A$-dependence of the cross section, fitting their data
@@ -375,22 +392,65 @@ transparency as a function of $Q^2$ and $l_{fr}$ for coherent and incoherent
 $\rho^0$ leptoproduction from \ch{^{14}N} using a \SI{27.5}{\giga\electronvolt}
 positron beam.
 Their measurements for exclusive incoherent electroproduction, shown in
-Fig(ref), show an increase in transparency at lower $l_{fr}$ consistent with an
+Fig~\ref{fig:ackerstaff99}, show an increase in transparency at lower $l_{fr}$ consistent with an
 introduction of initial state interactions between the nuclear medium and the
-$q\bar{q}$ pair (i.e. when the pair remains small for a distance smaller than
-mean free path of a $\rho^0$ meson.)
+$q\bar{q}$ pair when the pair remains small for a distance smaller than
+mean free path of a $\rho^0$ meson.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{chap2/ackerstaff99.pdf}
+    \caption{Transparency versus $l_{fr}$ for $\rho^0$ leptoproduction from
+             hydrogen, helium, and nitrogen targets.
+             These results demonstrate interactions of $q\bar{q}$ states with
+             the nuclear medium at larger coherence lengths.
+             Open circles are data from E665~\cite{Adams_1995} taken with muons.
+             Open diamonds are data~\cite{McClellan_1969} taken with photons.
+             Filled circles are data from HERMES~\cite{Ackerstaff_1999} taken
+             with electrons.
+             The error bars include statistical and point- to-point systematic
+             uncertainties added in quadrature.
+             The dashed line is the result of a Glauber model~\cite{Hufner_1996}.
+            }
+    \label{fig:ackerstaff99}
+\end{figure}
 
 
 Because $l_{fr}$ is comparable the nuclear radius in this experiment, these
 measurements depend on $l_c$.
 As such, the collaboration studied the nuclear transparency's $Q^2$-dependence
-while keeping $l_{fr}$ fixed.
-Transparencies were extracted for fixed $(l_{fr},Q^2$ bins, as shown in
-Fig(ref).
+while keeping $l_{fr}$ fixed~\cite{Airapetian_2003}.
+Transparencies for coherent and incoherent $rho^0$ electroproduction were
+extracted for fixed $(l_{fr},Q^2)$ bins, as shown in
+Fig~\ref{fig:airapetian_T_vs_lfr}.
 Due to low statistics, the transparencies were fit to a form
 $P_0 + P_1 \cdot Q^2$, where $P_0$ is a free parameter for each $l_fr$ bin and
 the slope $P_1$ is a common free parameter among the bins.
 
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{chap2/airapetian_coherent.pdf}
+        \caption{Coherent $\rho^0$ production.}
+        \label{fig:airapetian_coherent}
+    \end{subfigure}
+    % \hfill
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{chap2/airapetian_incoherent.pdf}
+        \caption{Coherent $\rho^0$ production.}
+        \label{fig:airapetian_incoherent}
+    \end{subfigure}
+    \caption{
+             Transparency versus $Q^2$ for bins of coherence length $l_{fr}$
+             indicated by a label at the top right of each panel.
+             The straight line is the result of the fit to the $Q^2$-dependence
+             of all bins.
+             Error bars represent statistical uncertainties.
+            }
+    \label{fig:airapetian_T_vs_lfr}
+\end{figure}
 
 The extracted slopes for incoherent and coherent production were $0.70\pm0.21$
 and \SI{0.089\pm0.046}{\per\giga\electronvolt\squared} respectively.
@@ -405,14 +465,26 @@ The CLAS collaboration measured nuclear transparency for exclusive
 incoherent $\rho^0$ production off carbon and iron relative to deuterium using
 a \SI{5}{\giga\electronvolt} electron beam at JLab~\cite{ElFassi_2012}.
 % The $t$ distributions were fit to a form $Ae^{-bt}$.
-These transparencies are shown as a function of $l_{fr}$ in Fig(ref).
-As seen in Fig(ref), these transparencies are independent of $l_{fr}$ because
-$l_{fr}$ (\SIrange{\sim0.5}{0.9}{\femto\meter}) is smaller than the nuclear
-radii of carbon and iron, \SI{2.9}{\femto\meter} and \SI{4.6}{\femto\meter}
-respectively.
+As seen in Fig~\ref{fig:clas_T_vs_lfr}, these transparencies are independent of
+$l_{fr}$ because $l_{fr}$ (\SIrange{\sim0.5}{0.9}{\femto\meter}) is smaller
+than the nuclear radii of carbon and iron, \SI{2.9}{\femto\meter} and
+\SI{4.6}{\femto\meter} respectively.
 As a result, any increase in transparency as a function of $Q^2$ cannot be a
 result of varying $l_{fr}$, but rather a signal of CT.
 
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{chap2/clas_T_vs_lfr.pdf}
+    \caption{
+            Nuclear transparency as a function of $l_{fr}$.
+            The inner error bars are statistical uncertainties.
+            The outer error bars are the quadrature sum of statistical and
+            systematic uncertainties.
+            The carbon data has been scaled by a constant to fit in the same
+            figure with the iron data.
+            }
+    \label{fig:clas_T_vs_lfr}
+\end{figure}
 
 The $Q^2$ dependence of these transparency measurements is shown in Fig(ref)
 along with the predictions of two models.
@@ -425,6 +497,28 @@ to Kaskulov et al.'s model~\cite{Kaskulov_2008} of pion electroproduction,
 which uses the BUU formalism to transport (pre)hadrons through the nucleus.
 Both models predict the behavior of the CLAS carbon data quite well, but the
 GKM modek underestimates the iron transparency.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{chap2/clas_T_vs_Q2.pdf}
+    \caption{
+            Nuclear transparency as a function of $Q^2$.
+            The inner error bars are statistical uncertainties.
+            The outer error bars are the quadrature sum of statistical and
+            systematic uncertainties.
+            The curves are predictions of the
+            FMS~\cite{Frankfurt_2008} (red)
+            and
+            GKM~\cite{Gallmeister_2011} (green)
+            models with (dashed–dotted and dashed curves, respectively)
+            and
+            without (dotted and solid curves, respectively)
+            the effetcs of CT.
+            Both models include the pion absorption effect when the $\rho^0$
+            meson decays inside the nucleus.
+            }
+    \label{fig:clas_T_vs_Q2}
+\end{figure}
 
 
 These data were also fit to a linear form $T=aQ^2+b$,
