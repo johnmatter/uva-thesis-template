@@ -1,4 +1,4 @@
-\section{Defining Color Transparency}
+\section{Defining Color Transparency}\label{sec:ct_def}
 The phenomenon known as color transparency (CT) was first proposed by
 Mueller~\cite{Mueller_1982} and Brodsky~\cite{Brodsky_1982} in 1982.
 It is a distinctive feature of QCD's quark degrees of freedom, not arising in a
@@ -8,6 +8,26 @@ between hadrons and the surrounding nuclear medium in exclusive processes
 at large momentum transfer $Q^2$.
 This is in contrast to conventional Glauber theory which assumes strong ISI/FSI
 and rescattering.
+
+
+The existence of CT is a prerequisite for the validity of QCD factorization
+theorems~\cite{Brodsky_1994, Collins_1997, Frankfurt_1999, Diehl_1998,
+Strikman_2000} which provide access to the Generalized Parton Distributions
+(GPDs) that currently provide the most complete picture of the internal
+quark-gluon structure of various hadrons~\cite{Ji_1997_Jan, Ji_1997_Jun,
+Radyushkin_1996, Radyushkin_1997}.
+These theorems assume, at sufficiently large $Q^2$, that deeply inelastic
+exclusive processes' amplitudes are separable into two parts: a hard scattering
+at the parton level, and a soft part characterized by GPDs.
+
+
+% insert that nice Feynman diagram
+To illustrate the connection between CT and factorization, consider
+meson electroproduction.
+In the Breit frame, the virtual photon and baryon are both initially at rest.
+After the meson absorbs the photon, the meson and baryon both move off in
+opposite directions without any further gluon exchange between the two,
+provided the meson maintains a small transverse size~\cite{Strikman_2000}.
 
 
 A QED phenomenon analogous to CT can be seen in the Chudakov effect.
@@ -27,19 +47,13 @@ states created in electron-positron collisions~\cite{Bjorken_1976}.}.
 
 The existence of CT requires the following criteria:
 \begin{itemize}
-    \item Scattering takes place by preferentially selecting hadrons with
-          transverse size much smaller than the hadron's ``free'' radius.
-    \item This small object is color neutral outside its radius, so that it
-          does not radiate gluons, thus having reduced interactions with the
-          nuclear medium.
-    \item This compact size is maintained for a distance comparable to the size
-          of the nucleus.
+    \item Scattering takes place by preferentially selecting point-like
+          configurations (PLCs) with transverse size much smaller than a
+          hadron's ``free'' radius.
+    \item Interactions between the PLC and the nuclear medium are reduced.
+    \item The PLC's compact size is maintained for a distance comparable to the
+          size of the nucleus.
 \end{itemize}
-
-
-The simplest model describing CT is the two gluon exchange model developed by
-Low and Nussinov~\cite{Low_1975, Nussinov_1975, Nussinov_1976}.
-Expand on this?
 
 
 \subsection{Squeezing}
@@ -49,11 +63,9 @@ the final state.
 
 
 % insert diagram for below?
-
-
-An intuitive argument from Frankfurt, Miller, and
-Strikman~\cite{Frankfurt_1992} is suggestive of the possibility of forming a
-PLC in quasielastic electron scattering from nuclei.
+An intuitive argument from Frankfurt et al.~\cite{Frankfurt_1992} is suggestive
+of the possibility of forming a PLC in quasielastic electron scattering from
+nuclei.
 Suppose a quark in the nucleus, after absorbing a virtual photon, is off-shell
 by $\Delta E = Q$.
 By the uncertainty principle, its lifetime should be $\tau=1/Q$.
@@ -64,20 +76,75 @@ Thus, for large momentum transfers, the quark system formed in the scattering
 process should be quite small.
 
 
-Importantly for CT, such a PLC will not interact with the nuclear medium if it
-remains small; color-singlet point particles do not radiate gluons, and cannot
-interact via gluon exchange~\cite{Gunion_1977}.
-
-
 In 1980, Brodsky and Lepage~\cite{Brodsky_1980, Lepage_1980} showed, using
 perturbative QCD (pQCD), that the ``squeezing'' criterion is satisfied for
 exclusive processes at large $Q^2$.
 In the years following, Isgur and Smith~\cite{Isgur_1984, Isgur_1988,
-Isgur_1989} cautioned against the use of pQCD to study exlusive processes,
+Isgur_1989} cautioned against the use of pQCD to study exclusive processes,
 citing experimental evidence of significant soft contributions to pion and
 nucleon form factors.
 Experimental support for the dominance of PLCs in these processes will be
 discussed in Section~\ref{sec:ct_intermediate_energies}.
+
+
+\subsection{Reduced Interaction Strength}
+The second criterion is a consequence of the PLC's small size;
+small configurations of quarks and gluons have small cross sections.
+The Low-Nussinov two-gluon exchange
+model~\cite{Low_1975, Nussinov_1975, Nussinov_1976} is a simple model of this
+phenomenon that treats baryons (mesons) as composed of only the bound states of
+valence quarks, $\ket{qqq}$ ($\ket{q\bar{q}}$).
+In this model, the hadron-hadron scattering amplitude vanishes as the
+transverse size of either of the hadrons vanishes~\cite{Gunion_1977}--
+``simply put, color-singlet point particles do not radiate gluons, and cannot
+interact via gluon exchange.''
+For example, the couplings to a transferred gluon for the constituents in a
+small meson's $q\bar{q}$ pair contribute opposite signs.
+The same ``color screening'' effect occurs for small $qqq$ configurations.
+Interactions with a hadron's $q\bar{q}$ sea components are similarly
+suppressed.
+
+
+Holographic light-front QCD treats hadrons as a superposition of $n$-particle
+Fock states $\ket{n}$~\cite{Brodsky_2015}.
+In these states, $n$ is constrained such that the difference between the number
+of quarks and antiquarks is three for baryons and zero for mesons.
+For example, the proton can be written
+\begin{align}
+    \ket{p} &= \sum_n \qprod{n}{p} \ket{n} \\
+            &= \psi_{3q/p}       \ket{uud}
+            +  \psi_{3qg/p}       \ket{uudg}
+            +  \psi_{4q\bar{q}/p} \ket{uudu\bar{u}}
+            +  \psi_{4q\bar{q}/p} \ket{uudd\bar{d}} + \ldots \nonumber
+\end{align}
+where $\psi_{n/H}$ is the $n$-body light-front wavefunction for a hadron $H$.
+A hadron's form factor $F(Q^2)$ can be calculated with these wavefnctions, from
+which the transverse size $a_\perp^2(Q^2)$ can be calculated
+\begin{equation}
+    a_\perp^2(Q^2) = -4\frac{ \frac{d}{dQ^2} F(Q^2) }{ F(Q^2) }
+\end{equation}
+In light-front holographic QCD, for a hadron of twist\footnote{the number of
+constituent quarks of the hadron's valence state}
+$\tau$ at large $Q^2$, this expression approaches~\cite{Brodsky_2021}
+\begin{equation}
+    a_\perp^2(Q^2) = \frac{ 4(\tau-1) }{ Q^2 }
+\end{equation}
+The value of $Q^2$ required to contract a hadron's valence constituents to a
+color-singlet of a given transverse size grows with the number of constituents
+as shown in Fig~\ref{fig:brodsky_transverse_size_2021}.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{chap2/brodsky_transverse_size_2021.pdf}
+    \caption{
+            The transverse size of a hadron with twist $\tau$ as a function of
+            momentum transfer $Q^2$. Figure reproduced from
+            Ref~\cite{Brodsky_2021}.
+            }
+    \label{fig:brodsky_transverse_size_2021}
+\end{figure}
+
+
 
 
 \subsection{Freezing and Expansion}
@@ -168,9 +235,9 @@ In other words, the coherence length is the length at which coherence between
 the lowest and first excited states is lost.
 
 
-\subsection{subsection title (other connections?)}
-CT was originally discussed in the context of pQCD, but has been shown to be
-a general feature of other non-perturbative approaches~\cite{Frankfurt_1992}.
+% \subsection{The Significance of Color Transparency}
+% CT was originally discussed in the context of pQCD, but has been shown to be
+% a general feature of other non-perturbative approaches~\cite{Frankfurt_1992}.
 
 
 The existence of CT is a prerequisite for the validity of QCD factorization
@@ -183,10 +250,7 @@ These theorems assume, at sufficiently large $Q^2$, that deeply inelastic
 exclusive processes' amplitudes are separable into two parts: a hard scattering
 at the parton level, and a soft part characterized by GPDs.
 
-
 % insert that nice Feynman diagram
-
-
 To illustrate the connection between CT and factorization, consider
 meson electroproduction.
 In the Breit frame, the virtual photon and baryon are both initially at rest.
@@ -195,11 +259,7 @@ opposite directions without any further gluon exchange between the two,
 provided the meson maintains a small transverse size~\cite{Strikman_2000}.
 
 
-Bjorken scaling?
-% Section 4 of this long review
-Relevant longitudinal distance is $y\sim 1 / 2 M_n x$~\cite{Frankfurt_1998}.
-For small $x$, this is larger than the size of the nucleus.
-
-
-A more in-depth discussion of these considerations can be found in recent
-reviews by Dutta, Hafidi, and Strikman~\cite{Dutta_2013,Dutta_2012}.
+% TODO: Bjorken scaling?
+% % Section 4 of this long review
+% Relevant longitudinal distance is $y\sim 1 / 2 M_n x$~\cite{Frankfurt_1988}.
+% For small $x$, this is larger than the size of the nucleus.
