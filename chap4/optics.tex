@@ -28,7 +28,7 @@ This iterative process entails the following steps:
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{chap4/optics_coordinates.pdf}
-    \caption{
+    \caption[Coordinate systems and distances relevant to reconstruction.]{
             Coordinate systems and distances relevant to reconstruction.
             The coordinates with subscript $v$ are in the target coordinate
             system,
@@ -110,7 +110,7 @@ process.
 First, each event is associated with a particular foil.
 % SHMS_optics uses 1.3 sigma, HMS_optics uses 3.0
 The three peaks in a histogram of $z^{vert}_v$ are fit with Gaussians, and
-events within one to three $\sigma$ of each peak are assigned that peak's mean
+events within $1--3\sigma$ of each peak are assigned that peak's mean
 value $z^{foil}$ for their true $\hat{z}^{vert}_v$ position.
 
 
@@ -129,7 +129,7 @@ Fig~\ref{fig:shms_xysieve}.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{chap4/shms_xysieve.png}
-    \caption{
+    \caption[A 2D histogram of SHMS track positions projected to the sieve.]{
             A 2D histogram of SHMS track positions projected to the sieve.
             Data were taken with three-foil optics target.
             Circles in red represent the Gaussians fits to holes with
@@ -222,14 +222,14 @@ or
 only indices $n''\in\text{dep}$ with nonzero powers of $x_{tar}$.
 Rewriting the condition for minimizing $RSS$ with these definitions,
 \begin{align}
-    0 &= \sum_e (\hat{o}_e - \Lambda^e) \lambda_{\bar{n}} \\
+    0 &= \sum_e (\hat{o}_e - \Lambda^e) \lambda_{\bar{n}}  \nonumber \\
       &= \sum_e (\hat{o}_e - \Lambda^e_{dep} - \Lambda^e_{ind}) \lambda_{\bar{n}}
 \end{align}
 
 \begin{align}
-    \sum_e (\hat{o}_e - \Lambda^e_{dep}) \lambda_{\bar{n}} &= \sum_e \Lambda^e_{ind} \lambda_{\bar{n}} \\
-            &= \sum_e \sum_{n\in\text{ind}} O_n \lambda_n \lambda_{\bar{n}} \\
-            &= \sum_{n\in\text{ind}} O_n \sum_e \lambda_n \lambda_{\bar{n}} \\
+    \sum_e (\hat{o}_e - \Lambda^e_{dep}) \lambda_{\bar{n}} &= \sum_e \Lambda^e_{ind} \lambda_{\bar{n}}  \nonumber\\
+            &= \sum_e \sum_{n\in\text{ind}} O_n \lambda_n \lambda_{\bar{n}}  \nonumber\\
+            &= \sum_{n\in\text{ind}} O_n \sum_e \lambda_n \lambda_{\bar{n}}
 \end{align}
 
 
