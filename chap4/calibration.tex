@@ -22,7 +22,7 @@ a fixed threshold at later times despite starting at the same time.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{chap4/pooser_timewalk.png}
-    \caption{
+    \caption[An illustration of the timewalk effect.]{
             An illustration of the timewalk effect.
             Pulses with a smaller amplitude cross the fixed threshold at a
             later time.
@@ -33,7 +33,7 @@ a fixed threshold at later times despite starting at the same time.
 
 Fortunately, the fADCs are not prone to this effect so the pulse time recorded
 by an fADC can be used to correct the corresponding TDC time.
-The fADC pulse time is determiend by a constant fraction discriminator (CFD)
+The fADC pulse time is determined by a constant fraction discriminator (CFD)
 algorithm that finds the time,
 to a precision of \SI{62.5}{\pico\second},
 at which the pulse reaches 50\% of its maximum amplitude.
@@ -43,7 +43,7 @@ pulse times of varying amplitudes is shown in Fig~\ref{fig:pooser_notimewalk}.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\textwidth]{chap4/pooser_cfd.png}
-    \caption{
+    \caption[An illustration of the fADCs' CFD algorithm.]{
             An illustration of the fADCs' CFD algorithm.
             The algorithm calculates the pedestal amplitude $V_{ped}$ with a
             fixed-threshold discriminator.
@@ -79,7 +79,8 @@ with large statistics.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=1.0\textwidth]{chap4/plot_scripts/hodo_timewalk.pdf}
-    \caption{
+    \caption[ A two dimensional histogram showing the difference between TDC
+            and fADC pulse times as a function of fADC pulse amplitude.]{
             A two dimensional histogram showing the difference between TDC
             and fADC pulse times as a function of fADC pulse amplitude.
             As shown in Fig~\ref{fig:pooser_timewalk}, smaller pulses cross a
@@ -254,7 +255,7 @@ obtain a per-card $t_0$.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{chap4/drift_time_fit.pdf}
-    \caption{
+    \caption[The distribution of drift times for one card in the HMS 2x1 plane.]{
             The distribution of drift times for one card in the HMS 2x1 plane.
             The red line is a linear fit to the range corresponding to 20--60\%
             of the maximum bin content.
@@ -290,7 +291,8 @@ shown in Fig~\ref{fig:drift_th2s}.
         \caption{Corrected drift times.}
         \label{fig:corrected_drift_th2}
     \end{subfigure}
-    \caption{Two dimensional histograms of wire drift times for the HMS 2x1 plane,
+    \caption[Two dimensional histograms of wire drift times for the HMS 2x1 plane,
+             before and after $t_0$ correction.]{Two dimensional histograms of wire drift times for the HMS 2x1 plane,
              before (a) and after (b) $t_0$ correction.}
     \label{fig:drift_th2s}
 \end{figure}
@@ -318,7 +320,8 @@ The conversion factor is then $\alpha_i=1/\mu$.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{chap4/plot_scripts/hcer_pulseint_composite.pdf}
-    \caption{
+    \caption[The distribution of pulse integrals in one PMT of the HMS
+            Cherenkov.]{
             The distribution of pulse integrals in one PMT of the HMS
             Cherenkov.
             The single-photoelectron peak can be seen around
@@ -461,7 +464,8 @@ Cherenkov via knock-on electrons.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{chap4/plot_scripts/normalized_edep_lh2_q2_8.pdf}
-    \caption{
+    \caption[ Track-normalized energy deposition for this experiment's
+            $Q^2=\SI{8.0}{\giga\electronvolt}$ hydrogen data.]{
             Track-normalized energy deposition for this experiment's
             $Q^2=\SI{8.0}{\giga\electronvolt}$ hydrogen data.
             The blue (red) histogram represents events that did (did not) fire the HMS Cherenkov.

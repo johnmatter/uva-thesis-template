@@ -4,10 +4,10 @@ The nuclear transparency was extracted as the ratio of the experimental yield
 to the simulated PWIA yield from \textit{SIMC} over the phase space volume $V$
 defined by the limits
 $E_m<\SI{80}{\mega\electronvolt}$ and
-$\norm{\vec{p}_m}<\SI{300}{\mega\electronvolt}$ for ${}^{12}C(e,e'p)$
+$|\vec{p}_{miss}|<\SI{300}{\mega\electronvolt}$ for ${}^{12}C(e,e'p)$
 and
 $E_m<\SI{100}{\mega\electronvolt}$ and
-$\norm{\vec{p}_m}<\SI{100}{\mega\electronvolt}$ for $H(e,e'p)$.
+$|\vec{p}_{miss}|<\SI{100}{\mega\electronvolt}$ for $H(e,e'p)$.
 \begin{equation}
     T(Q^2) = \frac{\int_{V} d^{3} p_{m} d E_{m} Y_{exp }(E_{m}, \vec{p}_{m})}
                   {\int_{V} d^{3} p_{m} d E_{m} Y_{PWIA}(E_{m}, \vec{p}_{m})}
@@ -28,7 +28,8 @@ models the scattering process and that both the spectrometers and
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{chap5/lh2_results.png}
-    \caption{
+    \caption[Nuclear transparency for ${}^{1}H(e,e'p)$ as a function of
+            momentum transfer.]{
             Nuclear transparency for ${}^{1}H(e,e'p)$ as a function of
             momentum transfer.
             The error bars represent statistical uncertainty and the
@@ -47,7 +48,7 @@ and do not support the onset of color transparency.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{chap5/c12_results.pdf}
-    \caption{
+    \caption[Nuclear transparency for ${}^{12}C(e,e'p)$ as a function of momentum transfer.]{
             Nuclear transparency for ${}^{12}C(e,e'p)$ as a function of
             momentum transfer.
             The results of this experiment, E12-06-107, are shown in red along
@@ -114,7 +115,8 @@ Proton absorption.
 % (2\%) as previously determined\,\cite{ONeill_1995}.
 
 \begin{table}[htb!]
-    \caption{
+    \caption[Systematic uncertainties in our measurements of nuclear
+        transparency.]{
         Systematic uncertainties in our measurements of nuclear
         transparency.
         $Q^2$-dependent uncertainties are averaged over all kinematic settings.
@@ -124,25 +126,23 @@ Proton absorption.
     \label{tab:systematic_uncertainty}
     \centering
     \begin{tabular}{lc}
-        \hline
-        \hline
+\specialrule{.1em}{.05em}{.05em} 
         Source                            & $Q^2$-dependent uncertainty (\%) \\
-        \hline
+\specialrule{.1em}{.05em}{.05em} 
         Spectrometer acceptance           & 2.6                              \\
         Event selection                   & 1.4                              \\
         Tracking efficiency               & 0.5                              \\
         Radiative corrections             & 1.0                              \\
         Live time \& detector efficiency  & 0.5                              \\
-        \hline
-        \hline
+\specialrule{.1em}{.05em}{.05em} 
         Source                            & Normalization uncertainty (\%)   \\
-        \hline
+\specialrule{.1em}{.05em}{.05em} 
         Free $ep$ cross section           & 1.8                              \\
         Target thickness                  & 0.5                              \\
         Beam charge                       & 1.0                              \\
         Proton absorption                 & 1.2                              \\
-        \hline
-        \hline
+\specialrule{.1em}{.05em}{.05em} 
         Total                             & 4.0                              \\
+\specialrule{.1em}{.05em}{.05em} 
     \end{tabular}
 \end{table}

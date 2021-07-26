@@ -136,7 +136,9 @@ as shown in Fig~\ref{fig:brodsky_transverse_size_2021}.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{chap2/brodsky_transverse_size_2021.pdf}
-    \caption{
+    \caption[The transverse size of a hadron with twist $\tau$ as a function of
+            momentum transfer $Q^2$, as predicted by light-front holographic
+            QCD.]{
             The transverse size of a hadron with twist $\tau$ as a function of
             momentum transfer $Q^2$, as predicted by light-front holographic
             QCD.
@@ -205,13 +207,21 @@ The system expands over the coherence length $l_c$ to its normal hadronic size.
 The effective cross section is then
 \begin{equation}
     \sigma_{hN}^{eff} = \sigma_{hN}^{tot}
-    \left(
-        \left\{\left(\frac{z}{l_c}\right)^{\tau} +
+  \Bigg\{ % \left(
+        \Bigg(\left(\frac{z}{l_c}\right)^{\tau} +
                \frac{\left\langle n^{2} k_{t}^{2}\right\rangle}{t} \left[1-\left(\frac{z}{l_c}\right)^{\tau}\right]
-        \right\}
+        \Bigg)
         \theta\left(l_c-z\right) +
         \theta\left(z-l_c\right)
-    \right)
+  \Bigg\}%  \right)
+%    \sigma_{hN}^{eff} = \sigma_{hN}^{tot}
+%  \left(
+%        \left\{\left(\frac{z}{l_c}\right)^{\tau} +
+%               \frac{\left\langle n^{2} k_{t}^{2}\right\rangle}{t} %\left[1-\left(\frac{z}{l_c}\right)^{\tau}\right]
+%        \right\}
+%        \theta\left(l_c-z\right) +
+%        \theta\left(z-l_c\right)
+%  \right)
 \end{equation}
 The parameter $\tau$ distinguishes three models:
 non-perturbative QCD ($\tau=0$; no reduction in cross section),

@@ -40,39 +40,34 @@ Based on this table, we estimate the absorption to be $A_{pred}=8.56\%$.
     \caption{Summary of materials in the SHMS that contribute to proton absorption.}
     \label{tab:shms_materials}
     \resizebox{1.0\textwidth}{!}{
-        \begin{tabular}[t]{| l | l | l | r | r | r | r | r | r | r | r |}
-
-            \hline
+%        \begin{tabular}[t]{| l | l | l | r | r | r | r | r | r | r | r |}
+            \begin{tabular}[t]{ l  l  l  r  r  r  r  r  r  r  r }
+\specialrule{.1em}{.05em}{.05em} 
             System
-            & Component                                       & Material & \thead{Thickness \\ (\si{cm})} & \thead{Density \\ (\si{\g\per\cubic\cm})} & \thead{X \\ (\si{\g\per\square\cm})} & \thead{$\lambda_T^{ a}$ \\ (\si{\g\per\square\cm})} & \thead{$\lambda_I^{ a}$ \\ (\si{\g\per\square\cm})} & \thead{$\bar{\lambda}$ \\ (\si{\g\per\square\cm})} & \thead{$X/\bar{\lambda}$ \\ ($10^-3$)}\\ \hline
-            \hline
-
-            \hline
+            & Component                                       & Material & \thead{Thickness \\ (\si{cm})} & \thead{Density \\ (\si{\g\per\cubic\cm})} & \thead{X \\ (\si{\g\per\square\cm})} & \thead{$\lambda_T^{ a}$ \\ (\si{\g\per\square\cm})} & \thead{$\lambda_I^{ a}$ \\ (\si{\g\per\square\cm})} & \thead{$\bar{\lambda}$ \\ (\si{\g\per\square\cm})} & \thead{$X/\bar{\lambda}$ \\ ($10^-3$)}\\ 
+\specialrule{.1em}{.05em}{.05em} 
             \multirow{6}{*}{\makecell[ml]{Target and \\ Magnets}}
             & LH2                                             & LH2                                   & 5.00                           & 0.07                                      & 0.35                                 & 42.80                                          & 52.00                                          & 47.40                                              & 7.38\\ \cline{2-10}
             & \makecell{Scattering chamber \\ exit window}    & Al                                    & 0.01                           & 2.7                                       & 0.03429                              & 69.70                                          & 107.20                                         & 88.45                                              & 0.39\\ \cline{2-10}
             & Air                                             & Air                                   & 30.00                          & 0.001                                     & 0.03675                              & 61.30                                          & 90.10                                          & 75.70                                              & 0.49\\ \cline{2-10}
             & HB entrance                                     & Al                                    & 0.03                           & 2.7                                       & 0.06858                              & 69.70                                          & 107.20                                         & 88.45                                              & 0.78\\ \cline{2-10}
-            & Dipole exit                                     & Al                                    & 0.05                           & 2.7                                       & 0.13716                              & 69.70                                          & 107.20                                         & 88.45                                              & 1.55\\ \hline
-
-            \hline
+            & Dipole exit                                     & Al                                    & 0.05                           & 2.7                                       & 0.13716                              & 69.70                                          & 107.20                                         & 88.45                                              & 1.55\\ 
+\specialrule{.1em}{.05em}{.05em} 
             \multirow{7}{*}{\makecell[ml]{Noble Gas \\ Cherenkov}}
             & \makecell{Entrance \\ window}                   & Tedlar                                & 0.01                           & 1.3                                       & 0.0066                               & 61.70                                          & 90.30                                          & 76.00                                              & 0.087\\ \cline{2-10}
             & Gas                                             & \makecell{\ch{CO2} \\ \SI{1.0}{\atm}} & 200.00                         & 0.002                                     & 0.396                                & 60.70                                          & 88.90                                          & 74.80                                              & 5.29\\ \cline{2-10}
             & Mirror                                          & \ch{SiO2}                             & 0.30                           & 2.2                                       & 0.66                                 & 65.20                                          & 97.80                                          & 81.50                                              & 8.10\\ \cline{2-10}
             & Mirror support                                  & Rohacell                              & 1.80                           & 0.11                                      & 0.198                                & -                                              & -                                              & 70.00                                              & 2.83\\ \cline{2-10}
-            & Exit window                                     & Tedlar                                & 0.01                           & 1.3                                       & 0.0066                               & 61.70                                          & 90.30                                          & 76.00                                              & 0.087\\ \hline
-
-            \hline
+            & Exit window                                     & Tedlar                                & 0.01                           & 1.3                                       & 0.0066                               & 61.70                                          & 90.30                                          & 76.00                                              & 0.087\\ 
+            \specialrule{.1em}{.05em}{.05em} 
             \multirow{8}{*}{\makecell[ml]{Drift \\ Chambers}}
             & Entrance window                                 & Mylar                                 & 0.00254                        & 1.39                                      & 0.00353                              & 58.90                                          & 84.90                                          & 71.90                                              & 0.049\\ \cline{2-10}
             & Gas                                             & \makecell{50/50 \\ Ethane/Ar}         & 3.81                           & 0.002                                     & 0.00587                              & 68.60                                          & 101.00                                         & 84.80                                              & 0.069\\ \cline{2-10}
             & Field wire${^ b}$                               & W                                     & 0.00483                        & 2.7                                       & 0.01303                              & 69.80                                          & 108.00                                         & 88.90                                              & 0.147\\ \cline{2-10}
             & Sense wire${^ b}$                               & Be/Cu                                 & 0.00030                        & 19.3                                      & 0.00582                              & 110.00                                         & 185.00                                         & 147.50                                             & 0.040\\ \cline{2-10}
             & \makecell{Kapton in wire \\ and cathode planes} & Kapton                                & 0.18                           & 1.42                                      & 0.25248                              & 59.20                                          & 85.50                                          & 72.35                                              & 3.49\\ \cline{2-10}
-            & Exit window                                     & Mylar                                 & 0.00254                        & 1.39                                      & 0.00353                              & 58.90                                          & 84.90                                          & 71.90                                              & 0.049\\ \hline
-
-            \hline
+            & Exit window                                     & Mylar                                 & 0.00254                        & 1.39                                      & 0.00353                              & 58.90                                          & 84.90                                          & 71.90                                              & 0.049\\
+\specialrule{.1em}{.05em}{.05em} 
             \multirow{2}{*}{\makecell[ml]{Hodoscope}}
             & \makecell{Scintilator \\ plane (x2.25)}         & PVT                                   & 1.13                           & 1.032                                     & 1.16100                              & 57.30                                          & 81.30                                          & 69.30                                              & 16.8\\ \hline
 
@@ -81,19 +76,17 @@ Based on this table, we estimate the absorption to be $A_{pred}=8.56\%$.
             & Entrance window                                 & Al                                    & 0.10                           & 2.7                                       & 0.27                                 & 69.70                                          & 107.20                                         & 88.45                                              & 3.05\\ \cline{2-10}
             & Gas                                             & \makecell{\ch{CO2} \\ \SI{1.0}{\atm}} & 104.44                         & 0.002                                     & 0.20679                              & 60.70                                          & 88.90                                          & 74.80                                              & 2.76\\ \cline{2-10}
             & Mirror                                          & \ch{SiO2}                             & 0.30                           & 2.2                                       & 0.66                                 & 65.20                                          & 97.80                                          & 81.50                                              & 8.10\\ \cline{2-10}
-            & Exit window                                     & Al                                    & 0.10                           & 2.7                                       & 0.27                                 & 69.70                                          & 107.20                                         & 88.45                                              & 3.05\\ \hline
-
-            \hline
+            & Exit window                                     & Al                                    & 0.10                           & 2.7                                       & 0.27                                 & 69.70                                          & 107.20                                         & 88.45                                              & 3.05\\ 
+\specialrule{.1em}{.05em}{.05em} 
             \multirow{4}{*}{\makecell[ml]{Aerogel \\ Cherenkov}}
             & Entrance window                                 & Al                                    & 0.13                           & 2.699                                     & 0.35086                              & 69.70                                          & 107.20                                         & 88.45                                              & 3.97\\ \cline{2-10}
             & Aerogel                                         & Aeorogel                              & 9.00                           & 0.143                                     & 1.28571                              & 65.00                                          & 97.30                                          & 81.15                                              & 15.8\\ \cline{2-10}
             & Air                                             & Air                                   & 17.10                          & 0.001                                     & 0.02103                              & 61.30                                          & 90.10                                          & 75.70                                              & 0.28\\ \cline{2-10}
-            & Exit window                                     & Al                                    & 0.16                           & 2.7                                       & 0.43200                              & 69.70                                          & 107.20                                         & 88.45                                              & 4.88\\ \hline
-            \hline
-
-            \hline
+            & Exit window                                     & Al                                    & 0.16                           & 2.7                                       & 0.43200                              & 69.70                                          & 107.20                                         & 88.45                                              & 4.88\\ 
+\specialrule{.1em}{.05em}{.05em} 
             \multirow{1}{*}{\makecell[ml]{Total}}
-            &                                                 &                                       &                                &                                           &                                      &                                                &                                                &                                                    & 89.5\\ \hline
+            &                                                 &                                       &                                &                                           &                                      &                                                &                                                &                                                    & 89.5\\ 
+\specialrule{.1em}{.05em}{.05em} 
 
             \multicolumn{10}{l}{\multirow{1}{\linewidth}{\makecell[tl]{$^{a }$Nuclear
             interaction and collision lengths taken from
@@ -114,7 +107,8 @@ Based on this table, we estimate the absorption to be $A_{pred}=8.56\%$.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=1.0\textwidth]{chap4/proton_absorption_plots.pdf}
-    \caption{
+    \caption[   Histograms of the quantities used to guide the selection of cuts
+             for selecting $H(e,e'p)$ events to estimate proton absorption.]{
              Histograms of the quantities used to guide the selection of cuts
              for selecting $H(e,e'p)$ events to estimate proton absorption.
              The data shown are from this experiment's
@@ -155,10 +149,10 @@ described below.
     \caption{List of cuts used in proton absorption estimate.}
     \label{tab:proton_absorption_cuts}
     \resizebox{1.0\textwidth}{!}{
-        \begin{tabular}[t]{| l | l |}
-            \hline
-            Variables              &  Cut \\ \hline
-            \hline
+        \begin{tabular}[t]{ l  l }
+            \specialrule{.1em}{.05em}{.05em} 
+            Variables              &  Cut \\ 
+            \specialrule{.1em}{.05em}{.05em} 
             HMS PID                &  H.cer.npeSum>1 \&\& 0.90 < H.cal.etottracknorm \&\& H.cal.etottracknorm < 1.10 \\ \hline
             % ppidcut              &  P.ngcer.npeSum == 0 \\ \hline
             $E_{miss}$             &  -0.02 < P.kin.secondary.emiss \&\& P.kin.secondary.emiss<0.04 \\ \hline
@@ -170,7 +164,8 @@ described below.
             $y_{tar}$              &  abs(H.gtr.y)<2 \\ \hline
             $x_{fp}$               &  -25<H.dc.x[0] \&\& H.dc.x[0]<30 \\ \hline
             $y_{fp}$               &  -10<H.dc.y[0] \&\& H.dc.y[0]<25 \\ \hline
-            $W$                    &  0.85 < H.kin.W \&\& H.kin.W < 1.04 \\ \hline
+            $W$                    &  0.85 < H.kin.W \&\& H.kin.W < 1.04 \\
+            \specialrule{.1em}{.05em}{.05em} 
         \end{tabular}
     } % resizebox
 \end{table}

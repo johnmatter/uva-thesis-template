@@ -19,19 +19,21 @@ Table~\ref{tab:hcal_cuts}.
     \centering
     \caption{List of cuts used to estimate HMS Calorimeter efficiency.}
     \label{tab:hcal_cuts}
-    \begin{tabular}[t]{| c | l | l |}
-        \hline
-                   &  Variables              &  Cut \\ \hline
-        \hline
+%      \begin{tabular}[t]{| c | l | l |}
+    \begin{tabular}[t]{ c  l  l }
+\specialrule{.1em}{.05em}{.05em} %\hline \hline
+                   &  Variables              &  Cut \\ 
+\specialrule{.1em}{.05em}{.05em} 
         \multirow{4}{*}{\makecell[ml]{$C^{should}$}}
         &  HMS Cherenkov NPE      &  H.cer.npeSum>0                         \\ \cline{2-3}
         &  $\delta_{HMS}$         &  -10.0 < H.gtr.dp \&\& H.gtr.dp < 10.0  \\ \cline{2-3}
         &  $\beta_{HMS}$          &  0.8 < H.gtr.beta \&\& H.gtr.beta < 1.2 \\ \cline{2-3}
-        &  Good hodoscope time    &  H.hod.goodstarttime==1                 \\ \hline
-        \hline
+        &  Good hodoscope time    &  H.hod.goodstarttime==1                 \\
+\specialrule{.1em}{.05em}{.05em} 
         \multirow{2}{*}{\makecell[ml]{$C^{HCal}$}}
         &  HMS Calorimeter Energy &  \makecell{0.8 < H.cal.etottracknorm \&\&  \\
-                                               H.cal.etottracknorm < 1.15} \\ \hline
+                                               H.cal.etottracknorm < 1.15} \\ 
+\specialrule{.1em}{.05em}{.05em} 
     \end{tabular}
 \end{table}
 
@@ -62,19 +64,21 @@ A weighted efficiency is calculated as discussed in Section~\ref{sec:hcal_eff}
     \centering
     \caption{List of cuts used to estimate HMS Chereknov efficiency.}
     \label{tab:hcer_cuts}
-    \begin{tabular}[t]{| c | l | l |}
-        \hline
-                   &  Variables              &  Cut \\ \hline
-        \hline
+%        \begin{tabular}[t]{| c | l | l |}
+    \begin{tabular}[t]{ c  l  l }
+\specialrule{.1em}{.05em}{.05em} 
+                   &  Variables              &  Cut \\ 
+\specialrule{.1em}{.05em}{.05em} 
         \multirow{5}{*}{\makecell[ml]{$C^{should}$}}
         &  HMS Calorimeter Energy &  \makecell{0.8 < H.cal.etottracknorm \&\&  \\
                                                H.cal.etottracknorm < 1.15} \\ \cline{2-3}
         &  $\delta_{HMS}$         &  -10.0 < H.gtr.dp \&\& H.gtr.dp < 10.0  \\ \cline{2-3}
         &  $\beta_{HMS}$          &  0.8 < H.gtr.beta \&\& H.gtr.beta < 1.2 \\ \cline{2-3}
-        &  Good hodoscope time    &  H.hod.goodstarttime==1                 \\ \hline
-        \hline
+        &  Good hodoscope time    &  H.hod.goodstarttime==1                 \\ 
+\specialrule{.1em}{.05em}{.05em} 
         \multirow{1}{*}{\makecell[ml]{$C^{HCer}$}}
-        &  HMS Cherenkov NPE      &  H.cer.npeSum>0                         \\ \hline
+        &  HMS Cherenkov NPE      &  H.cer.npeSum>0                         \\
+\specialrule{.1em}{.05em}{.05em} 
     \end{tabular}
 \end{table}
 
@@ -96,17 +100,19 @@ A weighted efficiency is calculated as discussed in Section~\ref{sec:hcal_eff}
     \centering
     \caption{List of cuts used to estimate SHMS Noble Gas Chereknov efficiency.}
     \label{tab:pcer_cuts}
-    \begin{tabular}[t]{| c | l | l |}
-        \hline
-                   &  Variables              &  Cut \\ \hline
-        \hline
+    %\begin{tabular}[t]{| c | l | l |}
+    \begin{tabular}[t]{ c  l  l }
+\specialrule{.1em}{.05em}{.05em} 
+                   &  Variables              &  Cut \\
+\specialrule{.1em}{.05em}{.05em} 
         \multirow{3}{*}{\makecell[ml]{$C^{should}$}}
         &  $\delta_{SHMS}$        &  -10.0 < P.gtr.dp \&\& P.gtr.dp < 10.0  \\ \cline{2-3}
         &  $\beta_{SHMS}$         &  P.gtr.beta < 1.4 \\ \cline{2-3}
-        &  Good hodoscope time    &  P.hod.goodstarttime==1                 \\ \hline
-        \hline
+        &  Good hodoscope time    &  P.hod.goodstarttime==1                 \\
+\specialrule{.1em}{.05em}{.05em} 
         \multirow{1}{*}{\makecell[ml]{$C^{PCer}$}}
-        &  SHMS Cherenkov NPE     &  P.ngcer.npeSum<0.1                     \\ \hline
+        &  SHMS Cherenkov NPE     &  P.ngcer.npeSum<0.1                     \\
+\specialrule{.1em}{.05em}{.05em} 
     \end{tabular}
 \end{table}
 
@@ -143,10 +149,11 @@ where $\lor$ represents the logical operation \textit{or}.
     \centering
     \caption{List of cuts used to estimate HMS tracking efficiency.}
     \label{tab:htrack_cuts}
-    \begin{tabular}[t]{| c | l | l |}
-        \hline
-                   &  Variables              &  Cut \\ \hline
-        \hline
+%    \begin{tabular}[t]{| c | l | l |}
+      \begin{tabular}[t]{ c  l  l }
+\specialrule{.1em}{.05em}{.05em} 
+&  Variables              &  Cut \\ 
+\specialrule{.1em}{.05em}{.05em} 
         \multirow{11}{*}{\makecell[ml]{$C^{should}$}}
         & Fiducial cut              & H.hod.goodscinhit==1 \\ \cline{2-3}
         & $\beta_{notrack}$         & \makecell{0.5 < H.hod.betanotrack \&\& \\
@@ -158,10 +165,11 @@ where $\lor$ represents the logical operation \textit{or}.
                                                  H.dc.2u1.nhit + H.dc.2v1.nhit + \\
                                                  H.dc.2x2.nhit + H.dc.2v2.nhit) < 35} \\ \cline{2-3}
         & SHMS Cherenkov NPE        & P.ngcer.npeSum<0.1 \\ \cline{2-3}
-        & HMS Cherenkov NPE         & H.cer.npeSum>0 \\ \hline
-
+        & HMS Cherenkov NPE         & H.cer.npeSum>0 \\ 
+\specialrule{.1em}{.05em}{.05em} 
         \multirow{1}{*}{\makecell[ml]{$C^{HTrack}$}}
-        & At least one track found  & H.dc.ntrack>0 \\ \hline
+        & At least one track found  & H.dc.ntrack>0 \\ 
+\specialrule{.1em}{.05em}{.05em} 
     \end{tabular}
 \end{table}
 
@@ -169,10 +177,11 @@ where $\lor$ represents the logical operation \textit{or}.
     \centering
     \caption{List of cuts used to estimate SHMS tracking efficiency.}
     \label{tab:ptrack_cuts}
-    \begin{tabular}[t]{| c | l | l |}
-        \hline
-                   &  Variables              &  Cut \\ \hline
-        \hline
+%    \begin{tabular}[t]{| c | l | l |}
+  \begin{tabular}[t]{ c  l  l }
+\specialrule{.1em}{.05em}{.05em} 
+                   &  Variables              &  Cut \\ 
+\specialrule{.1em}{.05em}{.05em} 
         \multirow{11}{*}{\makecell[ml]{$C^{should}$}}
         & Fiducial cut              & P.hod.goodscinhit==1 \\ \cline{2-3}
         & Good hodoscope time       & P.hod.goodstarttime==1 \\ \cline{2-3}
@@ -184,12 +193,11 @@ where $\lor$ represents the logical operation \textit{or}.
                                                  P.dc.2u1.nhit + P.dc.2v1.nhit + \\
                                                  P.dc.2x2.nhit + P.dc.2v2.nhit) < 25} \\ \cline{2-3}
         & SHMS Cherenkov NPE        & P.ngcer.npeSum<0.1 \\ \cline{2-3}
-        & HMS Cherenkov NPE         & H.cer.npeSum>0 \\ \hline
-
+        & HMS Cherenkov NPE         & H.cer.npeSum>0 \\ 
+\specialrule{.1em}{.05em}{.05em} 
         \multirow{1}{*}{\makecell[ml]{$C^{PSingleTrack}$}}
-        & One track found           & P.dc.ntrack==1 \\ \hline
-
-
+        & One track found           & P.dc.ntrack==1 \\ 
+\specialrule{.1em}{.05em}{.05em} 
         \multirow{17}{*}{\makecell[ml]{$C^{PMultipleTrack}$}}
         & \makecell{More than one track \\ found} & P.dc.ntrack > 1 \\ \cline{2-3}
         & \makecell{Few hits on negative \\ side ADCs} &
@@ -209,7 +217,8 @@ where $\lor$ represents the logical operation \textit{or}.
         & $\delta$                   & -15 < P.gtr.dp \&\& P.gtr.dp < 15 \\ \cline{2-3}
         & $y_{tar}$                  & -5 < P.gtr.y \&\& P.gtr.y < 5 \\ \cline{2-3}
         & $x'_{tar}$                & -0.2 < P.gtr.th \&\& P.gtr.th < 0.2 \\ \cline{2-3}
-        & $y'_{tar}$                & -0.2 < P.gtr.ph \&\& P.gtr.ph < 0.2 \\ \hline
+        & $y'_{tar}$                & -0.2 < P.gtr.ph \&\& P.gtr.ph < 0.2 \\
+\specialrule{.1em}{.05em}{.05em} 
     \end{tabular}
 \end{table}
 
@@ -235,10 +244,11 @@ from hydrogren and carbon targets.
     \centering
     \caption{List of runs used to study target boiling and the corresponding nominal beam currents.}
     \label{tab:target_boiling_runs}
-    \begin{tabular}[t]{| c | l | l | l |}
-        \hline
-         Target          &  Current [\si{\micro\ampere}]  &  SHMS run  & HMS run\\ \hline
-        \hline
+%    \begin{tabular}[t]{| c | l | l | l |}
+    \begin{tabular}[t]{ c  l  l  l }
+\specialrule{.1em}{.05em}{.05em} 
+         Target          &  Current [\si{\micro\ampere}]  &  SHMS run  & HMS run\\
+\specialrule{.1em}{.05em}{.05em} 
         \multirow{7}{*}{\makecell[ml]{$LH_2$}}
         & 10 & 3210       & 2078,2080 \\ \cline{2-4}
         & 20 & 3211       & 2081 \\ \cline{2-4}
@@ -246,13 +256,16 @@ from hydrogren and carbon targets.
         & 45 & 3214       & 2084 \\ \cline{2-4}
         & 55 & 3215       & 2085 \\ \cline{2-4}
         & 70 & 3207       & 2076 \\ \cline{2-4}
-        & 80 & 3206       & 2075 \\ \hline
+        & 80 & 3206       & 2075 \\ 
+\specialrule{.1em}{.05em}{.05em} 
         \multirow{1}{*}{\makecell[ml]{Aluminum Dummy}}
-        & 40 & 3226 & 2096 \\ \hline
+        & 40 & 3226 & 2096 \\
+\specialrule{.1em}{.05em}{.05em} 
         \multirow{3}{*}{\makecell[ml]{1.5\% ${}^{12}C$}}
         & 60 & 3223 & 2093 \\ \cline{2-4}
         & 50 & 3224 & 2094 \\ \cline{2-4}
-        & 35 & 3225 & 2095 \\ \hline
+        & 35 & 3225 & 2095 \\
+\specialrule{.1em}{.05em}{.05em} 
     \end{tabular}
 \end{table}
 

@@ -43,7 +43,7 @@
 %     \end{itemize}
 % \end{enumerate}
 
-% \textit{SIMC}'s output \texttt{.hbook} files can be converted to \texttt{.root}
+% SIMC's output \texttt{.hbook} files can be converted to \texttt{.root}
 % files for analysis alongside \textit{hcana} output using the utility
 % \textit{h2root}.
 
@@ -159,7 +159,7 @@ and
 $R_0=1.1 A^{1/3}+0.86 A^{-1/3}$ is the radius of the nucleus.
 
 
-\textit{SIMC} uses the prescription described in Ref~\cite{Aste_2005}, which
+SIMC uses the prescription described in Ref~\cite{Aste_2005}, which
 takes this energy to be
 \begin{equation}
     \Delta E = \frac{f(Z-1)\alpha}{R_0}
@@ -195,12 +195,12 @@ and opposite correction is applied to the outgoing electron momentum,
 % SIMC uses Fantoni 1984 data for this.
 
 \section{Radiative Corrections}
-The method for radiative corrections in \textit{SIMC} is based on the work of
+The method for radiative corrections in SIMC is based on the work of
 Mo and Tsai~\cite{Mo_1969}.
 The full derivation by Makins et. al~\cite{Ent_2001, Makins_1994} for
 coincidence elastic and quasielastic scattering done is quite length.
 What follows in this section is an overview of the main results.
-In brief, \textit{SIMC} calculates vertex corrections and the energy radiated
+In brief, SIMC calculates vertex corrections and the energy radiated
 as internal and external Bremsstrahlung, modifies the simulated particles'
 vertex 4-momenta accordingly, and applies a weight to the event.
 
@@ -302,7 +302,8 @@ is the vacuum polarization correction due to flavor $i$ of leptons and light qua
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.7\textwidth]{chap1/single_photon_angular_distribution.pdf}
-    \caption{The angular distribution of first order single photon
+    \caption[The angular distribution of first order single photon
+             Bremmstrahlung for three values of momentum transfer $Q^2$.]{The angular distribution of first order single photon
              Bremmstrahlung for three values of momentum transfer $Q^2$.
              The photon angle, given in degrees, is measured with respect to
              the direction of the incoming beam electron.
@@ -403,13 +404,13 @@ $L_1 = \ln{184.15} - \frac{1}{3} \ln Z$
 and
 $L_2 = \ln{1194} - \frac{2}{3} \ln Z$.
 The function $\Phi^{ext}$ is a correction for large photon energies.
-For the incoming electron, \textit{SIMC} uses the approximate form
+For the incoming electron, SIMC uses the approximate form
 \begin{equation}
     \Phi^{ext}_e\left(\frac{E_e}{k}\right) = 1 - \frac{bt}{bt-\lambda_e}\frac{E_e}{k}
 \end{equation}
 
 
-\textit{SIMC} combines the internal and external Bremsstrahlung into three
+SIMC combines the internal and external Bremsstrahlung into three
 photon energies $E_e$, $E_{e'}$, and $E_{p'}$
 \begin{align}
 \frac{d\sigma}{d\Omega_{e} dE_{e} dE_{e'} dE_{p'}} =&\left.\frac{d\sigma}{d\Omega_{e}}\right|_{ep} \left(1-\delta_{hard}\right) \\
@@ -419,7 +420,7 @@ photon energies $E_e$, $E_{e'}$, and $E_{p'}$
 \end{align}
 
 Using the energy distributions contained in this expression,
-\textit{SIMC} generates the radiated energy based on the limits
+SIMC generates the radiated energy based on the limits
 $E_{min}$ and $E_{max}$
 imposed by
 the model spectral functions,
@@ -429,7 +430,7 @@ in scattering.
 These energies are then subtracted from the particles' vertex energies.
 
 
-Then, \textit{SIMC} generates a weight $W^{event}_{rad}$ for the event based on the
+Then, SIMC generates a weight $W^{event}_{rad}$ for the event based on the
 probabilities of emitting energies $E_i$, where $i$ is one of $e$, $e'$, and
 $p'$.
 The first contribution to this weight,
@@ -459,7 +460,7 @@ Altogether, the weight from radiative corrections is
 
 \section{Multiple Scattering}
 
-\textit{SIMC} includes a list of the effective thickness in radiation lengths
+SIMC includes a list of the effective thickness in radiation lengths
 $t_{eff}$ of every material a particle passes through.
 As the simulated particle with momentum $p$ passes through each material, a
 rescattering angle $\theta$ is calculated using the approximation of
