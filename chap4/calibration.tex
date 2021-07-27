@@ -191,7 +191,7 @@ many events $k$:
     \left[ \begin{array}{c}  \sum_k b_{12} \\  \sum_k b_{13} \\  \sum_k b_{14} \\  \sum_k b_{23} \\  \sum_k b_{24} \\  \sum_k b_{34}  \end{array} \right]
 \end{gather}
 
-\textit{hcana} solves for $\vec{\lambda}$ using singular value
+hcana solves for $\vec{\lambda}$ using singular value
 decomposition, yielding a set of corrections $t_\lambda = \lambda_i$ for every
 paddle $i$.
 
@@ -400,7 +400,7 @@ $\alpha_i$ is the channel's calibration constant,
 $q_i$ is the pulse integral recorded by the DAQ,
 and $f(y)$ is an attenuation correction.
 
-\textit{hcana} first converts pulse integrals to equivalent energy with a
+hcana first converts pulse integrals to equivalent energy with a
 per-PMT conversion factor in the \texttt{CoarseProcess()} loop, and then
 in the \texttt{FineProcess()} loop applies an attenuation correction
 to each layer's reconstructed energy.

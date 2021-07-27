@@ -1,10 +1,10 @@
-\section{\textit{hcana}}
+\section{hcana}
 Hall C has developed a new analysis framework,
-\textit{hcana}~\cite{hcana_github}, written in C++ to replace ENGINE, the old
+hcana~\cite{hcana_github}, written in C++ to replace ENGINE, the old
 analysis framework written in Fortran.
-\textit{hcana} is an extension of the Hall A analyzer, Podd~\cite{podd_github},
+hcana is an extension of the Hall A analyzer, Podd~\cite{podd_github},
 a modular framework based on the CERN ROOT framework~\cite{cern_root}.
-Event reconstruction or ``replay'' in \textit{hcana} proceeds in the following order:
+Event reconstruction or ``replay'' in hcana proceeds in the following order:
 
 % TODO: rewrite as pseudocode looping over events and detectors? could be messy. obviously don't want to get granular to the point of the hodoscope for-loop hell
 % TODO: clarify that "detectors" aren't calculating anything; classes representing detectors calculate
@@ -62,7 +62,7 @@ Event reconstruction or ``replay'' in \textit{hcana} proceeds in the following o
 
 After this event loop is run for all events of interest in a raw CODA file,
 TTrees containing reconstructed data are written to a ROOT file.
-\textit{hcana} also allows the user to specify a set of one- and
+hcana also allows the user to specify a set of one- and
 two-dimensional histograms to be generated for each run.
 Such standardized histograms are convenient for quality assurance and debugging
 problems during data acquisition.
