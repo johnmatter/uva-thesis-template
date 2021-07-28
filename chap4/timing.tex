@@ -42,14 +42,31 @@ replay.
 \end{figure}
 
 
-% TODO: ref time cut example figure
-As shown in Fig,
-true physics events will lie within a range of X raw TDC channels.
+As shown in Fig~\ref{fig:raw_tdc_time},
+true physics events will lie within a range of approximately 300 raw TDC
+channels.
 Background events will have occurred earlier in the lookback window, and must
 be prevented from being chosen as the reference time.
 To accomplish this, hcana uses reference time cuts defined in
 the parameter files.
+Any hits outside the minimum and maximum TDC range will be ignored.
 
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{chap4/coin3192_T_coin_pTRIG1_ROC1_tdcTimeRaw.pdf}
+    \caption[
+            The raw TDC time spectrum in channels for the trigger formed by
+            coincidence of three of four hodoscope planes in the SHMS.]{
+            The raw TDC time spectrum in channels for the trigger formed by
+            coincidence of three of four hodoscope planes in the SHMS.
+            True physics events lie in the plateau from approximately
+            2600 to 2900 channels.
+            Hits outside this plateau are background that will be ignored by
+            hcana if the minimum and maximum cuts are set tightly around the
+            plateau.
+            }
+    \label{fig:raw_tdc_time}
+\end{figure}
 
 \section{Detector Time Window Cuts}
 As with reference time selection, care must be taken to avoid background hits

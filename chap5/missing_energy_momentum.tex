@@ -3,9 +3,16 @@
 Figures~\ref{fig:Report_h8.pdf_pg3} through~\ref{fig:Report_c143_sm.pdf_pg3}
 compare distributions of physics quantities measured in experiment (in blue)
 and from simulation (in red).
-These figures' panels show missing energy invariant mass $W$, missing energy,
-missing momentum, and $p_{mz}$, the component of missing momentum parallel to
-the 3-momentum transfer $\vec{q}$.
+These figures' panels show
+invariant mass $W$ (top left),
+missing energy $E_m$ (top right),
+missing momentum $\vec{p}_m$ (bottom left),
+and $p_{mz}$, the component of missing momentum parallel to the 3-momentum
+transfer $\vec{q}$ (bottom right).
+Similar comparisons of target variables are contained in
+Appendix~\label{app:distributions}.
+
+
 The shapes of the missing energy spectra for $H(e,e'p)$ data disagree in the
 region between 0 and $\sim\SI{50}{\mega\electronvolt}$
 because SIMC does not include any smearing of reconstructed momenta that
@@ -13,6 +20,7 @@ results from the spectrometers' finite resolution.
 To obtain our transparency measurements for $H(e,e'p)$ we integrate these
 distributions over $E_{m}<\SI{100}{\mega\electronvolt}$, so this distortion
 does not affect out results.
+
 
 The tail of the missing momentum distributions above
 $\SI{300}{\mega\electronvolt}$ is lower in simulation than experiment.
@@ -27,10 +35,6 @@ For ${}^{12}C(e,e'p)$ we integrate the yield over the
 $\vec{p}<\SI{300}{\mega\electronvolt}$ region so
 our transparency measurements are insensitive to the
 divergence above this limit.
-
-
-Similar comparisons of target variables are contained in
-Appendix~\label{app:distributions}.
 
 
 \begin{figure}[!h]
@@ -127,4 +131,29 @@ Appendix~\label{app:distributions}.
             }
     \label{fig:Report_c143_sm.pdf_pg3}
 \end{figure}
+
+Fig~\ref{fig:Emiss_data_simc_w_and_wo_radcor} compares the $E_m$ distributions
+for ${}^{12}C(e,e'p)$ measured in experiment (blue) to the results of SIMC
+simulations that either include (red) or do not include (black) radiative
+corrections.
+Note that the high energy tail of the distributions is only accurately modeled
+with the inclusion of radiative effects.
+The disagreement at lower values can be attributed to the spectrometers' finite
+resolutions.
+The green lines indicate the region of $E_{m}$ integrated over to calculate
+nuclear transparency $T$.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{chap5/Emiss_data_simc_w_and_wo_radcor.pdf}
+    \caption{
+            Distributions of missing energy $E_m$ measured in experiment (blue)
+            and
+            from Monte Carlo with (red) and without (black) radiative
+            corrections.
+            Data are for ${}^{12}C(e,e'p)$.
+            }
+    \label{fig:Emiss_data_simc_w_and_wo_radcor}
+\end{figure}
+
 

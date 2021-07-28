@@ -82,8 +82,127 @@ A weighted efficiency is calculated as discussed in Section~\ref{sec:hcal_eff}
     \end{tabular}
 \end{table}
 
-% TODO: mirror
-Discuss how we dealt with the broken mirror.
+
+After we had taken data, it was discovered that the mirrors in the HMS
+Cherenkov had broken at some point before we started taking data.
+Fig~\ref{fig:hms_mirror_defocused_tracks} shows the distributions of tracks
+projected to the HMS mirrors for events that should and did fire the Cherenkov.
+The broken regions visible in Fig~\ref{fig:hms_mirrors} correspond to the
+regions in Fig~\ref{fig:hms_mirror_efficiency} with decreased efficiency.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{chap4/hms_mirrors.png}
+    \caption{
+            A picture of the broken HMS Cherenkov mirrors taken after the
+            detector was removed from the hut for repair.
+            The mirrors' Rohacell supports are visible where portions of the
+            mirrors have broken off.
+            }
+    \label{fig:hms_mirrors}
+\end{figure}
+
+
+Data shown in these figures are from defocused HMS run 1327.
+Because the magnets were defocused, reconstruction of the
+particles' momenta was not possible, so one cannot use the
+track-normalized energy deposition to select electrons that should fire the
+Cherenkov.
+For this reason, the energy deposition divided by the spectrometer's central
+momentum (a less precise version of track-normalized energy deposition)
+was used.
+A defocused run has the advantage of illuminating the spectrometer's entire
+acceptance, allowing a full characterization of which regions of the acceptance
+are negatively affected by the broken mirrors.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{chap4/plot_scripts/hCer_should.pdf}
+        % \caption{X plane}
+        \label{fig:hms_mirror_should}
+    \end{subfigure}
+    % \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{chap4/plot_scripts/hCer_did.pdf}
+        % \caption{U plane}
+        \label{fig:hms_mirror_did}
+    \end{subfigure}
+    \caption[
+            The distribution of tracks projected to the HMS Cherenkov mirrors
+            for events that should (left) and did (right) fire the Cherenkov.]{
+            The distribution of tracks projected to the HMS Cherenkov mirrors
+            for events that should (left) and did (right) fire the Cherenkov.
+            Data shown are from defocused HMS run 1327.
+            Events that should fire were selected by requiring the energy
+            deposition in the HMS calorimeter normalized to the HMS central
+            momentum to be between 0.9 and 1.1.
+            No cuts were placed on $\beta$ or $\delta$.
+            }
+    \label{fig:hms_mirror_defocused_tracks}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{chap4/plot_scripts/hCer_eff.pdf}
+    \caption[
+            The efficiency of the HMS Cherenkov, binned by track position
+            projected to the Cherenkov mirrors.]{
+            The efficiency of the HMS Cherenkov, binned by track position
+            projected to the Cherenkov mirrors.
+            The regions most affected by the broken mirrors are at large
+            negative $x$ and $y$, large positive $x$ and $y$, and on the edges
+            near the center of the dispersive direction $x$.
+            }
+    \label{fig:hms_mirror_efficiency}
+\end{figure}
+
+Fig~\ref{fig:hms_mirror_lh2_tracks} and Fig~\ref{fig:hms_mirror_c12_tracks}
+show the distribution of track positions at the HMS Cherenkov mirrors for all
+events that should fire the Cherenkov in our production
+$Q^2=\SI{8.0}{\giga\electronvolt\squared}$ data.
+This sample is selected using the same $C^{should}$ cut defined in
+Table~\ref{tab:hcer_cuts} used to estimate the detector's efficiency.
+Because the vast majority of our events lie in the central region of the
+acceptance that is unaffected by the broken mirrors, it is sufficient to
+include this effect as part of the overall efficiency estimate for this
+detector.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{chap4/plot_scripts/hCer_eff_short_pal.pdf}
+    \llap{\raisebox{0cm}{
+      \includegraphics[width=0.6\textwidth]{chap4/plot_scripts/cherenkov_plots_coin_replay_production_LH2_8_0_smallcoll.pdf}
+    }}
+    \caption{
+            The distribution of tracks projected to the HMS Cherenkov mirrors
+            for our $Q^2=\SI{8.0}{\giga\electronvolt\squared}$ $H(e,e'p)$
+            data is shown in red and lavender
+            on top of the
+            efficiency as a function of position in blue and yellow.
+            }
+    \label{fig:hms_mirror_lh2_tracks}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{chap4/plot_scripts/hCer_eff_short_pal.pdf}
+    \llap{\raisebox{0cm}{
+      \includegraphics[width=0.6\textwidth]{chap4/plot_scripts/cherenkov_plots_coin_replay_production_C12_thick_8_0_smallcoll.pdf}
+    }}
+    \caption{
+            The distribution of tracks projected to the HMS Cherenkov mirrors
+            for our $Q^2=\SI{8.0}{\giga\electronvolt\squared}$ ${}^{12}C(e,e'p)$
+            data is shown in red and lavender
+            on top of the
+            efficiency as a function of position in blue and yellow.
+            }
+    \label{fig:hms_mirror_c12_tracks}
+\end{figure}
+
 
 \subsection{SHMS Noble Gas Cherenkov}
 The SHMS Noble Gas Cherenkov was used as a pion veto.

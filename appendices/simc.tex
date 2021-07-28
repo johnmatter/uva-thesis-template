@@ -307,7 +307,7 @@ is the vacuum polarization correction due to flavor $i$ of leptons and light qua
              Bremmstrahlung for three values of momentum transfer $Q^2$.
              The photon angle, given in degrees, is measured with respect to
              the direction of the incoming beam electron.
-             The directions $\theta_e$ and $theta_p$ of the scattered electron
+             The directions $\theta_e$ and $\theta_p$ of the scattered electron
              and proton are indicated by dotted lines.
              Figure reproduced from Ref~\cite{Ent_2001}.
              }
@@ -459,7 +459,9 @@ Altogether, the weight from radiative corrections is
 
 
 \section{Multiple Scattering}
-
+When recoiling protons, incoming electrons and scattered electrons
+travel through materials, they deviate from their original paths after
+scattering elastically off the nuclei that compose the material.
 SIMC includes a list of the effective thickness in radiation lengths
 $t_{eff}$ of every material a particle passes through.
 As the simulated particle with momentum $p$ passes through each material, a
@@ -479,6 +481,9 @@ momenta between 50 and \SI{200}{\giga\electronvolt} on hydrogen, beryllium,
 carbon, aluminum, copper, tin, and lead targets.
 
 \section{Energy Loss}
+Inelastic collisions with the atomic electrons of a material, resulting in
+ionization or excitation, are responsible for a particle's energy loss as
+it travels through the material.
 Energy loss in \si{\mega\electronvolt} is determined by the Bethe-Bloch formula,
 the implementation of which can currently be found in \texttt{enerloss\_new.f}.
 \begin{equation}
@@ -496,7 +501,7 @@ where
 $K=\SI{0.1536e-03}{\centi\meter\squared\per\gram}$,
 $t$ is the thickness of the material in \si{\gram\per\centi\meter\squared},
 $Z$ and $A$ are the effective atomic number and weight of the material,
-$I=16 Z^{0.9}) \si{\electronvolt}$ is the estimated ionization energy of the material,
+$I=16 Z^{0.9} \si{\electronvolt}$ is the estimated ionization energy of the material,
 and $\delta$ is a momentum-dependent density effect correction.
 % Why 1.063? Trying to make sense of this and Leo secton 2.2.2
 
