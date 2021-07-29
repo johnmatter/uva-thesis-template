@@ -7,14 +7,25 @@ to
 the cross section calculated in the PWIA.
 The definition of transparency used in this work is the same as that used by
 previous experiments experiments looking for the onset of CT in
-${}^{12}C(e,e'p)$,,
+${}^{12}C(e,e'p)$,
 \begin{equation} \label{eqn:transparency_definition}
     T(Q^2) = \frac{\int_{V} d^{3} p_{m} d E_{m} Y^{exp }(E_{m}, \vec{p}_{m})}
                   {\int_{V} d^{3} p_{m} d E_{m} Y^{PWIA}(E_{m}, \vec{p}_{m})}
 \end{equation}
 where $Y^{exp}$ and $Y^{PWIA}$ are charge-normalized yields from experiment and
-simulation, integrated over a volume of missing energy and momentum phase space
-$V$, defined by the cuts $E_m < \SI{80}{\mega\electronvolt}$ and
+simulation.
+
+The experimental yield is given by $Y=N/Q$, where $N$ is the total number of
+scattering events measured per integrated beam charge $Q$ incident on the
+target.
+If the target density is $\rho$, its length $l$, and the beam current is $j$,
+the total number of events is $N=\int_{t_1}^{t_2} j\rhoL\sigma dt$ integrated
+over the total time the beam was on $t_2-t_1$.
+
+The yields are integrated over a volume of missing energy and momentum phase
+space $V$, defined by the cuts $E_m < \SI{80}{\mega\electronvolt}$ and
 $|\vec{p}_m| < \SI{300}{\mega\electronvolt}$.
+These cuts prevent inelastic contributions from pion production and ensure that
+the recoil nucleus remains in its ground state.
 Nuclear transparency can be thought of as the probability that a struck proton
 will exit the nucleus without rescattering from another nucleon.

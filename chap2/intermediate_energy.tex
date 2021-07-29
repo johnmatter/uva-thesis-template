@@ -121,37 +121,24 @@ incorporating nuclear filtering and color transparency produced fits that are
 in acceptable agreement with the BNL measurements~\cite{VanOvermeire_2007}.
 
 \subsection{Quasielastic electron scattering}
-Cleaner than $A(p,2p)$ because both the electron-proton elastic scattering cross section
-and spectral functions $S(p_m,E_m)$ for a variety of nuclei
-have been measured extensively over a wide range of kinematics.
+Looking for the onset of CT in quasielastic electron scattering is cleaner than
+in $A(p,2p)$.
+Both the electron-proton elastic scattering cross section and spectral
+functions $S(p_m,E_m)$ have been extensively measured for a variety of nuclei
+over a wide range of kinematics.
 Complications involving $s$ near a charm threshold and oscillatory $s$
 dependence mentioned in previous section are not relevant for $A(e,e'p)$; for
 quasielastic scattering $s$ is always approximately $m_p^2$.
-This is also a scale where $\sigma_{tot}(pp)$ is relatively independent of $s$,
-as shown in Fig~\ref{fig:pdg_pp_cross_section}.
+% This is also a scale where $\sigma_{tot}(pp)$ is relatively independent of $s$,
+% as shown in Fig~\ref{fig:pdg_pp_cross_section}.
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.6\textwidth]{chap2/pdg_pp_cross_section.pdf}
-    \caption[Total, elastic, and inelastic $pp$ cross sections versus
-             $p_{lab}$ and $\sqrt{s}$.]{
-             Total, elastic, and inelastic $pp$ cross sections versus
-             $p_{lab}$ and $\sqrt{s}$.
-             Note that the total cross section is relatively constant over the
-             range of momenta studied in E12-06-107, about
-             \SIrange{4}{10}{\giga\electronvolt}.
-             Figure reproduced from Ref~\cite{pdg_2020}.
-            }
-    \label{fig:pdg_pp_cross_section}
-\end{figure}
+% % TODO: expand here
+% Use the PWIA approximation to measure transparency
 
-% TODO: expand here
-Use the PWIA approximation to measure transparency
-
-\begin{equation}
-    T(Q^2) = \frac{\int_V \, d^3p_m \, dE_m \, Y_{exp}(E_m, \vec{p}_m)}
-                  {\int_V \, d^3p_m \, dE_m \, Y_{PWIA}(E_m, \vec{p}_m)}
-\end{equation}
+% \begin{equation}
+%     T(Q^2) = \frac{\int_V \, d^3p_m \, dE_m \, Y_{exp}(E_m, \vec{p}_m)}
+%                   {\int_V \, d^3p_m \, dE_m \, Y_{PWIA}(E_m, \vec{p}_m)}
+% \end{equation}
 
 Previous transparency measurements, compiled in Fig~\ref{fig:aeep}, were taken
 at SLAC, MIT Bates, and JLab for several nuclear targets.
@@ -243,6 +230,21 @@ model predictions described below.
     \centering
     \includegraphics[width=0.6\textwidth]{chap2/pion_electroproduction_transparency_Q2_dependence.pdf}
     \caption{
+            Nuclear transparency $T$ as a function of $Q^2$ for
+            \ch{^{12}C},\ch{^{27}Al}, \ch{^{63}Cu}, and \ch{^{197}Au}
+            targets measured by the piCT experiment~\cite{Clasie_2007,
+            Qian_2010}.
+            The inner error bars indicate statistical uncertainties and
+            the outer error bars are the quadrature sum of statistical and
+            point-to-point systematic uncertainties.
+            The red dashed and solid lines are Glauber calculations from Larson
+            et al.~\cite{Larson_2006}.
+            The green dotted and dot-dot-dashed lines
+            are microscopic+BUU transport calculations from Kaskulov et
+            al.~\cite{Kaskulov_2008, Kaskulov_2009, Kaskulov_2012}.
+            The blue dashed and solib lines are Glauber calculations with and
+            without CT from Cosyn et al.~\cite{Cosyn_2008};
+            these calculations include the effects of short-range correlations.
             }
     \label{fig:pion_electroproduction_transparency_Q2_dependence}
 \end{figure}
@@ -506,7 +508,7 @@ The Gallmestier-Kaskulov-Mosel (GKM) model~\cite{Gallmeister_2011} is similar
 to Kaskulov et al.'s model~\cite{Kaskulov_2008} of pion electroproduction,
 which uses the BUU formalism to transport (pre)hadrons through the nucleus.
 Both models predict the behavior of the CLAS carbon data quite well, but the
-GKM modek underestimates the iron transparency.
+GKM model underestimates the iron transparency.
 
 \begin{figure}[!h]
     \centering
