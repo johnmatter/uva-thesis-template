@@ -19,19 +19,37 @@ recoil nucleus as well as between the remainder nucleons.
 Using the distorted wave impulse approximation (DWIA), they derive an
 expression for nuclear transparency whose behavior is dependent on the form of
 nucleon-nucleon interactions.
+These interactions are determined by the choice of profile function
+$\Gamma(\vec{b})$ that parameterizes the interaction strength as a function of
+impact parameter $\vec{b}$.
 They compare two choices of profile function--one which corresponds to the
-absence of CT and one which includes a model of CT in which~\cite{Farrar_1988}
-the PLC grows to the full size of a proton over a length $l_h$, the hadron
-formation length.
+absence of CT (i.e. typical $pp$ and $pn$ scattering) and one which includes a
+model of CT in which the PLC grows to the full size of a proton over a length
+$l_h$, the hadron formation length~\cite{Farrar_1988}.
 
 
 The model presented by Cosyn et al.~\cite{Cosyn_2008,Cosyn_2006} uses a
-relativistic multiple scattering Glauber approximation~\cite{Ryckebusch_2003}
-that accounts for final state interactions by applying a phase to the ejected
-proton's wavefunction.
+relativistic multiple scattering Glauber approximation~\cite{Ryckebusch_2003}.
+Glauber calculations account for final state interactions by applying a phase
+to the ejected proton's
+wavefunction\footnote{Note that this phase is not a unique relativistic effect.
+It is part of the \textit{eikonal approximation} employed in general by
+Glauber calculations.
+In this approximation, the outgoing wavefunction of a particle with
+incident momentum $\vec{k}=k\hat{z}$ and impact parameter $\vec{b}$ (where
+$\vec{k}\cdot\vec{b}=0$) interacting with a potential $V(b,z)$
+can be written $\psi_{out} = e^{i\chi(b)}e^{ikz}$ where the phase is
+$\chi(b) \propto \int_{-\infty}^{\infty} V(b,z) dz$.
+This phase is implicit in the other Glauber models discussed in this
+chapter; it is mentioned explicity in this section because it is the location
+in the derivation of Cosyn et al. that they insert the effects of CT.
+In contrast, Frankfurt et al.'s derivation does not explicitly mention the
+eikonal phase.
+}.
 This phase is determined by a profile function $\Gamma(\vec{b})$ that
 parameterizes nucleon-nucleon scattering.
-As in the other model, this profile function is modified to include CT effects
+As in the other model, this profile function is modified to either include
+or not include the same CT effects~\cite{Farrar_1988}.
 Short range correlations are implemented by means of an effective nucleon
 density~\cite{Frankel_1994} that enters into the calculation of the Glauber
 phase.

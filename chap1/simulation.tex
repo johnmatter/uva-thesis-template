@@ -19,9 +19,10 @@ target geometry.
 Generating events over a region of phase space wider than the spectrometers'
 acceptance allows simulation of events that will be thrown into the acceptance
 window, for example, because of multiple scattering or energy loss.
-Events are then propagated through the spectrometers, accounting for final
-state interactions, energy loss, multiple scattering, and spectrometer
-acceptance and resolution.
+Events are then propagated through models of the spectrometers' optics,
+accounting for effects such as energy loss and multiple scattering in materials
+lying along the particles' trajectories, as well as spectrometer acceptance and
+resolution.
 Target variables are reconstructed from tracks fit at the focal plane.
 Then a weight is calculated based on a model cross section for the initial
 kinematics of each event.
