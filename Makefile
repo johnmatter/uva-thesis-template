@@ -16,7 +16,7 @@ pdf:
 	./mpost_all.sh
 	$(LATEX) $(SRCNAME)
 	$(LATEX) $(SRCNAME)
-	mv main.pdf JohnMatter_thesis.pdf
+	mv main.pdf 1_Matter_John_2021_PhD.pdf
 
 clean:
 	rm -f *.{aux,log,ps,dvi,bbl,blg,brf,idx,ilg,ind,lof,lot,out,toc,thm}
