@@ -28,7 +28,7 @@ length traveled is given by
 \end{align}
 
 Let $v$ be a particle's velocity\footnote{Given reconstructed momentum $p$, a
- particle has velocity $\beta = p / \sqrt{p^2+m^2}$.},
+ particle has velocity $\beta = v/c = p / \sqrt{p^2+m^2}$.},
 $L^{P(H)}$ the length of the the central ray of the SHMS (HMS),
 $\Delta L^{P(H)}$ the additional length traveled beyond the central ray,
 $\langle t^{P(H)}_{hodostart}\rangle$ the hodoscope start time, and
@@ -49,4 +49,37 @@ corrected for in PARAM files if desired.
 Strictly speaking, this is not necessary, because one identifies the location of
 the true coincidence peak in the coincidence time spectrum and places cuts
 around this value, whether or not it's centered at zero.
+
+Coincidence time distributions for two runs are shown in
+Fig~\ref{fig:cointime}.
+The distribution on the left comes from a run with large backgrounds,
+which result in numerous peaks in coincidence time.
+A large peak corresponding true $ep$ coincidences can be seen near \SI{0}{\nano\second},
+and a smaller peak corresponding to $e\pi^+$ coincidences to the left near
+\SI{-5}{\nano\second}.
+The smaller peaks separated by \SI{4}{\nano\second} are accidental coincidences
+coming from other beam bunches.
+The distribution on the right is a typical run from this experiment and shows
+negligible contributions from accidental coincidences.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[height=6cm]{chap4/cointime_dirty.png}
+        \caption{To coincidence time distribution for a run taken specifically to
+                 observe the structure caused by different coincidence types.}
+        \label{fig:cointime_dirty}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[height=6cm]{chap4/cointime_clean.png}
+        \caption{The coincidence time distribution for a typical production run
+                 is very clean, with negligible accidental coincidences.}
+        \label{fig:cointime_clean}
+    \end{subfigure}
+    \caption{The distribution of coincidence times for two runs.}
+    \label{fig:cointime}
+\end{figure}
 
